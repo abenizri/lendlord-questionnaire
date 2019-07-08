@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://coreui.io/demo/css/style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Lendlord</title>
+    <style>
+
+  .stepwizard {
+    display: table;
+    width: 60%;
+    position: relative;
+    margin-top:  -50px;
+    /* margin: 0 20% 0 25% !important; */
+  }
+
+.stepwizard-step a[disabled] {
+  opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+  background-color: #ff9f07;
+}
+.stepwizard-row:before {
+  top: 14px;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 83.0%;
+  height: 1px;
+  /* background-color: #ccc; */
+  z-order: 2;
+  /* background-color: #ff9f07; */
+}
+
+.stepwizard-row.btl:before {
+  top: 14px;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 78.0%;
+  height: 1px;
+  /* background-color: #ccc; */
+  z-order: 2;
+  /* background-color: #ff9f07; */
+}
+
+.stepwizard-step {
+  display: table-cell;
+  /* text-align: center; */
+  position: relative;
+  width: 60%;
+}
+
+.btn-circled {
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  text-align: center !important;
+  padding: 6px 0 !important;
+  font-size: 12px !important;
+  line-height: 1.428571429 !important;
+  border-radius: 15px !important;
+  /* background-color: #ff9f07; */
+  border-color: #ff9f07;
+  color: white;
+}
+
+.checkCircle {
+  cursor: pointer;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  text-align: center !important;
+  /* padding: 6px 0 !important; */
+  font-size: 12px !important;
+  line-height: 1.428571429 !important;
+  border-radius: 15px !important;
+  /* background-color: #ff9f07; */
+  border-color: #ff9f07;
+  color: white;
+}
+
+.btn-circled:hover {
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  text-align: center !important;
+  padding: 6px 0 !important;
+  font-size: 12px !important;
+  line-height: 1.428571429 !important;
+  border-radius: 15px !important;
+  background-color: #ff9f07;
+  border-color: #ff9f07;
+  color: black;
+  opacity: 1;
+}
+
+    </style>
+
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
