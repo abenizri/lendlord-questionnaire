@@ -42,9 +42,9 @@ class SideBarLayout extends Component {
     }
 
   componentWillReceiveProps(nextProps) {
-    let previous = document.querySelector(`[step='${nextProps.step - 1}`)
-    let next = document.querySelector(`[step='${nextProps.step + 1}`)
-    let current =   document.querySelector(`[step='${nextProps.step}']`)
+    let previous = document.querySelector('[step="' + (nextProps.step - 1) + '"]')
+    let next = document.querySelector('[step="' + nextProps.step +  1 + '"]')
+    let current =   document.querySelector('[step="' + nextProps.step+ '"]')
     if (current) {
       document.querySelector(`[step='${nextProps.step}'] img`).src = circleCurrent
       if (document.querySelector(`[step='${nextProps.step}'] span`)) {
@@ -60,9 +60,9 @@ class SideBarLayout extends Component {
 
     }
     if (next) {
-      document.querySelector(`[step='${nextProps.step + 1}'] img`).src = circleNext
-      if (document.querySelector(`[step='${nextProps.step + 1}'] span`)) {
-        document.querySelector(`[step='${nextProps.step + 1}'] span`).style.color = '#CCCCCC'
+      document.querySelector('[step="' + nextProps.step - 1 + '"] img').src = circleNext
+      if (document.querySelector('[step="' + nextProps.step + 1+ '"] span')) {
+        document.querySelector('[step="' + nextProps.step + 1 + '"] span').style.color = '#CCCCCC'
       }
     }
 

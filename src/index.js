@@ -24,7 +24,7 @@ const store = createStore(
     allReducers,
     {
       products: [ { 'name': 'iphone' } ],
-      users: 'nir'
+      user: 'nir'
     }
   )
 
