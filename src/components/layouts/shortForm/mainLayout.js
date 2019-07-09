@@ -29,21 +29,23 @@ class MainLayout extends Component {
       <React.Fragment>
         <LayoutHeader/>
         <FormGroup>
-          <Row style={{ paddingTop: "150px"}}>
-            <Col xl="2">
-              <div>
-                <SideBarLayout updateStep={this.updateStep} step={this.state.step}/>
-              </div>
-            </Col>
-            <Col sm="9">
-              <div  style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
-              <Questions
-                updateStep={this.updateStep}
-              />
-              </div>
-            </Col>
-          </Row>
-      </FormGroup>
+          <div className="container-fluid">
+            <Row style={{ paddingTop: "150px"}} className="no-gutters">
+              <Col xl="2" lg="3" sm="3">
+                <div>
+                  <SideBarLayout updateStep={this.updateStep} step={this.state.step}/>
+                </div>
+              </Col>
+              <Col xl="9" lg="8" sm="9">
+                <Row  style={{ justifyContent: "center", alignItems: "center", display: "flex", height: '100%'}}>
+                <Questions style={{height: '100%'}}
+                  updateStep={this.updateStep}
+                />
+                </Row>
+              </Col>
+            </Row>
+          </div>
+        </FormGroup>
       </React.Fragment>
     );
   }

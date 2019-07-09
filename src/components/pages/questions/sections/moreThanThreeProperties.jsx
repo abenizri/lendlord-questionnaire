@@ -5,7 +5,7 @@ import Autocomplete from "./autocomplete.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
-import { Card, Col, FormGroup, Input, Row, Button } from "reactstrap";
+import { Card, Col, FormGroup, Row, Button } from "reactstrap";
 
 class moreThanThreeProperties extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class moreThanThreeProperties extends Component {
   }
 
   componentDidMount(prevProps) {
-    if (this.props.values.moreThan3Prop === "Yes") {
+    if (this.props.values.moreThan3PropWithLender === "Yes") {
       this.setState({ isHidden: false });
     } else {
       this.setState({ isHidden: true });
@@ -31,10 +31,10 @@ class moreThanThreeProperties extends Component {
   };
 
   doChange(input) {
-    document.querySelectorAll('[name="moreThan3Prop"]').forEach( x => $(x).prop("checked", false))
+    document.querySelectorAll('[name="moreThan3PropWithLender"]').forEach( x => $(x).prop("checked", false))
     $(input).prop("checked", true);
 
-    let elem = document.querySelector('[name="moreThan3Prop"]:checked');
+    let elem = document.querySelector('[name="moreThan3PropWithLender"]:checked');
     if (elem && elem.value === "No") {
       this.setState({ isHidden: true });
     } else {
@@ -66,28 +66,34 @@ class moreThanThreeProperties extends Component {
         fontSize: '32px',
         borderColor: '#2F353A',
         lineHeight: '40px',
-
-        justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
+        justifyContent: "center",
+        alignItems: "center",
+        display: "flex",
+        flexDirection: "column",
+        textAlign: "center"
 
     }
 
     if (isMobile) {
       style = {
-          fontFamily: 'SegoePro-Semibold',
-          fontSize: '25px',
-          borderColor: '#2F353A',
-          lineHeight: '20px',
-          justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
-
+        fontFamily: 'SegoePro-Semibold',
+        fontSize: '25px',
+        borderColor: '#2F353A',
+        lineHeight: '20px',
+        justifyContent: "center",
+        alignItems: "center",
+        display: "flex",
+        flexDirection: "column",
+        textAlign: "center"
       }
     }
 
     return (
-      <Col sm="5">
-      <section id="moreThan3PropProperties">
+      <Col sm="5" className="colStyle">
+      <section id="moreThan3PropWithLenderProperties">
         <Form>
         <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-          <h1 style={style}>Who is your lender?</h1>
+          <h1 style={style}>Do you have more than 3 properties with one Lender?</h1>
           <div style={{height: '10px'}}></div>
           <Card style={{border: 'transparent', marginBottom: '0' }}>
             <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
@@ -112,10 +118,7 @@ class moreThanThreeProperties extends Component {
               </React.Fragment>
             </Col>
           </Form.Field>
-
-          <div style={{ height: "20px" }}></div>
-
-          <Row>
+          <Row className="rowStyle">
             <Col>
               <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Next </Button>
             </Col>
@@ -123,8 +126,6 @@ class moreThanThreeProperties extends Component {
               <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
             </Col>
           </Row>
-
-          <div style={{ height: "100px" }}></div>
           </div>
         </Form>
       </section>

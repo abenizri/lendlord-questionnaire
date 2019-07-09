@@ -94,28 +94,35 @@ class IncomeTax extends Component{
         const isMobile = width <= 800;
 
         let style = {
-            fontFamily: 'SegoePro-Semibold',
-            fontSize: '32px',
-            borderColor: '#2F353A',
-            lineHeight: '40px',
-
-            justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
+          fontFamily: 'SegoePro-Semibold',
+          fontSize: '32px',
+          borderColor: '#2F353A',
+          lineHeight: '40px',
+          justifyContent: "center",
+          alignItems: "center",
+          display: "flex",
+          flexDirection: "column",
+          textAlign: "center"
 
         }
 
         if (isMobile) {
           style = {
-              fontFamily: 'SegoePro-Semibold',
-              fontSize: '25px',
-              borderColor: '#2F353A',
-              lineHeight: '20px',
-              justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
+            fontFamily: 'SegoePro-Semibold',
+            fontSize: '25px',
+            borderColor: '#2F353A',
+            lineHeight: '20px',
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "column",
+            textAlign: "center"
 
           }
         }
 
         return(
-          <Col sm="5">
+          <Col sm="5" className="colStyle">
           <section id="incomeTax">
             <Form>
             <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
@@ -128,8 +135,6 @@ class IncomeTax extends Component{
                     of type and scrambled it to make a type specimen book.
                   </p>
                 </Card>
-                <div style={{height: '10px'}}>
-                </div>
                 <Form.Field >
                 <FormGroup row type="question" style={{ marginBottom: '0.3rem',borderRadius: '0.5rem', marginRight: '0px', marginLeft: '0px'}}>
                   <Row style={{ width: '100%'}}>
@@ -154,9 +159,7 @@ class IncomeTax extends Component{
                     </Row>
                 </FormGroup>
                 </Form.Field>
-                <div style={{height: '20px'}}>
-                </div>
-                <Row>
+                <Row className="rowStyle">
                   <Col>
                     <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Next </Button>
                   </Col>
@@ -164,8 +167,6 @@ class IncomeTax extends Component{
                     <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
                   </Col>
                 </Row>
-                <div style={{height: '100px'}}>
-                </div>
               </div>
             </Form>
           </section>
