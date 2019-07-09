@@ -9,3 +9,30 @@
        url('../../../public/fonts/miriam-libre-v2-latin-regular.woff') format('woff'), */
    src: url('./fonts/SegoePro-Semibold.ttf') format('truetype')
 }
+
+@media screen and (min-width: 801px) {
+  .rowStyle {
+    position: absolute;
+    bottom: 0;
+    right: 20%;
+    left: 20%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .rowStyle {
+
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .colStyle {
+    height: 100%
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .colStyle {
+
+  }
+}

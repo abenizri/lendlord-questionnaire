@@ -92,42 +92,45 @@ class NumOfProperties extends Component{
         const isMobile = width <= 800;
 
         let style = {
-            fontFamily: 'SegoePro-Semibold',
-            fontSize: '32px',
-            borderColor: '#2F353A',
-            lineHeight: '40px',
-
-            justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
-
+          fontFamily: 'SegoePro-Semibold',
+          fontSize: '32px',
+          borderColor: '#2F353A',
+          lineHeight: '40px',
+          justifyContent: "center",
+          alignItems: "center",
+          display: "flex",
+          flexDirection: "column",
+          textAlign: "center"
         }
 
         if (isMobile) {
           style = {
-              fontFamily: 'SegoePro-Semibold',
-              fontSize: '25px',
-              borderColor: '#2F353A',
-              lineHeight: '20px',
-              justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
-
+            fontFamily: 'SegoePro-Semibold',
+            fontSize: '25px',
+            borderColor: '#2F353A',
+            lineHeight: '20px',
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "column",
+            textAlign: "center"
           }
         }
 
         return(
-          <Col sm="5">
-          <section id="numOfProperties">
-            <Form>
-            <div style={{  width: '100%' , paddingLeft: '15px'}}>
-                  <h3 style={style}>How many properties do you </h3>
-                  <h3 style={style}>have in your portfolio?</h3>
-                <div style={{height: '10px'}}>
-                </div>
+          <Col sm="5" className="colStyle">
+            <section id="numOfProperties">
+              <Form>
+              <div style={{  width: '100%' , paddingLeft: '15px'}}>
+                <h3 style={style}>How many properties do you have in your portfolio?</h3>
+                <div style={{height: '10px'}}></div>
                 <Form.Field style={{marginLeft: '10%'}}>
-                <FormGroup className="col-sm-10" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
-                  <Input disabled bsSize="lg" onChange={this.props.handleChange('numOfProperties')}
-                  defaultValue={values.numOfProperties} style={{backgroundColor: 'transparent', width: '50px', paddingLeft: '12px', paddingRight: '12px'}} id="input-large" name="input-large" className="input-lg" placeholder="0" />
-                </FormGroup>
+                  <FormGroup className="col-sm-10" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
+                    <Input disabled bsSize="lg" onChange={this.props.handleChange('numOfProperties')}
+                    defaultValue={values.numOfProperties} style={{backgroundColor: 'transparent', width: '50px', paddingLeft: '12px', paddingRight: '12px'}} id="input-large" name="input-large" className="input-lg" placeholder="0" />
+                  </FormGroup>
                   <Col sm="10" >
-                  <FormGroup >
+                    <FormGroup >
                       <Slider
                         ValueLabelComponent={ValueLabelComponent}
                         aria-label="Custom thumb label"
@@ -135,12 +138,10 @@ class NumOfProperties extends Component{
                         max={25}
                         onChange={this.sliderChange}
                         />
-                  </FormGroup>
+                    </FormGroup>
                   </Col>
                 </Form.Field>
-                <div style={{height: '20px'}}>
-                </div>
-                <Row>
+                <Row className="rowStyle">
                   <Col>
                     <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Next </Button>
                   </Col>
@@ -148,12 +149,10 @@ class NumOfProperties extends Component{
                     <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
                   </Col>
                 </Row>
-                <div style={{height: '100px'}}>
-                </div>
               </div>
             </Form>
           </section>
-          </Col>
+        </Col>
         )
     }
 }
