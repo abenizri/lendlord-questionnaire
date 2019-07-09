@@ -88,12 +88,9 @@ class moreThanThreeProperties extends Component {
         <Form>
         <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
           <h1 style={style}>Who is your lender?</h1>
-          <div style={{height: '10px'}}></div>
-          <Card style={{border: 'transparent', marginBottom: '0' }}>
+          <Card style={{border: 'transparent'}}>
             <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
-              Lorem Ipsum has been the industrys standard dummy text
-              ever since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book.
+               Do you have more than 3 properties with one Lender?
             </p>
           </Card>
           <Form.Field >
@@ -108,6 +105,26 @@ class moreThanThreeProperties extends Component {
                   />
                 </div>
 
+              </FormGroup>
+              <FormGroup row type="question" style={{ marginBottom: '0.3rem',borderRadius: '0.5rem', paddingTop: '10px', marginRight: '0px', marginLeft: '0px'}}>
+                <Row style={{ width: '100%'}}>
+                    <Col sm="9" style={{ paddingRight: '0px'}}>
+                      <FormGroup>
+                        <div className="input-group">
+                          <label className="control-label required"  style={{ marginBottom: '0px', fontWeight: 700}}>What is the total mortgages balance with this Lender?
+                          </label>
+                        </div>
+                      </FormGroup>
+                    </Col>
+                    <Col sm="3" style={{ paddingRight: '0px', marginLeft: '-15px'}}>
+                      <div className="input-prepend input-group">
+                      <div className="input-group-prepend">
+                        <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
+                      </div>
+                        <Input id="totalMortgagesBalance" onChange={this.props.handleChange('totalMortgagesBalance')}  defaultValue={values.totalMortgagesBalance} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
+                      </div>
+                    </Col>
+                  </Row>
               </FormGroup>
               </React.Fragment>
             </Col>

@@ -20,9 +20,9 @@ class SignUp extends Component {
   };
 
   handleChange = e => {
-    $('[name="moreThan3PropWithLender"]').prop("checked", false);
+    $('[name="moreThan3Prop"]').prop("checked", false);
     $(e.target).prop("checked", true);
-    let elem = document.querySelector('[name="moreThan3PropWithLender"]:checked');
+    let elem = document.querySelector('[name="moreThan3Prop"]:checked');
     if (elem && elem.value === "No") {
       this.setState({ isHidden: true });
     } else {
@@ -46,7 +46,7 @@ class SignUp extends Component {
     }
 
     return (
-      <Col sm="6" className="colStyle">
+      <Col sm="6">
       <section id="incomeQuestions">
         <Form>
         <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
@@ -58,6 +58,7 @@ class SignUp extends Component {
             </p>
           </Card>
 
+          <div style={{ height: "10px" }}></div>
           <Form.Field >
               <React.Fragment>
               <Col sm="16" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>
@@ -80,7 +81,8 @@ class SignUp extends Component {
                 <span style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>Sign in with Google</span>
               </React.Fragment>
           </Form.Field>
-          <Row className="rowStyle">
+          <div style={{ height: "20px" }}></div>
+          <Row>
             <Col>
               <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="Yes">Yes </Button>
             </Col>
@@ -88,6 +90,7 @@ class SignUp extends Component {
               <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>No</Button>
             </Col>
           </Row>
+          <div style={{ height: "100px" }}></div>
           </div>
         </Form>
       </section>

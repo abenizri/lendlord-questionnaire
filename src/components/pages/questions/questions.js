@@ -5,7 +5,7 @@ import NumOfProperties from './sections/numOfProperties.jsx'
 import MoreThanThreeProperties from './sections/moreThanThreeProperties.jsx'
 import MortgageForInvestment from './sections/mortgageForInvestment.jsx'
 import PortfolioLtv from './sections/portfolioLtv.jsx'
-import RemortgageQuestion from './sections/remortgageQuestion.jsx'
+import NewInvestment from './sections/newInvestment.jsx'
 import IncomeQuestions from './sections/incomeQuestions.jsx'
 import Results from './sections/results.jsx'
 import ExistingPortfolio from './sections/existingPortfolio.jsx'
@@ -18,9 +18,9 @@ class Questions extends Component {
 
     state = {
         step: 1,
-        islandlord: 'No',
-        moreThan3PropWithLender: 'No',
-        numOfProperties: 1,
+        islendlord: 'No',
+        moreThan3Prop: 'No',
+        numOfProperties: '1',
         incomeTaxBand1: 0,
         loanValue: '0',
         propertyValue: '0',
@@ -30,7 +30,7 @@ class Questions extends Component {
         ltv: '0',
         notSure: 'false',
         lender: '',
-        totalMortgagesBalanceForLender: '0'
+        totalMortgagesBalance: '0'
     }
 
     clearForm = () => {
@@ -60,24 +60,24 @@ class Questions extends Component {
         this.props.updateStep(num)
     }
 
-    handleChange = (input) => {
-      console.log(input);
-      if (input === 'incomeTaxBand1') {
-        let elem = document.querySelector('input[type="hidden"]')
+        handleChange = (input) => {
+          console.log(input);
+          if (input === 'incomeTaxBand1') {
+            let elem = document.querySelector('input[type="hidden"]')
 
-        if (elem && elem.value) {
-          //this.setState({ [input] : elem.value })
+            if (elem && elem.value) {
+              //this.setState({ [input] : elem.value })
 
+            }
+            // console.log(value);
+            // this.setState({ [input] : value })
+          }
+          return (e) => {
+          // console.log(e);
+          // console.log($(e.target).closes('input[type="hidden"]') );
+          this.setState({ [input] : e.target.value })
         }
-        // console.log(value);
-        // this.setState({ [input] : value })
       }
-      return (e) => {
-      // console.log(e);
-      // console.log($(e.target).closes('input[type="hidden"]') );
-        this.setState({ [input] : e.target.value })
-      }
-    }
 
     // handleChange = input => event => {
     //   this.setState({ [input] : event.target.value })
@@ -87,7 +87,7 @@ class Questions extends Component {
       const {step} = this.state;
 
       const {
-        moreThan3PropWithLender,
+        moreThan3Prop,
         numOfProperties,
         numOfProp,
         incomeTaxBand1,
@@ -99,14 +99,14 @@ class Questions extends Component {
         ltv,
         notSure,
         lender,
-        totalMortgagesBalanceForLender
+        totalMortgagesBalance
        } = this.state;
 
       const values = {
-        totalMortgagesBalanceForLender,
+        totalMortgagesBalance,
         lender,
         notSure,
-        moreThan3PropWithLender,
+        moreThan3Prop,
         numOfProperties,
         numOfProp,
         incomeTaxBand1,
@@ -157,7 +157,7 @@ class Questions extends Component {
                     values={values}
                     />
         case 6:
-          return <RemortgageQuestion
+          return <NewInvestment
                     nextStep={this.nextStep}
                     handleChange = {this.handleChange}
                     prevStep={this.prevStep}

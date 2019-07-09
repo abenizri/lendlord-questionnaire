@@ -38,37 +38,33 @@ class SorryPage extends Component{
         fontSize: '32px',
         borderColor: '#2F353A',
         lineHeight: '40px',
-        justifyContent: "center",
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "center"
+
+        justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
 
     }
 
     if (isMobile) {
       style = {
-        fontFamily: 'SegoePro-Semibold',
-        fontSize: '23px',
-        borderColor: '#2F353A',
-        lineHeight: '20px',
-        justifyContent: "center",
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "center"
+          fontFamily: 'SegoePro-Semibold',
+          fontSize: '23px',
+          borderColor: '#2F353A',
+          lineHeight: '20px',
+          justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
+
       }
     }
 
       return(
-        <Col sm="6" className="colStyle">
+        <Col sm="5">
         <section id="islandlord" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
           <Form >
           <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
               <h1 className="ui centered" style={style}>Sorry...</h1>
               <h1 className="ui centered" style={style}>It looks like we can’t help you.</h1>
+              <div style={{height: '50px'}}>
+              </div>
               <Form.Field>
-              <Row className="rowStyle">
+              <Row>
                 <Col>
                   <Button block  color="warning" style={{ ontFamily: 'SegoePro-Semibold', width: '100px', backgroundColor: '#FF9F08', color: '#fff', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.props.clearForm} value="Yes">StartOver</Button>
                 </Col>
@@ -77,6 +73,8 @@ class SorryPage extends Component{
                 </Col>
               </Row>
               </Form.Field>
+              <div style={{height: '100px'}}>
+              </div>
             </div>
           </Form>
         </section>

@@ -25,7 +25,7 @@ class ExistingPortfolio extends Component{
   }
 
   componentDidMount(prevProps) {
-    if (this.props.values.moreThan3PropWithLender === "Yes") {
+    if (this.props.values.moreThan3Prop === "Yes") {
       this.setState({ isHidden: false });
     } else {
       this.setState({ isHidden: true });
@@ -33,10 +33,10 @@ class ExistingPortfolio extends Component{
   }
 
   doChange(input) {
-    document.querySelectorAll('[name="moreThan3PropWithLender"]').forEach( x => $(x).prop("checked", false))
+    document.querySelectorAll('[name="moreThan3Prop"]').forEach( x => $(x).prop("checked", false))
     $(input).prop("checked", true);
 
-    let elem = document.querySelector('[name="moreThan3PropWithLender"]:checked');
+    let elem = document.querySelector('[name="moreThan3Prop"]:checked');
     if (elem && elem.value === "No") {
       this.setState({ isHidden: true });
     } else {
@@ -79,29 +79,23 @@ class ExistingPortfolio extends Component{
           fontSize: '32px',
           borderColor: '#2F353A',
           lineHeight: '40px',
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center"
+
+          justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
 
       }
 
       if (isMobile) {
         style = {
-          fontFamily: 'SegoePro-Semibold',
-          fontSize: '20px',
-          borderColor: '#2F353A',
-          lineHeight: '25px',
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center"
+            fontFamily: 'SegoePro-Semibold',
+            fontSize: '20px',
+            borderColor: '#2F353A',
+            lineHeight: '25px',
+            justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
+
         }
       }
       return (
-        <Col sm="5" className="colStyle">
+        <Col sm="6">
         <section id="existingPortfolio" >
           <Form >
           <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
@@ -109,6 +103,7 @@ class ExistingPortfolio extends Component{
 
             <div style={{ height: "10px" }}></div>
             <Form.Field >
+              <div style={{ height: "10px" }}></div>
               {!this.state.isHidden && (
                 <React.Fragment>
                 <FormGroup>
@@ -130,7 +125,7 @@ class ExistingPortfolio extends Component{
                         <div className="input-group-prepend">
                           <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                         </div>
-                          <Input id="totalMortgagesBalanceForLender" onChange={this.props.handleChange('totalMortgagesBalanceForLender')}  defaultValue={values.totalMortgagesBalanceForLender} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
+                          <Input id="totalMortgagesBalance" onChange={this.props.handleChange('totalMortgagesBalance')}  defaultValue={values.totalMortgagesBalance} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
                         </div>
                       </Col>
                     </Row>
@@ -138,7 +133,8 @@ class ExistingPortfolio extends Component{
                 </React.Fragment>
               )}
             </Form.Field>
-            <Row className="rowStyle">
+            <div style={{ height: "20px" }}></div>
+            <Row>
               <Col>
                 <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.goToSignIn} value="No">Yes </Button>
               </Col>
@@ -146,6 +142,7 @@ class ExistingPortfolio extends Component{
                 <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.goToResultsPage}>No</Button>
               </Col>
             </Row>
+            <div style={{ height: "100px" }}></div>
             </div>
           </Form>
         </section>

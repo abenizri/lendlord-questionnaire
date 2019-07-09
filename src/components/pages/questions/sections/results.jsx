@@ -196,6 +196,7 @@ class Results extends Component {
          <section id="results">
            <Form>
 					 <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
+
 						 <Row style={{ width: '100%'}}>
 								<Col style={{ width: '135px', maxWidth: '135px'}}>
 									<h1 style={style}>Results</h1>
@@ -232,6 +233,7 @@ class Results extends Component {
 									 <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
 								 </Col>
 							 </Row>
+		           <div style={{ height: "100px" }}></div>
 							</div>
             </Form>
          </section>

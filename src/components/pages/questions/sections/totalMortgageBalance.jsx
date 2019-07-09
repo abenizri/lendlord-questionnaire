@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Form } from "semantic-ui-react";
 import $ from "jquery";
+import Autocomplete from "./autocomplete.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
-import { Card, Col, FormGroup, Input, Row, Button } from "reactstrap";
+import { Card, Col, FormGroup, Label, Input, Row, Button } from "reactstrap";
 
 class TotalMortgageBalance extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class TotalMortgageBalance extends Component {
   }
 
   componentDidMount(prevProps) {
-    if (this.props.values.moreThan3PropWithLender === "Yes") {
+    if (this.props.values.moreThan3Prop === "Yes") {
       this.setState({ isHidden: false });
     } else {
       this.setState({ isHidden: true });
@@ -30,10 +31,10 @@ class TotalMortgageBalance extends Component {
   };
 
   doChange(input) {
-    document.querySelectorAll('[name="moreThan3PropWithLender"]').forEach( x => $(x).prop("checked", false))
+    document.querySelectorAll('[name="moreThan3Prop"]').forEach( x => $(x).prop("checked", false))
     $(input).prop("checked", true);
 
-    let elem = document.querySelector('[name="moreThan3PropWithLender"]:checked');
+    let elem = document.querySelector('[name="moreThan3Prop"]:checked');
     if (elem && elem.value === "No") {
       this.setState({ isHidden: true });
     } else {
@@ -65,11 +66,8 @@ class TotalMortgageBalance extends Component {
         fontSize: '32px',
         borderColor: '#2F353A',
         lineHeight: '40px',
-        justifyContent: "center",
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "center"
+
+        justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
 
     }
 
@@ -79,25 +77,22 @@ class TotalMortgageBalance extends Component {
           fontSize: '25px',
           borderColor: '#2F353A',
           lineHeight: '20px',
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center"
+          justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
 
       }
     }
 
     return (
-      <Col sm="5" className="colStyle">
+      <Col sm="5">
       <section id="moreThan3PropProperties">
         <Form>
         <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-          <h1 style={style}>What is the total mortgages balance with this Lender?</h1>
+          <h1 style={style}>What is the total mortgages </h1>
+          <h1 style={style}>balance with this Lender?</h1>
           <div style={{height: '10px'}}></div>
           <Card style={{border: 'transparent', marginBottom: '0' }}>
             <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
-               sample text
+               Do you have more than 3 properties with one Lender?
             </p>
           </Card>
           <Form.Field >
@@ -109,13 +104,16 @@ class TotalMortgageBalance extends Component {
                         <div className="input-group-prepend">
                           <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                         </div>
-                          <Input id="totalMortgagesBalanceForLender" onChange={this.props.handleChange('totalMortgagesBalanceForLender')}  defaultValue={values.totalMortgagesBalanceForLender} maxLength="10" type="tel" className="form-control" placeholder="Total mortgages balance" required="required"/>
+                          <Input id="totalMortgagesBalance" onChange={this.props.handleChange('totalMortgagesBalance')}  defaultValue={values.totalMortgagesBalance} maxLength="10" type="tel" className="form-control" placeholder="Total mortgages balance" required="required"/>
                         </div>
                       </Col>
                 </FormGroup>
               </React.Fragment>
+
           </Form.Field>
-          <Row className="rowStyle">
+          <div style={{ height: "20px" }}></div>
+
+          <Row>
             <Col>
               <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Next </Button>
             </Col>
@@ -123,6 +121,8 @@ class TotalMortgageBalance extends Component {
               <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
             </Col>
           </Row>
+
+          <div style={{ height: "100px" }}></div>
           </div>
         </Form>
       </section>

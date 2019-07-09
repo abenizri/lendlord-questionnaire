@@ -3,9 +3,6 @@ import circleDone from './../../../assets/images/ico-done.svg';
 import circleCurrent from './../../../assets/images/ico-current.svg';
 import circleNext from './../../../assets/images/ico-next.svg';
 
-const sideBarObjects =
-["Properties", "Lender", "Total Balance", "LTV", "Invesments", "Total Value", "Income Tax", "Results", "Sign Up"]
-
 class SideBarLayout extends Component {
 
   constructor(props) {
@@ -71,61 +68,98 @@ class SideBarLayout extends Component {
     })
   }
 
-  renderListItems() {
-    return sideBarObjects.map((obj, key) => {
-      key = key + 2
-      return (
-        <li key={key} step={key} style={{listStyle: 'none', paddingBottom: '8px'}}>
-          <img src={circleNext} alt="circleNext" style={{marginBottom: '3px',  width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
-          <span style={{marginLeft: '20px', color: '#CCCCCC'}}>{obj}</span>
-        </li>
-      )
-    })
-  }
-
-  renderMobileItems() {
-    return sideBarObjects.map((obj, key) => {
-      key = key + 2
-      return (
-        <div key={key} step={key} className="stepwizard-step">
-            <img src={circleNext} alt="circleNext" style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
-        </div>
-      )
-    })
-  }
-
   render() {
 
+    // eslint-disable-next-line
     const { children, ...attributes } = this.props;
     const { width } = this.state;
     const isMobile = width <= 800;
 
     if (isMobile) {
-      return (
-        <div style={{  justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
+       return (
+         <div style={{  justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
           <div className="stepwizard">
             <div className="stepwizard-row setup-panel d-flex">
-              <div step="1"  className="stepwizard-step">
-                <img src={circleCurrent} alt="circleCurrent" style={{marginBottom: '3px',  width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
-              </div>
-              {this.renderMobileItems()}
+               <div step="1"  className="stepwizard-step">
+                  <img src={circleCurrent} style={{marginBottom: '3px',  width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
+               </div>
+
+               <div step="2" className="stepwizard-step">
+                   <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
+               </div>
+               <div step="3" className="stepwizard-step">
+                 <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table' }} className="checkCircle"/>
+               </div>
+               <div step="4" className="stepwizard-step">
+                 <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table' }} className="checkCircle"/>
+               </div>
+               <div step="5" className="stepwizard-step">
+                  <img src={circleNext} style={{marginBottom: '3px',  width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
+               </div>
+
+               <div step="6" className="stepwizard-step">
+                   <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
+               </div>
+               <div step="7" className="stepwizard-step">
+                 <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table' }} className="checkCircle"/>
+               </div>
+               <div step="8" className="stepwizard-step">
+                 <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table' }} className="checkCircle"/>
+               </div>
+               <div step="9" className="stepwizard-step">
+                 <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table' }} className="checkCircle"/>
+               </div>
             </div>
-          </div>
-          <div style={{ height: '80px'}}> </div>
+         </div>
+         <div style={{ height: '80px'}}>
+         </div>
         </div>
-      )
+
+       )
     } else {
 
     return (
 
       <React.Fragment>
-        <ul style={{ float: 'left', paddingInlineStart: '0px', marginLeft: '80px'}}>
-          <li step="1" style={{listStyle: 'none', paddingBottom: '8px'}}>
-           <img src={circleCurrent} alt="" style={{marginBottom: '3px',  width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
-           <span style={{marginLeft: '20px'}}>Landlord</span>
+        <ul style={{ float: 'right'}}>
+          <li step="1" style={{listStyle: 'none'}}>
+            <img src={circleCurrent} style={{marginBottom: '3px',  width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
+            <span style={{marginLeft: '20px'}}>Landlord</span>
           </li>
-          {this.renderListItems()}
+          <li step="2" style={{listStyle: 'none'}}>
+            <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
+              <span style={{marginLeft: '20px', color: '#CCCCCC' }}>properties</span>
+          </li>
+          <li step="3" style={{listStyle: 'none'}}>
+            <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table' }} className="checkCircle"/>
+            <span style={{marginLeft: '20px', color: '#CCCCCC' }}>Lender</span>
+          </li>
+          <li step="4" style={{listStyle: 'none'}}>
+            <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table' }} className="checkCircle"/>
+              <span style={{marginLeft: '20px', color: '#CCCCCC' }}>LTV</span>
+          </li>
+          <li step="5" style={{listStyle: 'none'}}>
+            <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table' }} className="checkCircle"/>
+            <span style={{marginLeft: '20px', color: '#CCCCCC' }}>Investment</span>
+          </li>
+          <li step="6" style={{listStyle: 'none'}}>
+            <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table' }} className="checkCircle"/>
+            <span style={{marginLeft: '20px', color: '#CCCCCC' }}>Total Value</span>
+          </li>
+          <li step="7" style={{listStyle: 'none'}}>
+            <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table' }} className="checkCircle"/>
+            <span style={{marginLeft: '20px', color: '#CCCCCC' }}>Income Tax</span>
+          </li>
+          <li step="8" style={{listStyle: 'none'}}>
+            <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table' }} className="checkCircle"/>
+            <span style={{marginLeft: '20px', color: '#CCCCCC' }}>Results</span>
+          </li>
+          <li step="9" style={{listStyle: 'none'}}>
+            <img src={circleNext} style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table' }} className="checkCircle"/>
+            <span style={{marginLeft: '20px', color: '#CCCCCC' }}>Sign up</span>
+          </li>
         </ul>
+
       </React.Fragment>
     );
       }

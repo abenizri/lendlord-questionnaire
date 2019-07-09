@@ -6,7 +6,7 @@ import './style.css';
 
 import { Col, Row, Button, Card } from "reactstrap";
 
-class RemortgageQuestion extends Component {
+class NewInvestment extends Component {
   constructor(props) {
     super(props);
 
@@ -25,9 +25,9 @@ class RemortgageQuestion extends Component {
   };
 
   handleChange = e => {
-    $('[name="moreThan3PropWithLender"]').prop("checked", false);
+    $('[name="moreThan3Prop"]').prop("checked", false);
     $(e.target).prop("checked", true);
-    let elem = document.querySelector('[name="moreThan3PropWithLender"]:checked');
+    let elem = document.querySelector('[name="moreThan3Prop"]:checked');
     if (elem && elem.value === "No") {
       this.setState({ isHidden: true });
     } else {
@@ -45,40 +45,36 @@ class RemortgageQuestion extends Component {
     const isMobile = width <= 800;
 
     let style = {
-      fontFamily: 'SegoePro-Semibold',
-      fontSize: '32px',
-      borderColor: '#2F353A',
-      lineHeight: '40px',
-      justifyContent: "center",
-      alignItems: "center",
-      display: "flex",
-      flexDirection: "column",
-      textAlign: "center"
+        fontFamily: 'SegoePro-Semibold',
+        fontSize: '32px',
+        borderColor: '#2F353A',
+        lineHeight: '40px',
+
+        justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
+
     }
 
     if (isMobile) {
       style = {
-        fontFamily: 'SegoePro-Semibold',
-        fontSize: '23px',
-        borderColor: '#2F353A',
-        lineHeight: '25px',
-        justifyContent: "center",
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "center"
+          fontFamily: 'SegoePro-Semibold',
+          fontSize: '23px',
+          borderColor: '#2F353A',
+          lineHeight: '25px',
+          justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
 
       }
     }
 
     return (
-      <Col sm="5" className="colStyle">
-      <section id="RemortgageQuestion">
+      <Col sm="6">
+      <section id="newInvestment">
         <Form>
         <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-          <h1 style={style}>Are you interested in new mortgage for new investment property?</h1>
+          <h1 style={style}>Are you interested in new </h1>
+          <h1 style={style}>mortgage for new investment </h1>
+          <h1 style={style}>property?</h1>
           <div style={{height: '10px'}}></div>
-
+          
           <Card style={{border: 'transparent'}}>
             <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
               Lorem Ipsum has been the industrys standard dummy text
@@ -87,10 +83,12 @@ class RemortgageQuestion extends Component {
             </p>
           </Card>
 
+          <div style={{ height: "10px" }}></div>
           <Form.Field style={{ marginLeft: "100px" }}>
 
           </Form.Field>
-          <Row className="rowStyle">
+          <div style={{ height: "20px" }}></div>
+          <Row>
             <Col>
               <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Yes </Button>
             </Col>
@@ -98,7 +96,8 @@ class RemortgageQuestion extends Component {
               <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>No</Button>
             </Col>
           </Row>
-        </div>
+          <div style={{ height: "100px" }}></div>
+            </div>
         </Form>
       </section>
       </Col>
@@ -106,4 +105,4 @@ class RemortgageQuestion extends Component {
   }
 }
 
-export default RemortgageQuestion;
+export default NewInvestment;
