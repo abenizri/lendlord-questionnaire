@@ -7,8 +7,6 @@ import './style.css';
 import {
   Row,
   Col,
-  FormGroup,
-  Input,
   Button,
   Card
 } from 'reactstrap';
@@ -71,7 +69,6 @@ class ExistingPortfolio extends Component{
     }
 
     render(){
-      const { values } = this.props;
       const { width } = this.state;
       const isMobile = width <= 800;
 

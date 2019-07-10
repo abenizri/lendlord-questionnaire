@@ -146,7 +146,7 @@ function constructMessageAccordingToRule(lender, rule, ruleValue) {
     case "overallExposure":
       return
     case "minimumIncome":
-      return "Minimum income is lower than" + ruleValue 
+      return "Minimum income is lower than " + ruleValue 
     default:
       return
   }

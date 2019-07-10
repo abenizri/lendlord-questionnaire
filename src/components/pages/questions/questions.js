@@ -32,7 +32,7 @@ class Questions extends Component {
         ltv: '',
         notSure: 'false',
         lender: '',
-        totalMortgagesBalanceForLender: '0',
+        totalMortgagesBalanceForLender: '',
         minimumIncome: '0'
     }
 
@@ -70,6 +70,11 @@ class Questions extends Component {
         this.props.updateStep(num)
     }
 
+    numberWithCommas(x) {
+      x = x.replace(/\D+/g,'')
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     handleChange = (input) => {
       if (input === 'lender') {
         let elem = document.getElementById('downshift-simple-input')
@@ -79,19 +84,31 @@ class Questions extends Component {
           }, 100)
         }
       }
-      if (input === 'incomeTaxBand1') {
-        let elem = document.querySelector('input[type="hidden"]')
-
-        if (elem && elem.value) {
-          //this.setState({ [input] : elem.value })
-
+      if( input === 'totalMortgagesBalanceForLender') {
+        let elem = document.getElementById('totalMortgagesBalanceForLender')
+        if(elem && elem.value) {
+          elem.value = this.numberWithCommas(elem.value)
         }
-        // console.log(value);
-        // this.setState({ [input] : value })
+      }
+      if( input === 'propertyEstimatedRentalIncome') {
+        let elem = document.getElementById('rentalIncome')
+        if(elem && elem.value) {
+          elem.value = this.numberWithCommas(elem.value)
+        }
+      }
+      if( input === 'propertyValue') {
+        let elem = document.getElementById('propertyValue')
+        if(elem && elem.value) {
+          elem.value = this.numberWithCommas(elem.value)
+        }
+      }
+      if( input === 'loanValue') {
+        let elem = document.getElementById('loanValue')
+        if(elem && elem.value) {
+          elem.value = this.numberWithCommas(elem.value)
+        }
       }
       return (e) => {
-      // console.log(e);
-      // console.log($(e.target).closes('input[type="hidden"]') );
         this.setState({ [input] : e.target.value })
       }
     }
