@@ -60,8 +60,13 @@ class SideBarLayout extends Component {
 
     }
     if (next) {
+<<<<<<< HEAD
       document.querySelector('[step="' + nextProps.step + 1 + '"] img').src = circleNext
       if (document.querySelector('[step="' + nextProps.step + 1 + '"] span')) {
+=======
+      document.querySelector('[step="' + nextProps.step - 1 + '"] img').src = circleNext
+      if (document.querySelector('[step="' + nextProps.step + 1+ '"] span')) {
+>>>>>>> 417928aae6ff217e06c7f1543465c10a2e2ff7c1
         document.querySelector('[step="' + nextProps.step + 1 + '"] span').style.color = '#CCCCCC'
       }
     }
