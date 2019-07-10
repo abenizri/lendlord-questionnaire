@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Form } from "semantic-ui-react";
-import $ from "jquery";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
@@ -17,33 +16,8 @@ class NewPropertyQuestions extends Component {
     };
   }
 
-  componentDidMount() {
-    let inputs = Array.from(document.querySelectorAll('#NewPropertyQuestions input'))
-    inputs.map(input => {
-      input.addEventListener("input", () => {
-        input.value = this.numberWithCommas(input.value)
-      })
-    })
-  }
-
-  numberWithCommas(x) {
-    x = x.replace(/\D+/g,'')
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-
   back = e => {
     this.props.prevStep()
-  };
-
-  handleChange = e => {
-    $('[name="moreThan3PropWithLender"]').prop("checked", false);
-    $(e.target).prop("checked", true);
-    let elem = document.querySelector('[name="moreThan3PropWithLender"]:checked');
-    if (elem && elem.value === "No") {
-      this.setState({ isHidden: true });
-    } else {
-      this.setState({ isHidden: false });
-    }
   };
 
   saveAndContinue = e => {
@@ -126,7 +100,8 @@ class NewPropertyQuestions extends Component {
                         <div className="input-group-prepend">
                           <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                         </div>
-                          <Input id="propertyValue" defaultValue={values.propertyValue} onChange={this.props.handleChange('propertyValue')} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
+                          <Input
+                            id="propertyValue" defaultValue={values.propertyValue}               onChange={this.props.handleChange('propertyValue')} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
                         </div>
                       </Col>
                     </Row>

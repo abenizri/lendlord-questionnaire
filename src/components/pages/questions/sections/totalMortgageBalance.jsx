@@ -24,6 +24,11 @@ class TotalMortgageBalance extends Component {
     }
   }
 
+  numberWithCommas(x) {
+    x = x.replace(/\D+/g,'')
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   back = e => {
     e.preventDefault();
     this.props.prevStep();
@@ -118,7 +123,7 @@ class TotalMortgageBalance extends Component {
                           <div className="input-group-prepend">
                             <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                           </div>
-                            <Input id="totalMortgagesBalanceForLender" onChange={this.props.handleChange('totalMortgagesBalanceForLender')}  defaultValue={values.totalMortgagesBalanceForLender} maxLength="10" type="tel" className="form-control" placeholder="Total mortgages balance" required="required"/>
+                            <Input id="totalMortgagesBalanceForLender" onChange={this.props.handleChange('totalMortgagesBalanceForLender')}  defaultValue={values.totalMortgagesBalanceForLender} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
                           </div>
                         </Col>
                   </FormGroup>
