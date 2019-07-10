@@ -153,21 +153,22 @@ class PortfolioLtv extends Component {
                 <h1 style={style}>What is your portfolio LTV?</h1>
                 <div style={{height: '10px'}}></div>
                 <Card style={{border: 'transparent', marginBottom: '0' }}>
-                <p className="tiptext">
-                Lorem Ipsum has been the industrys standard dummy text
-                ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
-                </p>
+                  <p className="tiptext">
+                  LTV means “Loan to Value”, the ratio between the total mortgages balance and the total properties value
+                  </p>
                 </Card>
-
                 <Form.Field>
                   <FormGroup row type="question" style={{ marginBottom: '2.3rem',borderRadius: '0.5rem', paddingTop: '10px', marginRight: '0px', marginLeft: '0px'}}>
                     <Col sm="12" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>
                       <Row style={{ width: '100%'}}>
-                        <Col sm={{size: 3, offset: 3}} style={{paddingRight: '0px'}}>
-                          <div className="input-prepend" >
-                            <Input onChange={this.props.handleChange('ltv')}  defaultValue={values.ltv} id="ltv" maxLength="10" type="tel" className="form-control" placeholder="0.00 %" required="required"/>
+                        <Col sm={{size: 4, offset: 1}} style={{paddingRight: '0px'}}>
+                          <div className="input-group">
+                            <Input onChange={this.props.handleChange('ltv')}  defaultValue={values.ltv} id="ltv" maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
+                            <div className="input-group-append">
+                              <span style={{ backgroundColor: 'white' }} className="input-group-text">%</span>
+                            </div>
                           </div>
+
                         </Col>
                         <Col sm="3">
                           <FormGroup>

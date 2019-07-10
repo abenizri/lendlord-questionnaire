@@ -107,9 +107,7 @@ class TotalMortgageBalance extends Component {
             <h1 style={style}>What is the total mortgages balance with this Lender?</h1>
             <div style={{height: '10px'}}></div>
             <Card style={{border: 'transparent', marginBottom: '0' }}>
-              <p className="tiptext">
-                 sample text
-              </p>
+              <p className="tiptext">If you’re not sure, you can put an approximate number</p>
             </Card>
             <Form.Field >
                 <React.Fragment>

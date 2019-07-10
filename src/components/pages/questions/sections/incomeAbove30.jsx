@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
-import Slider from '@material-ui/lab/Slider';
+import Slider from '@material-ui/core/Slider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
