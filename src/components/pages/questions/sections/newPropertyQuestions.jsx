@@ -89,7 +89,7 @@ class NewPropertyQuestions extends Component {
     return (
       <React.Fragment>
         {backButton}
-        <Col sm="5" className="colStyle">
+        <Col sm="6" className="colStyle">
         <section id="NewPropertyQuestions">
           <Form>
           <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
