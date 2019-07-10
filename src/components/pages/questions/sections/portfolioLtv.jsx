@@ -153,7 +153,7 @@ class PortfolioLtv extends Component {
                 <h1 style={style}>What is your portfolio LTV?</h1>
                 <div style={{height: '10px'}}></div>
                 <Card style={{border: 'transparent', marginBottom: '0' }}>
-                <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
+                <p className="tiptext">
                 Lorem Ipsum has been the industrys standard dummy text
                 ever since the 1500s, when an unknown printer took a galley
                 of type and scrambled it to make a type specimen book.
@@ -228,6 +228,7 @@ class PortfolioLtv extends Component {
                 </React.Fragment>
               )}
             </Form.Field>
+            <div style={{height: '100px'}}/>
             <Row className="oneBtn">
               <Col>
                 <Button block  color="warning" style={nextBtnStyle} onClick={this.saveAndContinue} value="No">Next </Button>

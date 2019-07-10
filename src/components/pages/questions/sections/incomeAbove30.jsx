@@ -147,7 +147,7 @@ class IncomeAbove30 extends Component{
                   <h1 style={style}>Is your annual income above one of the following?</h1>
                   <div style={{height: '10px'}}></div>
                   <Card style={{border: 'transparent', marginBottom: '0' }}>
-                    <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
+                    <p className="tiptext">
                       Some lenders will not lend if your annual income is below one of the following amounts
                     </p>
                   </Card>
@@ -175,7 +175,8 @@ class IncomeAbove30 extends Component{
                       </Row>
                   </FormGroup>
                   </Form.Field>
-                  <Row className="rowStyle oneBtn">
+                  <div style={{height: '100px'}}/>
+                  <Row className="oneBtn">
                     <Col>
                       <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Next </Button>
                     </Col>

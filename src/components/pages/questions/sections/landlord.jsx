@@ -69,12 +69,11 @@ class Landlord extends Component{
               <h3 className="display-4" style={style}>Are you an existing landlord?</h3>
               <div style={{height: '10px'}}></div>
               <Card style={{border: 'transparent', marginBottom: '0' }}>
-                <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
-                  Have at least one investment property
-                </p>
+                <p className="tiptext">Have at least one investment property</p>
               </Card>
               <Form.Field>
-              <Row className="rowStyle">
+              <div style={{height: '100px'}}/>
+              <Row>
                 <Col>
                   <Button block  color="warning" style={{width: '100px', backgroundColor: '#FF9F08', color: '#fff', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="Yes">Yes </Button>
                 </Col>

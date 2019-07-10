@@ -53,7 +53,7 @@ class SignUp extends Component {
           <h1 style={style}>Sign Up</h1>
           <div style={{height: '10px'}}></div>
           <Card style={{border: 'transparent'}}>
-            <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
+            <p className="tiptext">
               Sign up free to refine the results with more data and to get remortgage opportunities for your existing portfolio:
             </p>
           </Card>
@@ -80,6 +80,7 @@ class SignUp extends Component {
                 <span style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>Sign in with Google</span>
               </React.Fragment>
           </Form.Field>
+          <div style={{height: '100px'}}/>
           <Row>
             <Col>
               <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="Yes">Yes </Button>

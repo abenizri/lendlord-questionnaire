@@ -107,7 +107,7 @@ class TotalMortgageBalance extends Component {
             <h1 style={style}>What is the total mortgages balance with this Lender?</h1>
             <div style={{height: '10px'}}></div>
             <Card style={{border: 'transparent', marginBottom: '0' }}>
-              <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
+              <p className="tiptext">
                  sample text
               </p>
             </Card>
@@ -126,7 +126,8 @@ class TotalMortgageBalance extends Component {
                   </FormGroup>
                 </React.Fragment>
             </Form.Field>
-            <Row className="rowStyle oneBtn">
+            <div style={{height: '100px'}}/>
+            <Row className="oneBtn">
               <Col>
                 <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Next </Button>
               </Col>

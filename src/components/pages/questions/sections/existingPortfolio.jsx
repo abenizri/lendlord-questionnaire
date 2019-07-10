@@ -138,7 +138,8 @@ class ExistingPortfolio extends Component{
                 </React.Fragment>
               )}
             </Form.Field>
-            <Row className="rowStyle">
+            <div style={{height: '100px'}}/>
+            <Row>
               <Col>
                 <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.goToSignIn} value="No">Yes </Button>
               </Col>

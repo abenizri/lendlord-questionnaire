@@ -141,7 +141,7 @@ class IncomeTax extends Component{
                   <h1 style={style}>What is your income tax?</h1>
                   <div style={{height: '10px'}}></div>
                   <Card style={{border: 'transparent', marginBottom: '0' }}>
-                    <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
+                    <p className="tiptext">
                       Lorem Ipsum has been the industrys standard dummy text
                       ever since the 1500s, when an unknown printer took a galley
                       of type and scrambled it to make a type specimen book.
@@ -171,7 +171,8 @@ class IncomeTax extends Component{
                       </Row>
                   </FormGroup>
                   </Form.Field>
-                  <Row className="rowStyle oneBtn">
+                  <div style={{height: '100px'}}/>
+                  <Row className="oneBtn">
                     <Col>
                       <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Next </Button>
                     </Col>

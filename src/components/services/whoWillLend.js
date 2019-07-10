@@ -145,6 +145,8 @@ function constructMessageAccordingToRule(lender, rule, ruleValue) {
       return
     case "overallExposure":
       return
+    case "minimumIncome":
+      return "Minimum income is lower than" + ruleValue 
     default:
       return
   }
@@ -211,9 +213,15 @@ function ruleIsTrue(lender, rule, ruleValue) {
       return true
     case "overallExposure":
       return willLendOverallExposure(ruleValue)
+    case "minimumIncome":
+      return willLendMinimumIncome(ruleValue)
     default:
     return true
   }
+}
+
+function willLendMinimumIncome(ruleValue) {
+  return info["minimumIncome"] < ruleValue ? false : true
 }
 
 function willLendIfLandlord(ruleValue) {
