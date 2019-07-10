@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
-import Slider from '@material-ui/lab/Slider';
+import Slider from '@material-ui/core/Slider';
 import Tooltip from '@material-ui/core/Tooltip';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
@@ -10,7 +10,8 @@ import {
   Col,
   FormGroup,
   Input,
-  Button
+  Button,
+  Card
 } from 'reactstrap';
 
 function ValueLabelComponent(props) {
@@ -137,12 +138,15 @@ class NumOfProperties extends Component{
         return (
             <React.Fragment>
             {backButton}
-            <Col sm="5" className="colStyle">
+            <Col sm="6" className="colStyle">
               <section id="numOfProperties">
                 <Form>
                 <div style={{  width: '100%' , paddingLeft: '15px'}}>
                   <h3 style={style}>How many properties do you have in your portfolio?</h3>
                   <div style={{height: '10px'}}></div>
+                  <Card style={{border: 'transparent', marginBottom: '0' }}>
+                    <p className="tiptext">Some lenders limit the portfolio size in order to provide new mortgage</p>
+                  </Card>
                   <Form.Field style={{marginLeft: '10%'}}>
                     <FormGroup className="col-sm-10" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
                       <Input disabled bsSize="lg" onChange={this.props.handleChange('numOfProperties')}

@@ -44,8 +44,6 @@ class MortgageForInvestment extends Component{
       <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
     )
 
-    let backButtonMobile = ""
-
     let style = {
         fontFamily: 'SegoePro-Semibold',
         fontSize: '32px',

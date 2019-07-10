@@ -95,8 +95,7 @@ class SideBarLayout extends Component {
   }
 
   render() {
-
-    const { children, ...attributes } = this.props;
+    
     const { width } = this.state;
     const isMobile = width <= 800;
 

@@ -21,8 +21,9 @@ class SorryPage extends Component{
 
   }
 
-  back = (e) => {
-    this.props.jumpSteps(12)
+  back  = (e) => {
+      e.preventDefault();
+      this.props.prevStep();
   }
 
   saveAndContinue = (e) => {

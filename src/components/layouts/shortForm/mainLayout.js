@@ -27,7 +27,7 @@ class MainLayout extends Component {
   render() {
     return (
       <React.Fragment>
-        <LayoutHeader/>
+        <LayoutHeader updateStep={this.updateStep} step={this.state.step}/>
         <FormGroup>
           <div className="container-fluid">
             <Row style={{ paddingTop: "150px"}} className="no-gutters">

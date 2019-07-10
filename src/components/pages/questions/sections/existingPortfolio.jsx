@@ -9,7 +9,8 @@ import {
   Col,
   FormGroup,
   Input,
-  Button
+  Button,
+  Card
 } from 'reactstrap';
 
 class ExistingPortfolio extends Component{
@@ -64,9 +65,9 @@ class ExistingPortfolio extends Component{
         this.props.jumpSteps(13);
     }
 
-    goToResultsPage = (e) => {
+    goToSorry = (e) => {
         e.preventDefault();
-        this.props.jumpSteps(12);
+        this.props.jumpSteps(14);
     }
 
     render(){
@@ -105,46 +106,18 @@ class ExistingPortfolio extends Component{
         <section id="existingPortfolio" >
           <Form >
           <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-            <h1 style={style}>Are you interested to find remortgage opportunities on your existing portfolio?</h1>
-
-            <div style={{ height: "10px" }}></div>
-            <Form.Field >
-              {!this.state.isHidden && (
-                <React.Fragment>
-                <FormGroup>
-
-
-                </FormGroup>
-                <FormGroup row type="question" style={{ marginBottom: '0.3rem',borderRadius: '0.5rem', paddingTop: '10px', marginRight: '0px', marginLeft: '0px'}}>
-                  <Row style={{ width: '100%'}}>
-                      <Col sm="9" style={{ paddingRight: '0px'}}>
-                        <FormGroup>
-                          <div className="input-group">
-                            <label className="control-label required"  style={{ marginBottom: '0px', fontWeight: 700}}>What is the total mortgages balance with this Lender?
-                            </label>
-                          </div>
-                        </FormGroup>
-                      </Col>
-                      <Col sm="3" style={{ paddingRight: '0px'}}>
-                        <div className="input-prepend input-group">
-                        <div className="input-group-prepend">
-                          <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
-                        </div>
-                          <Input id="totalMortgagesBalanceForLender" onChange={this.props.handleChange('totalMortgagesBalanceForLender')}  defaultValue={values.totalMortgagesBalanceForLender} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
-                        </div>
-                      </Col>
-                    </Row>
-                </FormGroup>
-                </React.Fragment>
-              )}
-            </Form.Field>
+            <h1 style={style}>Are you interested in Remortgage opportunities on your existing portfolio</h1>
+            <div style={{height: '10px'}}></div>
+            <Card style={{border: 'transparent'}}>
+              <p className="tiptext">We can provide you with ongoing insights on interest rate, capital raising, and remortgage opportunities</p>
+            </Card>
             <div style={{height: '100px'}}/>
             <Row>
               <Col>
                 <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.goToSignIn} value="No">Yes </Button>
               </Col>
               <Col>
-                <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.goToResultsPage}>No</Button>
+                <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.goToSorry}>No</Button>
               </Col>
             </Row>
             </div>

@@ -19,9 +19,9 @@ class RemortgageQuestion extends Component {
 
   componentDidMount(prevProps) {}
 
-  jumpAhead = e => {
+  jumpToPortfolio = e => {
     e.preventDefault();
-    this.props.jumpSteps(12);
+    this.props.jumpSteps(11);
   };
 
   back  = (e) => {
@@ -91,13 +91,8 @@ class RemortgageQuestion extends Component {
         <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
           <h1 style={style}>Are you interested in new mortgage for new investment property?</h1>
           <div style={{height: '10px'}}></div>
-
           <Card style={{border: 'transparent'}}>
-            <p className="tiptext">
-              Lorem Ipsum has been the industrys standard dummy text
-              ever since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book.
-            </p>
+            <p className="tiptext"></p>
           </Card>
 
           <Form.Field style={{ marginLeft: "100px" }}>
@@ -109,7 +104,7 @@ class RemortgageQuestion extends Component {
               <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Yes </Button>
             </Col>
             <Col>
-              <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.jumpAhead}>No</Button>
+              <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.jumpToPortfolio}>No</Button>
             </Col>
           </Row>
         </div>

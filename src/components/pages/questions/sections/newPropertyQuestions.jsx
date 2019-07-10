@@ -17,6 +17,20 @@ class NewPropertyQuestions extends Component {
     };
   }
 
+  componentDidMount() {
+    let inputs = Array.from(document.querySelectorAll('#NewPropertyQuestions input'))
+    inputs.map(input => {
+      input.addEventListener("input", () => {
+        input.value = this.numberWithCommas(input.value)
+      })
+    })
+  }
+
+  numberWithCommas(x) {
+    x = x.replace(/\D+/g,'')
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   back = e => {
     this.props.prevStep()
   };
@@ -149,10 +163,10 @@ class NewPropertyQuestions extends Component {
                       </Col>
                       <Col sm="4" style={{ paddingRight: '0px'}}>
                         <div className="input-prepend input-group">
-                        <div className="input-group-prepend">
-                          <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
-                        </div>
-                          <Input id="loanValue" defaultValue={values.loanValue} onChange={this.props.handleChange('loanValue')} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
+                          <div className="input-group-prepend">
+                            <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
+                          </div>
+                            <Input id="loanValue" defaultValue={values.loanValue} onChange={this.props.handleChange('loanValue')} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
                         </div>
                       </Col>
                     </Row>

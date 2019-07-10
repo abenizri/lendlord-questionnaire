@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
-import Slider from '@material-ui/lab/Slider';
+import Slider from '@material-ui/core/Slider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
@@ -48,6 +48,8 @@ class IncomeTax extends Component{
       };
 
     }
+
+
 
     componentDidMount(props) {
       document.querySelector('.MuiSlider-rail').style.color = '#F5F5F5'
@@ -142,9 +144,7 @@ class IncomeTax extends Component{
                   <div style={{height: '10px'}}></div>
                   <Card style={{border: 'transparent', marginBottom: '0' }}>
                     <p className="tiptext">
-                      Lorem Ipsum has been the industrys standard dummy text
-                      ever since the 1500s, when an unknown printer took a galley
-                      of type and scrambled it to make a type specimen book.
+                      The tax band is important in order to understand how much you can borrow
                     </p>
                   </Card>
                   <Form.Field >
