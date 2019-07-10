@@ -80,6 +80,7 @@ class SignUp extends Component {
                 <span style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>Sign in with Google</span>
               </React.Fragment>
           </Form.Field>
+          <div style={{height: '100px'}}/>
           <Row>
             <Col>
               <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="Yes">Yes </Button>

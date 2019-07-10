@@ -75,8 +75,8 @@ class SideBarLayout extends Component {
     return sideBarObjects.map((obj, key) => {
       key = key + 2
       return (
-        <li key={key} step={key} style={{listStyle: 'none', paddingBottom: '8px'}}>
-          <img src={circleNext} alt="circleNext" style={{marginBottom: '3px',  width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
+        <li key={key} step={key} style={{listStyle: 'none', paddingBottom: '6px'}}>
+          <img src={circleNext} alt="circleNext" style={{marginBottom: '3px',  width: '12px', height: '12px', display: 'inline-table'}} className="checkCircle"/>
           <span style={{marginLeft: '20px', color: '#CCCCCC'}}>{obj}</span>
         </li>
       )
@@ -88,7 +88,7 @@ class SideBarLayout extends Component {
       key = key + 2
       return (
         <div key={key} step={key} className="stepwizard-step" style={{marginRight: '4px'}}>
-            <img src={circleNext} alt="circleNext" style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
+            <img src={circleNext} alt="circleNext" style={{marginBottom: '3px', width: '16px', height: '16px', display: 'inline-table'}} className="checkCircle"/>
         </div>
       )
     })
@@ -106,7 +106,7 @@ class SideBarLayout extends Component {
           <div className="stepwizard" style={{width: '80%'}}>
             <div className="stepwizard-row setup-panel d-flex">
               <div step="1"  className="stepwizard-step" style={{marginRight: '4px'}}>
-                <img src={circleCurrent} alt="circleCurrent" style={{marginBottom: '3px',  width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
+                <img src={circleCurrent} alt="circleCurrent" style={{marginBottom: '3px',  width: '16px', height: '16px', display: 'inline-table'}} className="checkCircle"/>
               </div>
               {this.renderMobileItems()}
             </div>
@@ -119,9 +119,9 @@ class SideBarLayout extends Component {
     return (
 
       <React.Fragment>
-        <ul style={{ float: 'left', paddingInlineStart: '0px', marginLeft: '80px'}}>
+        <ul style={{ float: 'left', paddingInlineStart: '0px', marginLeft: '80px', fontSize: '12px'}}>
           <li step="1" style={{listStyle: 'none', paddingBottom: '8px'}}>
-           <img src={circleCurrent} alt="" style={{marginBottom: '3px',  width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
+           <img src={circleCurrent} alt="" style={{marginBottom: '3px',  width: '12px', height: '12px', display: 'inline-table'}} className="checkCircle"/>
            <span style={{marginLeft: '20px'}}>Landlord</span>
           </li>
           {this.renderListItems()}

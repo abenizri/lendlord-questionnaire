@@ -93,7 +93,7 @@ class RemortgageQuestion extends Component {
           <div style={{height: '10px'}}></div>
 
           <Card style={{border: 'transparent'}}>
-            <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
+            <p className="tiptext">
               Lorem Ipsum has been the industrys standard dummy text
               ever since the 1500s, when an unknown printer took a galley
               of type and scrambled it to make a type specimen book.
@@ -103,7 +103,8 @@ class RemortgageQuestion extends Component {
           <Form.Field style={{ marginLeft: "100px" }}>
 
           </Form.Field>
-          <Row className="rowStyle">
+          <div style={{height: '100px'}}/>
+          <Row>
             <Col>
               <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Yes </Button>
             </Col>
