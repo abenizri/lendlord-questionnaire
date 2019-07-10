@@ -19,10 +19,15 @@ class RemortgageQuestion extends Component {
 
   componentDidMount(prevProps) {}
 
-  back = e => {
+  jumpAhead = e => {
     e.preventDefault();
-    this.props.jumpSteps(10);
+    this.props.jumpSteps(12);
   };
+
+  back  = (e) => {
+      e.preventDefault();
+      this.props.prevStep();
+  }
 
   handleChange = e => {
     $('[name="moreThan3PropWithLender"]').prop("checked", false);
@@ -43,6 +48,10 @@ class RemortgageQuestion extends Component {
 
     const { width } = this.state;
     const isMobile = width <= 800;
+
+    let backButton = (
+      <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+    )
 
     let style = {
       fontFamily: 'SegoePro-Semibold',
@@ -69,9 +78,13 @@ class RemortgageQuestion extends Component {
         textAlign: "center"
 
       }
+
+      backButton = ""
     }
 
     return (
+      <React.Fragment>
+      {backButton}
       <Col sm="5" className="colStyle">
       <section id="RemortgageQuestion">
         <Form>
@@ -95,13 +108,14 @@ class RemortgageQuestion extends Component {
               <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Yes </Button>
             </Col>
             <Col>
-              <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>No</Button>
+              <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.jumpAhead}>No</Button>
             </Col>
           </Row>
         </div>
         </Form>
       </section>
       </Col>
+      </React.Fragment>
     );
   }
 }

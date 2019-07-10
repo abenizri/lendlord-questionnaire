@@ -163,6 +163,10 @@ function getSuggestions(value, { showEmpty = false } = {}) {
 
 class Autocomplete extends Component {
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.value !== nextProps.value
+  }
+
   componentDidMount(props) {
     var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
     let input = document.getElementById('downshift-simple-input')
@@ -211,6 +215,12 @@ class Autocomplete extends Component {
     }));
   }
 
+ // onClick = (e) =>  {
+ //    console.log('here');
+ //    console.log(e.target);
+ //    //return (e) => this.props.handleChange('lender',e)
+ // }
+
   render(){
     const classes = this.useStyles();
 
@@ -229,8 +239,9 @@ class Autocomplete extends Component {
             selectedItem,
           }) => {
             const { onBlur, onFocus, ...inputProps } = getInputProps({
-              placeholder: `Type Lander's Name`,
+              placeholder: `Type Lender's Name`,
               onChange: this.props.handleChange('lender')
+
             });
 
             return (

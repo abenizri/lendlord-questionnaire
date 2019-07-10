@@ -4,7 +4,7 @@ import circleCurrent from './../../../assets/images/ico-current.svg';
 import circleNext from './../../../assets/images/ico-next.svg';
 
 const sideBarObjects =
-["Properties", "Lender", "Total Balance", "LTV", "Invesments", "Total Value", "Income Tax", "Results", "Sign Up"]
+["Properties", "Lender", "Total Balance", "LTV", "Invesments", "Total Value", "Annual Income", "Income Tax", "Results", "New Mortgage", "Sign Up"]
 
 class SideBarLayout extends Component {
 
@@ -42,27 +42,27 @@ class SideBarLayout extends Component {
     }
 
   componentWillReceiveProps(nextProps) {
-    let previous = document.querySelector(`[step='${nextProps.step - 1}`)
-    let next = document.querySelector(`[step='${nextProps.step + 1}`)
-    let current =   document.querySelector(`[step='${nextProps.step}']`)
+    let previous = document.querySelector('[step="' + (nextProps.step - 1) + '"]')
+    let next = document.querySelector('[step="' + nextProps.step +  1 + '"]')
+    let current =   document.querySelector('[step="' + nextProps.step+ '"]')
     if (current) {
-      document.querySelector(`[step='${nextProps.step}'] img`).src = circleCurrent
-      if (document.querySelector(`[step='${nextProps.step}'] span`)) {
-        document.querySelector(`[step='${nextProps.step}'] span`).style.color = '#74818F'
+      document.querySelector('[step="' + nextProps.step + '"] img').src = circleCurrent
+      if (document.querySelector('[step="' + nextProps.step + '"] span')) {
+        document.querySelector('[step="' + nextProps.step + '"] span').style.color = '#74818F'
       }
 
     }
     if (previous) {
-      document.querySelector(`[step='${nextProps.step - 1}'] img`).src = circleDone
-      if (document.querySelector(`[step='${nextProps.step - 1}'] span`)) {
-        document.querySelector(`[step='${nextProps.step - 1}'] span`).style.color = '#FF9F08'
+      document.querySelector('[step="' + (nextProps.step - 1) + '"] img').src = circleDone
+      if (document.querySelector('[step="' + (nextProps.step - 1) + '"] span')) {
+        document.querySelector('[step="' + (nextProps.step - 1) + '"] span').style.color = '#FF9F08'
       }
 
     }
     if (next) {
-      document.querySelector(`[step='${nextProps.step + 1}'] img`).src = circleNext
-      if (document.querySelector(`[step='${nextProps.step + 1}'] span`)) {
-        document.querySelector(`[step='${nextProps.step + 1}'] span`).style.color = '#CCCCCC'
+      document.querySelector('[step="' + nextProps.step + 1 + '"] img').src = circleNext
+      if (document.querySelector('[step="' + nextProps.step + 1 + '"] span')) {
+        document.querySelector('[step="' + nextProps.step + 1 + '"] span').style.color = '#CCCCCC'
       }
     }
 
@@ -87,7 +87,7 @@ class SideBarLayout extends Component {
     return sideBarObjects.map((obj, key) => {
       key = key + 2
       return (
-        <div key={key} step={key} className="stepwizard-step">
+        <div key={key} step={key} className="stepwizard-step" style={{marginRight: '4px'}}>
             <img src={circleNext} alt="circleNext" style={{marginBottom: '3px', width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
         </div>
       )
@@ -103,9 +103,9 @@ class SideBarLayout extends Component {
     if (isMobile) {
       return (
         <div style={{  justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
-          <div className="stepwizard">
+          <div className="stepwizard" style={{width: '80%'}}>
             <div className="stepwizard-row setup-panel d-flex">
-              <div step="1"  className="stepwizard-step">
+              <div step="1"  className="stepwizard-step" style={{marginRight: '4px'}}>
                 <img src={circleCurrent} alt="circleCurrent" style={{marginBottom: '3px',  width: '20px', height: '20px', display: 'inline-table'}} className="checkCircle"/>
               </div>
               {this.renderMobileItems()}

@@ -49,6 +49,7 @@ class NumOfProperties extends Component{
     }
 
     componentDidMount(props) {
+      // console.log(this.props)
       document.querySelector('.MuiSlider-rail').style.color = '#F5F5F5'
       document.querySelector('.MuiSlider-rail').style.height = '7px'
 
@@ -86,10 +87,20 @@ class NumOfProperties extends Component{
       }
     }
 
+    // renderBackButton() {
+    //   return <Button block color="secondary" style={{ position: 'absolute', left: '10%' width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+    // }
+
     render(){
         const { values } = this.props
         const { width } = this.state;
         const isMobile = width <= 800;
+
+        let backButton = (
+          <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+        )
+
+        let backButtonMobile = ""
 
         let style = {
           fontFamily: 'SegoePro-Semibold',
@@ -115,44 +126,51 @@ class NumOfProperties extends Component{
             flexDirection: "column",
             textAlign: "center"
           }
+          backButton = ""
+          backButtonMobile = (
+            <Col>
+            <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+            </Col>
+          )
         }
 
-        return(
-          <Col sm="5" className="colStyle">
-            <section id="numOfProperties">
-              <Form>
-              <div style={{  width: '100%' , paddingLeft: '15px'}}>
-                <h3 style={style}>How many properties do you have in your portfolio?</h3>
-                <div style={{height: '10px'}}></div>
-                <Form.Field style={{marginLeft: '10%'}}>
-                  <FormGroup className="col-sm-10" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
-                    <Input disabled bsSize="lg" onChange={this.props.handleChange('numOfProperties')}
-                    defaultValue={values.numOfProperties} style={{backgroundColor: 'transparent', width: '50px', paddingLeft: '12px', paddingRight: '12px'}} id="input-large" name="input-large" className="input-lg" placeholder="0" />
-                  </FormGroup>
-                  <Col sm="10" >
-                    <FormGroup >
-                      <Slider
-                        ValueLabelComponent={ValueLabelComponent}
-                        aria-label="Custom thumb label"
-                        defaultValue={parseInt(values.numOfProperties)}
-                        max={25}
-                        onChange={this.sliderChange}
-                        />
+        return (
+            <React.Fragment>
+            {backButton}
+            <Col sm="5" className="colStyle">
+              <section id="numOfProperties">
+                <Form>
+                <div style={{  width: '100%' , paddingLeft: '15px'}}>
+                  <h3 style={style}>How many properties do you have in your portfolio?</h3>
+                  <div style={{height: '10px'}}></div>
+                  <Form.Field style={{marginLeft: '10%'}}>
+                    <FormGroup className="col-sm-10" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
+                      <Input disabled bsSize="lg" onChange={this.props.handleChange('numOfProperties')}
+                      defaultValue={values.numOfProperties} style={{backgroundColor: 'transparent', width: '50px', paddingLeft: '12px', paddingRight: '12px'}} id="input-large" name="input-large" className="input-lg" placeholder="0" />
                     </FormGroup>
-                  </Col>
-                </Form.Field>
-                <Row className="rowStyle">
-                  <Col>
-                    <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Next </Button>
-                  </Col>
-                  <Col>
-                    <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
-                  </Col>
-                </Row>
-              </div>
-            </Form>
-          </section>
-        </Col>
+                    <Col sm="10" >
+                      <FormGroup >
+                        <Slider
+                          ValueLabelComponent={ValueLabelComponent}
+                          aria-label="Custom thumb label"
+                          defaultValue={parseInt(values.numOfProperties)}
+                          max={25}
+                          onChange={this.sliderChange}
+                          />
+                      </FormGroup>
+                    </Col>
+                  </Form.Field>
+                  <Row className="rowStyle oneBtn">
+                    <Col>
+                      <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Next </Button>
+                    </Col>
+                    {backButtonMobile}
+                  </Row>
+                </div>
+              </Form>
+            </section>
+          </Col>
+          </React.Fragment>
         )
     }
 }

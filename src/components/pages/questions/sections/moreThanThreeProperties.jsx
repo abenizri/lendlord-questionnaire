@@ -25,10 +25,14 @@ class moreThanThreeProperties extends Component {
     }
   }
 
-  back = e => {
-    e.preventDefault();
-    this.props.prevStep();
-  };
+  jumpToLTV = e => {
+    this.props.jumpSteps(5)
+  }
+
+  back  = (e) => {
+      e.preventDefault();
+      this.props.prevStep();
+  }
 
   doChange(input) {
     document.querySelectorAll('[name="moreThan3PropWithLender"]').forEach( x => $(x).prop("checked", false))
@@ -61,6 +65,10 @@ class moreThanThreeProperties extends Component {
     const { width } = this.state;
     const isMobile = width <= 800;
 
+    let backButton = (
+      <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+    )
+
     let style = {
         fontFamily: 'SegoePro-Semibold',
         fontSize: '32px',
@@ -86,50 +94,54 @@ class moreThanThreeProperties extends Component {
         flexDirection: "column",
         textAlign: "center"
       }
+      backButton = ""
     }
 
     return (
-      <Col sm="5" className="colStyle">
-      <section id="moreThan3PropWithLenderProperties">
-        <Form>
-        <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-          <h1 style={style}>Do you have more than 3 properties with one Lender?</h1>
-          <div style={{height: '10px'}}></div>
-          <Card style={{border: 'transparent', marginBottom: '0' }}>
-            <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
-              Lorem Ipsum has been the industrys standard dummy text
-              ever since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book.
-            </p>
-          </Card>
-          <Form.Field >
-            <Col sm="12">
-              <React.Fragment>
-              <FormGroup className="col-sm-12" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
-                <div id="auto">
-                  <Autocomplete
-                    style={{ outline: "none" }}
-                    handleChange = {this.props.handleChange}
-                    values={values}
-                  />
-                </div>
+      <React.Fragment>
+        {backButton}
+        <Col sm="5" className="colStyle">
+        <section id="moreThan3PropWithLenderProperties">
+          <Form>
+          <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
+            <h1 style={style}>Do you have more than 3 properties with one Lender?</h1>
+            <div style={{height: '10px'}}></div>
+            <Card style={{border: 'transparent', marginBottom: '0' }}>
+              <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
+                Lorem Ipsum has been the industrys standard dummy text
+                ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book.
+              </p>
+            </Card>
+            <Form.Field >
+              <Col sm="12">
+                <React.Fragment>
+                <FormGroup className="col-sm-12" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
+                  <div id="auto">
+                    <Autocomplete
+                      style={{ outline: "none" }}
+                      handleChange = {this.props.handleChange}
+                      values={values}
+                    />
+                  </div>
 
-              </FormGroup>
-              </React.Fragment>
-            </Col>
-          </Form.Field>
-          <Row className="rowStyle">
-            <Col>
-              <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Next </Button>
-            </Col>
-            <Col>
-              <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
-            </Col>
-          </Row>
-          </div>
-        </Form>
-      </section>
-      </Col>
+                </FormGroup>
+                </React.Fragment>
+              </Col>
+            </Form.Field>
+            <Row className="rowStyle">
+              <Col>
+                <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Yes</Button>
+              </Col>
+              <Col>
+                <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.jumpToLTV}>No</Button>
+              </Col>
+            </Row>
+            </div>
+          </Form>
+        </section>
+        </Col>
+      </React.Fragment>
     );
   }
 }

@@ -61,12 +61,12 @@ class ExistingPortfolio extends Component{
 
     goToSignIn  = (e) => {
         e.preventDefault();
-        this.props.jumpSteps(12);
+        this.props.jumpSteps(13);
     }
 
     goToResultsPage = (e) => {
         e.preventDefault();
-        this.props.jumpSteps(8);
+        this.props.jumpSteps(12);
     }
 
     render(){

@@ -8,13 +8,7 @@ import MainLayout  from './components/layouts/shortForm/mainLayout.js'
 
 function App() {
   return (
-    <Router >
-      <Switch>
-        <Route path='/home' component={MainHeader}/>
-        <Route path='/questions' component={MainLayout}/>
-        <Redirect from="/" to="/questions"/>
-      </Switch>
-    </Router>
+    <MainLayout/>
   );
 }
 

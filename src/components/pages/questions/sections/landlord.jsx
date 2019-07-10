@@ -22,8 +22,8 @@ class Landlord extends Component{
 
   }
 
-  cancel = (e) => {
-    this.props.jumpSteps(11)
+  jumpToMortgageInvestments = (e) => {
+    this.props.jumpSteps(12)
   }
 
   saveAndContinue = (e) => {
@@ -62,17 +62,15 @@ class Landlord extends Component{
     }
   }
       return(
-        <Col sm="5" className="colStyle">
-        <section id="islandlord" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
+        <Col sm="6" className="colStyle">
+        <section id="isLandLord" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
           <Form >
           <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-              <h3 className="display-4" style={style}>Do you have at least one investment property?</h3>
+              <h3 className="display-4" style={style}>Are you an existing landlord?</h3>
               <div style={{height: '10px'}}></div>
               <Card style={{border: 'transparent', marginBottom: '0' }}>
                 <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
-                  Lorem Ipsum has been the industrys standard dummy text
-                  ever since the 1500s, when an unknown printer took a galley
-                  of type and scrambled it to make a type specimen book.
+                  Have at least one investment property
                 </p>
               </Card>
               <Form.Field>
@@ -81,7 +79,7 @@ class Landlord extends Component{
                   <Button block  color="warning" style={{width: '100px', backgroundColor: '#FF9F08', color: '#fff', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="Yes">Yes </Button>
                 </Col>
                 <Col>
-                  <Button block color="secondary" style={{ width: '100px',backgroundColor: '#74818F',  padding: '0', borderRadius: '4px', height: '34px'}} id="" onClick={this.cancel} value="No">No</Button>
+                  <Button block color="secondary" style={{ width: '100px',backgroundColor: '#74818F',  padding: '0', borderRadius: '4px', height: '34px'}} id="" onClick={this.jumpToMortgageInvestments} value="No">No</Button>
                 </Col>
               </Row>
               </Form.Field>

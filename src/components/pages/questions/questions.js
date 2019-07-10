@@ -6,9 +6,10 @@ import MoreThanThreeProperties from './sections/moreThanThreeProperties.jsx'
 import MortgageForInvestment from './sections/mortgageForInvestment.jsx'
 import PortfolioLtv from './sections/portfolioLtv.jsx'
 import RemortgageQuestion from './sections/remortgageQuestion.jsx'
-import IncomeQuestions from './sections/incomeQuestions.jsx'
+import NewPropertyQuestions from './sections/newPropertyQuestions.jsx'
 import Results from './sections/results.jsx'
 import ExistingPortfolio from './sections/existingPortfolio.jsx'
+import IncomeAbove30 from './sections/incomeAbove30.jsx'
 import IncomeTax from './sections/incomeTax.jsx'
 import SignUp from './sections/signUp.jsx'
 import SorryPage from './sections/sorryPage.jsx'
@@ -18,7 +19,8 @@ class Questions extends Component {
 
     state = {
         step: 1,
-        islandlord: 'No',
+        steps: [],
+        isLandLord: 'Yes',
         moreThan3PropWithLender: 'No',
         numOfProperties: 1,
         incomeTaxBand1: 0,
@@ -30,7 +32,8 @@ class Questions extends Component {
         ltv: '0',
         notSure: 'false',
         lender: '',
-        totalMortgagesBalanceForLender: '0'
+        totalMortgagesBalanceForLender: '0',
+        minimumIncome: '0'
     }
 
     clearForm = () => {
@@ -38,30 +41,44 @@ class Questions extends Component {
     }
 
     nextStep = () => {
-        const { step } = this.state
+        const { step, steps } = this.state
+        steps.push(step)
         this.setState({
-            step : step + 1
+            step : step + 1,
+            steps: steps
         })
         this.props.updateStep(step + 1)
     }
 
     prevStep = () => {
-        const { step } = this.state
+        const { step, steps } = this.state
+        let lastStep = steps.pop()
         this.setState({
-            step : step - 1
+            step : lastStep,
+            steps: steps
         })
-        this.props.updateStep(step- 1)
+        this.props.updateStep(step - 1)
     }
 
     jumpSteps = num => {
+        const { step, steps } = this.state
+        steps.push(step)
         this.setState({
-            step : num
+            step : num,
+            steps: steps
         })
         this.props.updateStep(num)
     }
 
     handleChange = (input) => {
-      console.log(input);
+      if (input === 'lender') {
+        let elem = document.getElementById('downshift-simple-input')
+        if(elem && elem.value) {
+          setTimeout(() => {
+            this.setState({ [input] : elem.value })
+          }, 100)
+        }
+      }
       if (input === 'incomeTaxBand1') {
         let elem = document.querySelector('input[type="hidden"]')
 
@@ -99,11 +116,14 @@ class Questions extends Component {
         ltv,
         notSure,
         lender,
-        totalMortgagesBalanceForLender
+        totalMortgagesBalanceForLender,
+        isLandLord,
+        minimumIncome
        } = this.state;
 
       const values = {
         totalMortgagesBalanceForLender,
+        isLandLord,
         lender,
         notSure,
         moreThan3PropWithLender,
@@ -115,7 +135,8 @@ class Questions extends Component {
         propertyEstimatedRentalIncome,
         approximatePropertyValue,
         approximateRemaining,
-        ltv
+        ltv,
+        minimumIncome
       };
         //
         switch(step) {
@@ -139,6 +160,7 @@ class Questions extends Component {
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
                     handleChange = {this.handleChange}
+                    jumpSteps={this.jumpSteps}
                     values={values}
                     />
         case 4:
@@ -166,7 +188,7 @@ class Questions extends Component {
                     />
 
         case 7:
-          return <IncomeQuestions
+          return <NewPropertyQuestions
                     nextStep={this.nextStep}
                     handleChange = {this.handleChange}
                     prevStep={this.prevStep}
@@ -175,6 +197,15 @@ class Questions extends Component {
                     />
 
         case 8:
+          return <IncomeAbove30
+                    nextStep={this.nextStep}
+                    handleChange = {this.handleChange}
+                    prevStep={this.prevStep}
+                    jumpSteps={this.jumpSteps}
+                    values={values}
+                    />
+
+        case 9:
           return <IncomeTax
                     nextStep={this.nextStep}
                     handleChange = {this.handleChange}
@@ -182,7 +213,7 @@ class Questions extends Component {
                     jumpSteps={this.jumpSteps}
                     values={values}
                     />
-        case 9:
+        case 10:
           return <Results
                     prevStep={this.prevStep}
                     nextStep={this.nextStep}
@@ -191,7 +222,7 @@ class Questions extends Component {
                     values={values}
                     />
 
-        case 10:
+        case 11:
           return <ExistingPortfolio
                     prevStep={this.prevStep}
                     nextStep={this.nextStep}
@@ -200,7 +231,7 @@ class Questions extends Component {
                     values={values}
                     />
 
-        case 11:
+        case 12:
           return <MortgageForInvestment
                     prevStep={this.prevStep}
                     nextStep={this.nextStep}
@@ -208,7 +239,7 @@ class Questions extends Component {
                     handleChange = {this.handleChange}
                     values={values}
                     />
-        case 12:
+        case 13:
           return <SignUp
                       prevStep={this.prevStep}
                       nextStep={this.nextStep}
@@ -216,7 +247,7 @@ class Questions extends Component {
                       handleChange = {this.handleChange}
                       values={values}
                       />
-        case 13:
+        case 14:
           return <SorryPage
                       prevStep={this.prevStep}
                       nextStep={this.nextStep}

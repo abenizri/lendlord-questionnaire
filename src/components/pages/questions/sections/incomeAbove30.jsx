@@ -16,19 +16,23 @@ import {
 const marks = [
 {
   value: 0,
-  label: '0%',
+  label: '15k',
   },
   {
-  value: 33,
-  label: '20%',
+  value: 25,
+  label: '18k'
   },
   {
-  value: 66,
-  label: '40%',
+  value: 50,
+  label: '20k',
+  },
+  {
+  value: 75,
+  label: '25k',
   },
   {
   value: 100,
-  label: '45%',
+  label: '30k',
   },
 ];
 
@@ -38,7 +42,7 @@ function valueLabelFormat(value) {
   return (markObj) ? markObj.label : '0%'
 }
 
-class IncomeTax extends Component{
+class IncomeAbove30 extends Component{
     constructor(props) {
       super(props);
 
@@ -109,6 +113,7 @@ class IncomeTax extends Component{
           display: "flex",
           flexDirection: "column",
           textAlign: "center"
+
         }
 
         if (isMobile) {
@@ -123,6 +128,7 @@ class IncomeTax extends Component{
             flexDirection: "column",
             textAlign: "center"
           }
+
           backButton = ""
           backButtonMobile = (
             <Col>
@@ -135,16 +141,14 @@ class IncomeTax extends Component{
           <React.Fragment>
             {backButton}
             <Col sm="5" className="colStyle">
-            <section id="incomeTax">
+            <section id="incomeAbove30">
               <Form>
               <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-                  <h1 style={style}>What is your income tax?</h1>
+                  <h1 style={style}>Is your annual income above one of the following?</h1>
                   <div style={{height: '10px'}}></div>
                   <Card style={{border: 'transparent', marginBottom: '0' }}>
                     <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
-                      Lorem Ipsum has been the industrys standard dummy text
-                      ever since the 1500s, when an unknown printer took a galley
-                      of type and scrambled it to make a type specimen book.
+                      Some lenders will not lend if your annual income is below one of the following amounts
                     </p>
                   </Card>
                   <Form.Field >
@@ -153,11 +157,11 @@ class IncomeTax extends Component{
 
                         <Col sm="10" style={{paddingRight: '0px', marginLeft: '30px'}}>
                         <FormGroup  sm="1" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
-                          <Input disabled bsSize="lg" onChange={this.props.handleChange('incomeTaxBand1')}
-                          defaultValue={valueLabelFormat(values.incomeTaxBand1)} style={{ display: 'none', backgroundColor: 'transparent', width: '50px', paddingLeft: '12px', paddingRight: '12px'}} id="input-large" name="input-large" className="input-lg" placeholder="0" />
+                          <Input disabled bsSize="lg" onChange={this.props.handleChange('minimumIncome')}
+                          defaultValue={valueLabelFormat(values.minimumIncome)} style={{ display: 'none', backgroundColor: 'transparent', width: '50px', paddingLeft: '12px', paddingRight: '12px'}} id="input-large" name="input-large" className="input-lg" placeholder="0" />
                         </FormGroup>
                         <Slider
-                           defaultValue={parseInt(values.incomeTaxBand1)}
+                           defaultValue={parseInt(values.minimumIncome)}
                            valueLabelFormat={valueLabelFormat}
                            getAriaValueText={valueLabelFormat}
                            aria-labelledby="discrete-slider-restrict"
@@ -186,4 +190,4 @@ class IncomeTax extends Component{
     }
 }
 
-export default IncomeTax;
+export default IncomeAbove30;
