@@ -72,6 +72,23 @@ class PortfolioLtv extends Component {
     const { width } = this.state;
     const isMobile = width <= 800;
 
+    let backButton = (
+      <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+    )
+
+    let backButtonMobile = ""
+
+    let nextBtnStyle = {
+      width: '100px',
+      color: '#fff',
+      backgroundColor: '#FF9F08',
+      padding: '0',
+      borderRadius: '4px',
+      height: '34px',
+      float: 'right',
+      marginRight: '40%'
+    }
+
     let style = {
       fontFamily: 'SegoePro-Semibold',
       fontSize: '32px',
@@ -97,6 +114,21 @@ class PortfolioLtv extends Component {
         flexDirection: "column",
         textAlign: "center"
       }
+      backButton = ""
+      backButtonMobile = (
+        <Col>
+        <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+        </Col>
+      )
+      nextBtnStyle = {
+        width: '100px',
+        color: '#fff',
+        backgroundColor: '#FF9F08',
+        padding: '0',
+        borderRadius: '4px',
+        height: '34px',
+        float: 'right'
+      }
     }
 
     const notSureStyle = {
@@ -112,100 +144,101 @@ class PortfolioLtv extends Component {
     }
 
     return (
-      <Col sm="5" className="colStyle">
-        <section id="portfolio">
-          <Form>
-            <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-              <h1 style={style}>What is your portfolio LTV?</h1>
-              <div style={{height: '10px'}}></div>
-              <Card style={{border: 'transparent', marginBottom: '0' }}>
-              <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
-              Lorem Ipsum has been the industrys standard dummy text
-              ever since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book.
-              </p>
-              </Card>
+      <React.Fragment>
+        {backButton}
+        <Col sm="5" className="colStyle">
+          <section id="portfolio">
+            <Form>
+              <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
+                <h1 style={style}>What is your portfolio LTV?</h1>
+                <div style={{height: '10px'}}></div>
+                <Card style={{border: 'transparent', marginBottom: '0' }}>
+                <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
+                Lorem Ipsum has been the industrys standard dummy text
+                ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book.
+                </p>
+                </Card>
 
-              <Form.Field>
-                <FormGroup row type="question" style={{ marginBottom: '2.3rem',borderRadius: '0.5rem', paddingTop: '10px', marginRight: '0px', marginLeft: '0px'}}>
-                  <Col sm="12" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>
-                    <Row style={{ width: '100%'}}>
-                      <Col sm={{size: 3, offset: 3}} style={{paddingRight: '0px'}}>
-                        <div className="input-prepend" >
-                          <Input onChange={this.props.handleChange('ltv')}  defaultValue={values.ltv} id="ltv" maxLength="10" type="tel" className="form-control" placeholder="0.00 %" required="required"/>
-                        </div>
-                      </Col>
-                      <Col sm="3">
-                        <FormGroup>
-                          <Input
-                            className="form-check-input"
-                            type="button"
-                            id="notSure"
-                            name="noSureLable"
-                            value='Not Sure?'
-                            onClick={this.onClick}
-                            style={notSureStyle}
-                          />
+                <Form.Field>
+                  <FormGroup row type="question" style={{ marginBottom: '2.3rem',borderRadius: '0.5rem', paddingTop: '10px', marginRight: '0px', marginLeft: '0px'}}>
+                    <Col sm="12" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>
+                      <Row style={{ width: '100%'}}>
+                        <Col sm={{size: 3, offset: 3}} style={{paddingRight: '0px'}}>
+                          <div className="input-prepend" >
+                            <Input onChange={this.props.handleChange('ltv')}  defaultValue={values.ltv} id="ltv" maxLength="10" type="tel" className="form-control" placeholder="0.00 %" required="required"/>
+                          </div>
+                        </Col>
+                        <Col sm="3">
+                          <FormGroup>
+                            <Input
+                              className="form-check-input"
+                              type="button"
+                              id="notSure"
+                              name="noSureLable"
+                              value='Not Sure?'
+                              onClick={this.onClick}
+                              style={notSureStyle}
+                            />
+                          </FormGroup>
+                        </Col>
+                      </Row>
+                    </Col>
+                  </FormGroup>
+                {!this.state.isHidden && (
+                  <React.Fragment>
+                  <FormGroup row type="question" style={{ marginBottom: '0.3rem',borderRadius: '0.5rem', paddingTop: '10px', marginRight: '0px', marginLeft: '0px'}}>
+                  <Row style={{ width: '100%'}}>
+                    <Col sm="8" style={{ paddingRight: '0px'}}>
+                      <FormGroup>
+                          <div className="input-group">
+                            <label className="control-label required"  style={{ marginBottom: '0px', fontWeight: 700}}>What is your approximate total value on all properties?</label>
+                          </div>
                         </FormGroup>
                       </Col>
-                    </Row>
-                  </Col>
-                </FormGroup>
-              {!this.state.isHidden && (
-                <React.Fragment>
-                <FormGroup row type="question" style={{ marginBottom: '0.3rem',borderRadius: '0.5rem', paddingTop: '10px', marginRight: '0px', marginLeft: '0px'}}>
-                <Row style={{ width: '100%'}}>
-                  <Col sm="8" style={{ paddingRight: '0px'}}>
-                    <FormGroup>
-                        <div className="input-group">
-                          <label className="control-label required"  style={{ marginBottom: '0px', fontWeight: 700}}>What is your approximate total value on all properties?</label>
+                      <Col sm="4" style={{ paddingRight: '0px'}}>
+                        <div className="input-prepend input-group">
+                          <div className="input-group-prepend">
+                            <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
+                          </div>
+                          <Input onInput={this.onInput}  onChange={this.props.handleChange('approximatePropertyValue')}  defaultValue={values.approximatePropertyValue} id="approximatePropertyValue" maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
                         </div>
-                      </FormGroup>
-                    </Col>
-                    <Col sm="4" style={{ paddingRight: '0px'}}>
-                      <div className="input-prepend input-group">
+                      </Col>
+                    </Row>
+                </FormGroup>
+                <FormGroup row type="question" style={{ marginBottom: '0.3rem',borderRadius: '0.5rem', paddingTop: '10px', marginRight: '0px', marginLeft: '0px'}}>
+                  <Row style={{ width: '100%'}}>
+                      <Col sm="8" style={{ paddingRight: '0px'}}>
+                        <FormGroup>
+                          <div className="input-group">
+                            <label className="control-label required"  style={{ marginBottom: '0px', fontWeight: 700}}>What is your approximate total remaining balance on all mortgages?</label>
+                          </div>
+                        </FormGroup>
+                      </Col>
+                      <Col sm="4" style={{ paddingRight: '0px'}}>
+                        <div className="input-prepend input-group">
                         <div className="input-group-prepend">
                           <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                         </div>
-                        <Input onInput={this.onInput}  onChange={this.props.handleChange('approximatePropertyValue')}  defaultValue={values.approximatePropertyValue} id="approximatePropertyValue" maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
-                      </div>
-                    </Col>
-                  </Row>
-              </FormGroup>
-              <FormGroup row type="question" style={{ marginBottom: '0.3rem',borderRadius: '0.5rem', paddingTop: '10px', marginRight: '0px', marginLeft: '0px'}}>
-                <Row style={{ width: '100%'}}>
-                    <Col sm="8" style={{ paddingRight: '0px'}}>
-                      <FormGroup>
-                        <div className="input-group">
-                          <label className="control-label required"  style={{ marginBottom: '0px', fontWeight: 700}}>What is your approximate total remaining balance on all mortgages?</label>
+                          <Input onInput={this.onInput} id="approximateRemaining"  onChange={this.props.handleChange('approximateRemaining')}  defaultValue={values.approximateRemaining} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
                         </div>
-                      </FormGroup>
-                    </Col>
-                    <Col sm="4" style={{ paddingRight: '0px'}}>
-                      <div className="input-prepend input-group">
-                      <div className="input-group-prepend">
-                        <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
-                      </div>
-                        <Input onInput={this.onInput} id="approximateRemaining"  onChange={this.props.handleChange('approximateRemaining')}  defaultValue={values.approximateRemaining} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
-                      </div>
-                    </Col>
-                  </Row>
-              </FormGroup>
-              </React.Fragment>
-            )}
-          </Form.Field>
-          <Row>
-            <Col>
-              <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Next </Button>
-            </Col>
-            <Col>
-              <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
-            </Col>
-          </Row>
-          </div>
-        </Form>
-      </section>
-      </Col>
+                      </Col>
+                    </Row>
+                </FormGroup>
+                </React.Fragment>
+              )}
+            </Form.Field>
+            <Row className="oneBtn">
+              <Col>
+                <Button block  color="warning" style={nextBtnStyle} onClick={this.saveAndContinue} value="No">Next </Button>
+              </Col>
+              {backButtonMobile}
+            </Row>
+            </div>
+          </Form>
+        </section>
+        </Col>
+      </React.Fragment>
     );
   }
 }

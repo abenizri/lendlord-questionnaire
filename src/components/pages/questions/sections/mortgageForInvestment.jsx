@@ -22,19 +22,29 @@ class MortgageForInvestment extends Component{
     }
   }
 
-
-  cancel = (e) => {
-    this.props.jumpSteps(13)
+  back  = (e) => {
+      e.preventDefault();
+      this.props.prevStep();
   }
 
-  saveAndContinue = (e) => {
-    this.props.jumpSteps(6)
+  jumpToSorry = (e) => {
+    this.props.jumpSteps(14)
+  }
+
+  jumpToNewProperty = (e) => {
+    this.props.jumpSteps(7)
   }
 
   render(){
 
     const { width } = this.state;
     const isMobile = width <= 800;
+
+    let backButton = (
+      <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+    )
+
+    let backButtonMobile = ""
 
     let style = {
         fontFamily: 'SegoePro-Semibold',
@@ -46,7 +56,6 @@ class MortgageForInvestment extends Component{
         display: "flex",
         flexDirection: "column",
         textAlign: "center"
-
     }
 
     if (isMobile) {
@@ -60,38 +69,42 @@ class MortgageForInvestment extends Component{
         display: "flex",
         flexDirection: "column",
         textAlign: "center"
-
       }
+
+      backButton = ""
     }
       return(
-        <Col sm="5" className="colStyle">
-          <section id="mortgageForInvestment">
-            <Form>
-              <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-                <h1 style={style}>Do you want to get a mortgage for an investment property?</h1>
-                <div style={{height: '10px'}}></div>
-                <Card style={{border: 'transparent'}}>
-                  <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
-                    Lorem Ipsum has been the industrys standard dummy text
-                    ever since the 1500s, when an unknown printer took a galley
-                    of type and scrambled it to make a type specimen book.
-                  </p>
-                </Card>
+        <React.Fragment>
+          {backButton}
+          <Col sm="5" className="colStyle">
+            <section id="mortgageForInvestment">
+              <Form>
+                <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
+                  <h1 style={style}>Do you want a new mortgage for an investment property</h1>
+                  <div style={{height: '10px'}}></div>
+                  <Card style={{border: 'transparent'}}>
+                    <p style={{SegoePro:'14px', color:  '#636363', textAlign: 'center' }}>
+                      Lorem Ipsum has been the industrys standard dummy text
+                      ever since the 1500s, when an unknown printer took a galley
+                      of type and scrambled it to make a type specimen book.
+                    </p>
+                  </Card>
 
-                <Form.Field>
-                  <Row className="rowStyle">
-                    <Col>
-                      <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Yes </Button>
-                    </Col>
-                    <Col>
-                      <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.cancel}>No</Button>
-                    </Col>
-                  </Row>
-                </Form.Field>
-              </div>
-            </Form>
-          </section>
-        </Col>
+                  <Form.Field>
+                    <Row className="rowStyle">
+                      <Col>
+                        <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.jumpToNewProperty} value="No">Yes </Button>
+                      </Col>
+                      <Col>
+                        <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.jumpToSorry}>No</Button>
+                      </Col>
+                    </Row>
+                  </Form.Field>
+                </div>
+              </Form>
+            </section>
+          </Col>
+        </React.Fragment>
       )
   }
 

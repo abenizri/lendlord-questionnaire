@@ -47,7 +47,7 @@ class SignUp extends Component {
 
     return (
       <Col sm="6" className="colStyle">
-      <section id="incomeQuestions">
+      <section id="signUp">
         <Form>
         <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
           <h1 style={style}>Sign Up</h1>
@@ -80,7 +80,7 @@ class SignUp extends Component {
                 <span style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>Sign in with Google</span>
               </React.Fragment>
           </Form.Field>
-          <Row className="rowStyle">
+          <Row>
             <Col>
               <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="Yes">Yes </Button>
             </Col>

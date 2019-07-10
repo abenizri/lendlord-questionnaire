@@ -22,7 +22,7 @@ class SorryPage extends Component{
   }
 
   back = (e) => {
-    this.props.jumpSteps(11)
+    this.props.jumpSteps(12)
   }
 
   saveAndContinue = (e) => {
@@ -62,7 +62,7 @@ class SorryPage extends Component{
 
       return(
         <Col sm="6" className="colStyle">
-        <section id="islandlord" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
+        <section id="isLandLord" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
           <Form >
           <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
               <h1 className="ui centered" style={style}>Sorry...</h1>

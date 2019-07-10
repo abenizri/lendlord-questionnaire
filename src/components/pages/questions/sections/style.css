@@ -19,9 +19,20 @@
   }
 }
 
+@media screen and (min-width: 801px) {
+  .rowStyle.oneBtn {
+    right: 40%;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .rowStyle {
 
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .rowStyle.oneBtn {
   }
 }
 
