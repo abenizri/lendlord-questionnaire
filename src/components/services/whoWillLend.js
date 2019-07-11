@@ -1,3 +1,34 @@
+//unsupported lenders
+// "Pepper":
+//   [{"landlordLending": "Yes",
+//   "maxNumberOfPropertiesWithLender": 3,
+//   "overallLenderExposure": 3000000,
+//   "minimumIncome": 18000}],
+// "Gatehouse":
+//   [{"landlordLending": "Yes",
+//   "overallLenderExposure": 5000000,
+//   "minimumIncome": 20000}],
+// "Paragon":
+//   [{"landlordLending": "Yes",
+//   "overallLenderExposure": 5000000}],
+// "Kensington":
+//   [{"landlordLending": "Yes",
+//   "maxLTV": 75,
+//   "overallLenderExposure": 2000000,
+//   "overallExposure": 2000000}],
+// "Newcastle":
+//   [{"landlordLending": "Yes",
+//   "maxNumberOfProperties": 3,
+//   "maxNumberOfPropertiesWithLender": 3,
+//   "maxLTV": 75,
+//   "overallLenderExposure": 1000000}],
+// "Fleet":
+//   [{"landlordLending": "Yes",
+//   "maxLTV": 75,
+//   "overallLenderExposure": 5000000,
+//   "minimumIncome": 15000}],
+
+
 const lenderRules = {
   "The Mortgage Works":
     [{"landlordLending": "Yes",
@@ -30,8 +61,6 @@ const lenderRules = {
     "maxNumberOfPropertiesWithLender": 5,
     "maxLTV": 75,
     "overallLenderExposure": 3000000}],
-  "TSB":
-    [{"landlordLending": "No"}],
   "Santander":
     [{"landlordLending": "Yes",
     "maxNumberOfProperties": 10,
@@ -43,9 +72,6 @@ const lenderRules = {
     "maxLTV": 75,
     "overallLenderExposure": 2000000,
     "minimumIncome": 30000}],
-  "Paragon":
-    [{"landlordLending": "Yes",
-    "overallLenderExposure": 5000000}],
   "Precise Mortgages":
     [{"landlordLending": "Yes",
     "maxNumberOfPropertiesWithLender": 20,
@@ -57,31 +83,6 @@ const lenderRules = {
     "maxLTV": 70}],
   "Aldermore":
     [{"landlordLending": "Yes"}],
-  "Kensington":
-    [{"landlordLending": "Yes",
-    "maxLTV": 75,
-    "overallLenderExposure": 2000000,
-    "overallExposure": 2000000}],
-  "Newcastle":
-    [{"landlordLending": "Yes",
-    "maxNumberOfProperties": 3,
-    "maxNumberOfPropertiesWithLender": 3,
-    "maxLTV": 75,
-    "overallLenderExposure": 1000000}],
-  "Fleet":
-    [{"landlordLending": "Yes",
-    "maxLTV": 75,
-    "overallLenderExposure": 5000000,
-    "minimumIncome": 15000}],
-  "Pepper":
-    [{"landlordLending": "Yes",
-    "maxNumberOfPropertiesWithLender": 3,
-    "overallLenderExposure": 3000000,
-    "minimumIncome": 18000}],
-  "Gatehouse":
-    [{"landlordLending": "Yes",
-    "overallLenderExposure": 5000000,
-    "minimumIncome": 20000}],
   "The Mortgage Lender":
     [{"landlordLending": "Yes",
     "overallLenderExposure": 2500000}],
@@ -146,7 +147,7 @@ function constructMessageAccordingToRule(lender, rule, ruleValue) {
     case "overallExposure":
       return
     case "minimumIncome":
-      return "Minimum income is lower than " + ruleValue 
+      return "Minimum income is lower than " + ruleValue
     default:
       return
   }

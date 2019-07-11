@@ -31,42 +31,12 @@ class Landlord extends Component{
   }
 
   render(){
-
-  const { width } = this.state;
-  const isMobile = width <= 800;
-
-
-  let style = {
-      fontFamily: 'SegoePro-Semibold',
-      fontSize: '32px',
-      borderColor: '#2F353A',
-      lineHeight: '40px',
-      justifyContent: "center",
-      alignItems: "center",
-      display: "flex",
-      flexDirection: "column",
-      textAlign: "center"
-  }
-
-  if (isMobile) {
-    style = {
-        fontFamily: 'SegoePro-Semibold',
-        fontSize: '25px',
-        borderColor: '#2F353A',
-        lineHeight: '20px',
-        justifyContent: "center",
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "center"
-    }
-  }
       return(
         <Col sm="6" className="colStyle">
         <section id="isLandLord" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
           <Form >
           <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-              <h3 className="display-4" style={style}>Are you an existing landlord?</h3>
+              <h3 className="display-4 header">Are you an existing landlord?</h3>
               <div style={{height: '10px'}}></div>
               <Card style={{border: 'transparent', marginBottom: '0' }}>
                 <p className="tiptext">Have at least one investment property</p>

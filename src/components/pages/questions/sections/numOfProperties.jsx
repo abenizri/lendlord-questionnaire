@@ -103,30 +103,7 @@ class NumOfProperties extends Component{
 
         let backButtonMobile = ""
 
-        let style = {
-          fontFamily: 'SegoePro-Semibold',
-          fontSize: '32px',
-          borderColor: '#2F353A',
-          lineHeight: '40px',
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center"
-        }
-
         if (isMobile) {
-          style = {
-            fontFamily: 'SegoePro-Semibold',
-            fontSize: '25px',
-            borderColor: '#2F353A',
-            lineHeight: '20px',
-            justifyContent: "center",
-            alignItems: "center",
-            display: "flex",
-            flexDirection: "column",
-            textAlign: "center"
-          }
           backButton = ""
           backButtonMobile = (
             <Col>
@@ -142,7 +119,7 @@ class NumOfProperties extends Component{
               <section id="numOfProperties">
                 <Form>
                 <div style={{  width: '100%' , paddingLeft: '15px'}}>
-                  <h3 style={style}>How many properties do you have in your portfolio?</h3>
+                  <h3 className="header">How many properties do you have in your portfolio?</h3>
                   <div style={{height: '10px'}}></div>
                   <Card style={{border: 'transparent', marginBottom: '0' }}>
                     <p className="tiptext">Some lenders limit the portfolio size in order to provide new mortgage</p>

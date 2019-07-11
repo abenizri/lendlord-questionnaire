@@ -19,6 +19,7 @@ class PortfolioLtv extends Component {
   }
 
   componentDidMount(prevProps) {
+    document.getElementById('btnNext').disabled = true
     if (this.props.values.notSure === "true") {
       this.setState({ isHidden: false });
     } else {
@@ -67,6 +68,16 @@ class PortfolioLtv extends Component {
     this.props.nextStep();
   };
 
+  toggleButton = () => {
+    let input = document.getElementById('ltv')
+    let nextBtn = document.getElementById('btnNext')
+    if(input.value) {
+      nextBtn.disabled = false
+    } else {
+      nextBtn.disabled = true
+    }
+  }
+
   render() {
     const { values } = this.props;
     const { width } = this.state;
@@ -89,31 +100,7 @@ class PortfolioLtv extends Component {
       marginRight: '40%'
     }
 
-    let style = {
-      fontFamily: 'SegoePro-Semibold',
-      fontSize: '32px',
-      borderColor: '#2F353A',
-      lineHeight: '40px',
-      justifyContent: "center",
-      alignItems: "center",
-      display: "flex",
-      flexDirection: "column",
-      textAlign: "center"
-
-    }
-
     if (isMobile) {
-      style = {
-        fontFamily: 'SegoePro-Semibold',
-        fontSize: '25px',
-        borderColor: '#2F353A',
-        lineHeight: '20px',
-        justifyContent: "center",
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "center"
-      }
       backButton = ""
       backButtonMobile = (
         <Col>
@@ -150,7 +137,7 @@ class PortfolioLtv extends Component {
           <section id="portfolio">
             <Form>
               <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-                <h1 style={style}>What is your portfolio LTV?</h1>
+                <h1 className="header">What is your portfolio LTV?</h1>
                 <div style={{height: '10px'}}></div>
                 <Card style={{border: 'transparent', marginBottom: '0' }}>
                   <p className="tiptext">
@@ -163,7 +150,9 @@ class PortfolioLtv extends Component {
                       <Row style={{ width: '100%'}}>
                         <Col sm={{size: 4, offset: 1}} style={{paddingRight: '0px'}}>
                           <div className="input-group">
-                            <Input onChange={this.props.handleChange('ltv')}  defaultValue={values.ltv} id="ltv" maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
+                            <Input
+                            onChange={e => { this.toggleButton(); this.props.handleChange('ltv')}}
+                            defaultValue={values.ltv} id="ltv" maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
                             <div className="input-group-append">
                               <span style={{ backgroundColor: 'white' }} className="input-group-text">%</span>
                             </div>
@@ -232,7 +221,7 @@ class PortfolioLtv extends Component {
             <div style={{height: '100px'}}/>
             <Row className="oneBtn">
               <Col>
-                <Button block  color="warning" style={nextBtnStyle} onClick={this.saveAndContinue} value="No">Next </Button>
+                <Button block id="btnNext" color="warning" style={nextBtnStyle} onClick={this.saveAndContinue} value="Next">Next</Button>
               </Col>
               {backButtonMobile}
             </Row>

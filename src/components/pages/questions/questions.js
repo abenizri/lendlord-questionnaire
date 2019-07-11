@@ -84,30 +84,11 @@ class Questions extends Component {
           }, 100)
         }
       }
-      if( input === 'totalMortgagesBalanceForLender') {
-        let elem = document.getElementById('totalMortgagesBalanceForLender')
-        if(elem && elem.value) {
+      document.querySelectorAll('.commaNormalized').forEach(elem => {
+        if(elem.value) {
           elem.value = this.numberWithCommas(elem.value)
         }
-      }
-      if( input === 'propertyEstimatedRentalIncome') {
-        let elem = document.getElementById('rentalIncome')
-        if(elem && elem.value) {
-          elem.value = this.numberWithCommas(elem.value)
-        }
-      }
-      if( input === 'propertyValue') {
-        let elem = document.getElementById('propertyValue')
-        if(elem && elem.value) {
-          elem.value = this.numberWithCommas(elem.value)
-        }
-      }
-      if( input === 'loanValue') {
-        let elem = document.getElementById('loanValue')
-        if(elem && elem.value) {
-          elem.value = this.numberWithCommas(elem.value)
-        }
-      }
+      })
       return (e) => {
         this.setState({ [input] : e.target.value })
       }

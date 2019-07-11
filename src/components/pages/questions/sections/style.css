@@ -41,8 +41,36 @@
   }
 }
 .tiptext {
-    font-family: SegoePro-Regular;
-    font-size: 14px;
-    color: #636363;
+  font-family: SegoePro-Regular;
+  font-size: 14px;
+  color: #636363;
+  text-align: center;
+}
+
+@media screen and (min-width: 801px) {
+  .header {
+    font-family: 'SegoePro-Semibold';
+    font-size: 32px;
+    border-color: #2F353A;
+    line-height: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     text-align: center;
   }
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    font-family: 'SegoePro-Semibold';
+    font-size: 25px;
+    border-color: #2F353A;
+    line-height: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}

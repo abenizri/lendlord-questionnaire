@@ -103,32 +103,7 @@ class IncomeAbove30 extends Component{
 
         let backButtonMobile = ""
 
-        let style = {
-          fontFamily: 'SegoePro-Semibold',
-          fontSize: '32px',
-          borderColor: '#2F353A',
-          lineHeight: '40px',
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center"
-
-        }
-
         if (isMobile) {
-          style = {
-            fontFamily: 'SegoePro-Semibold',
-            fontSize: '25px',
-            borderColor: '#2F353A',
-            lineHeight: '20px',
-            justifyContent: "center",
-            alignItems: "center",
-            display: "flex",
-            flexDirection: "column",
-            textAlign: "center"
-          }
-
           backButton = ""
           backButtonMobile = (
             <Col>
@@ -144,7 +119,7 @@ class IncomeAbove30 extends Component{
             <section id="incomeAbove30">
               <Form>
               <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-                  <h1 style={style}>Is your annual income above one of the following?</h1>
+                  <h1 className="header">Is your annual income above one of the following?</h1>
                   <div style={{height: '10px'}}></div>
                   <Card style={{border: 'transparent', marginBottom: '0' }}>
                     <p className="tiptext">
