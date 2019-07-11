@@ -123,7 +123,7 @@ class TotalMortgageBalance extends Component {
                           <div className="input-group-prepend">
                             <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                           </div>
-                            <Input id="totalMortgagesBalanceForLender" onChange={this.props.handleChange('totalMortgagesBalanceForLender')}  defaultValue={values.totalMortgagesBalanceForLender} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
+                            <Input id="totalMortgagesBalanceForLender" onChange={this.props.handleChange('totalMortgagesBalanceForLender')}  defaultValue={values.totalMortgagesBalanceForLender} maxLength="10" type="tel" className="form-control" placeholder="0" required="required"/>
                           </div>
                         </Col>
                   </FormGroup>

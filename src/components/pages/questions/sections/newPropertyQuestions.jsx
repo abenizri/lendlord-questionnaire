@@ -101,7 +101,7 @@ class NewPropertyQuestions extends Component {
                           <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                         </div>
                           <Input
-                            id="propertyValue" defaultValue={values.propertyValue}               onChange={this.props.handleChange('propertyValue')} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
+                            id="propertyValue" defaultValue={values.propertyValue}               onChange={this.props.handleChange('propertyValue')} maxLength="10" type="tel" className="form-control" placeholder="0" required="required"/>
                         </div>
                       </Col>
                     </Row>
@@ -121,7 +121,7 @@ class NewPropertyQuestions extends Component {
                         <div className="input-group-prepend">
                           <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                         </div>
-                          <Input id="rentalIncome" defaultValue={values.propertyEstimatedRentalIncome} onChange={this.props.handleChange('propertyEstimatedRentalIncome')}  maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
+                          <Input id="propertyEstimatedRentalIncome" defaultValue={values.propertyEstimatedRentalIncome} onChange={this.props.handleChange('propertyEstimatedRentalIncome')}  maxLength="10" type="tel" className="form-control" placeholder="0" required="required"/>
                         </div>
                       </Col>
                     </Row>
@@ -141,7 +141,7 @@ class NewPropertyQuestions extends Component {
                           <div className="input-group-prepend">
                             <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                           </div>
-                            <Input id="loanValue" defaultValue={values.loanValue} onChange={this.props.handleChange('loanValue')} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
+                            <Input id="loanValue" defaultValue={values.loanValue} onChange={this.props.handleChange('loanValue')} maxLength="10" type="tel" className="form-control" placeholder="0" required="required"/>
                         </div>
                       </Col>
                     </Row>
