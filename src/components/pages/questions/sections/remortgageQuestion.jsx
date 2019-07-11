@@ -53,32 +53,7 @@ class RemortgageQuestion extends Component {
       <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
     )
 
-    let style = {
-      fontFamily: 'SegoePro-Semibold',
-      fontSize: '32px',
-      borderColor: '#2F353A',
-      lineHeight: '40px',
-      justifyContent: "center",
-      alignItems: "center",
-      display: "flex",
-      flexDirection: "column",
-      textAlign: "center"
-    }
-
     if (isMobile) {
-      style = {
-        fontFamily: 'SegoePro-Semibold',
-        fontSize: '23px',
-        borderColor: '#2F353A',
-        lineHeight: '25px',
-        justifyContent: "center",
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "center"
-
-      }
-
       backButton = ""
     }
 
@@ -89,7 +64,7 @@ class RemortgageQuestion extends Component {
       <section id="RemortgageQuestion">
         <Form>
         <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-          <h1 style={style}>Are you interested in new mortgage for new investment property?</h1>
+          <h1 className="header">Are you interested in new mortgage for new investment property?</h1>
           <div style={{height: '10px'}}></div>
           <Card style={{border: 'transparent'}}>
             <p className="tiptext"></p>

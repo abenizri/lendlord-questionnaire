@@ -69,41 +69,12 @@ class ExistingPortfolio extends Component{
     }
 
     render(){
-      const { width } = this.state;
-      const isMobile = width <= 800;
-
-      let style = {
-          fontFamily: 'SegoePro-Semibold',
-          fontSize: '32px',
-          borderColor: '#2F353A',
-          lineHeight: '40px',
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center"
-
-      }
-
-      if (isMobile) {
-        style = {
-          fontFamily: 'SegoePro-Semibold',
-          fontSize: '20px',
-          borderColor: '#2F353A',
-          lineHeight: '25px',
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center"
-        }
-      }
       return (
         <Col sm="5" className="colStyle">
         <section id="existingPortfolio" >
           <Form >
           <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-            <h1 style={style}>Are you interested in Remortgage opportunities on your existing portfolio</h1>
+            <h1 className="header">Are you interested in Remortgage opportunities on your existing portfolio</h1>
             <div style={{height: '10px'}}></div>
             <Card style={{border: 'transparent'}}>
               <p className="tiptext">We can provide you with ongoing insights on interest rate, capital raising, and remortgage opportunities</p>

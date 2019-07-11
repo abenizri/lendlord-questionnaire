@@ -70,30 +70,7 @@ class TotalMortgageBalance extends Component {
     )
     let backButtonMobile = ""
 
-    let style = {
-        fontFamily: 'SegoePro-Semibold',
-        fontSize: '32px',
-        borderColor: '#2F353A',
-        lineHeight: '40px',
-        justifyContent: "center",
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "center"
-    }
-
     if (isMobile) {
-      style = {
-          fontFamily: 'SegoePro-Semibold',
-          fontSize: '25px',
-          borderColor: '#2F353A',
-          lineHeight: '20px',
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center"
-      }
       backButton = ""
       backButtonMobile = (
         <Col>
@@ -109,7 +86,7 @@ class TotalMortgageBalance extends Component {
         <section id="moreThan3PropProperties">
           <Form>
           <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-            <h1 style={style}>What is the total mortgages balance with this Lender?</h1>
+            <h1 className="header">What is the total mortgages balance with this Lender?</h1>
             <div style={{height: '10px'}}></div>
             <Card style={{border: 'transparent', marginBottom: '0' }}>
               <p className="tiptext">If you’re not sure, you can put an approximate number</p>

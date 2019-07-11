@@ -69,31 +69,7 @@ class moreThanThreeProperties extends Component {
       <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
     )
 
-    let style = {
-        fontFamily: 'SegoePro-Semibold',
-        fontSize: '32px',
-        borderColor: '#2F353A',
-        lineHeight: '40px',
-        justifyContent: "center",
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "center"
-
-    }
-
     if (isMobile) {
-      style = {
-        fontFamily: 'SegoePro-Semibold',
-        fontSize: '25px',
-        borderColor: '#2F353A',
-        lineHeight: '20px',
-        justifyContent: "center",
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "center"
-      }
       backButton = ""
     }
 
@@ -104,7 +80,7 @@ class moreThanThreeProperties extends Component {
         <section id="moreThan3PropWithLenderProperties">
           <Form>
           <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-            <h1 style={style}>Do you have more than 3 properties with one Lender?</h1>
+            <h1 className="header">Do you have more than 3 properties with one Lender?</h1>
             <div style={{height: '10px'}}></div>
             <Card style={{border: 'transparent', marginBottom: '0' }}>
               <p className="tiptext">

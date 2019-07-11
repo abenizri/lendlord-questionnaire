@@ -37,28 +37,7 @@ class NewPropertyQuestions extends Component {
 
     let backButtonMobile = ""
 
-    let style = {
-      fontFamily: 'SegoePro-Semibold',
-      fontSize: '32px',
-      borderColor: '#2F353A',
-      lineHeight: '40px',
-      justifyContent: "center",
-      alignItems: "center",
-      display: "flex",
-      flexDirection: "column"
-    }
-
     if (isMobile) {
-      style = {
-        fontFamily: 'SegoePro-Semibold',
-        fontSize: '25px',
-        borderColor: '#2F353A',
-        lineHeight: '20px',
-        justifyContent: "center",
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "column"
-      }
       backButton = ""
       backButtonMobile = (
         <Col>
@@ -81,7 +60,7 @@ class NewPropertyQuestions extends Component {
         <section id="NewPropertyQuestions">
           <Form>
           <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-            <h1 style={style}>Property Details</h1>
+            <h1 className="header">Property Details</h1>
             <div style={{ height: "10px" }}></div>
             <Form.Field >
                 <React.Fragment>
