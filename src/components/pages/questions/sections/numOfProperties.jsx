@@ -75,18 +75,38 @@ class NumOfProperties extends Component{
         this.props.prevStep();
     }
 
+    // bindInputToSlider() {
+    //   let elem = document.querySelector('.MuiSlider-thumb.MuiSlider-active')
+    //   if(elem) {
+    //     elem.addEventListener('input', () => {
+    //       let value = elem.getAttribute('aria-valuenow')
+    //     })
+    //   }
+    // }
+
     sliderChange = (e) => {
      e.preventDefault();
-      let elem = document.querySelector('.MuiSlider-thumb.MuiSlider-active')
+      let elem = document.querySelector('.MuiSlider-root input')
       if (elem) {
-        let value = elem.getAttribute('aria-valuenow')
-        let input = document.getElementById('input-large')
-        var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
-        nativeInputValueSetter.call(input, value);
-        var ev2 = new Event('input', { bubbles: true});
-        input.dispatchEvent(ev2);
+        setTimeout(() => {
+          let value = elem.getAttribute('value')
+          let input = document.getElementById('input-large')
+          var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
+          nativeInputValueSetter.call(input, value);
+          var ev2 = new Event('input', { bubbles: true});
+          input.dispatchEvent(ev2);
+        }, 50)
       }
     }
+
+    // updateSlider() {
+    //   let elem = document.getElementById('input-large')
+    //
+    //   if(elem) {
+    //     let value = elem.value
+    //
+    //   }
+    // }
 
     // renderBackButton() {
     //   return <Button block color="secondary" style={{ position: 'absolute', left: '10%' width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
@@ -126,7 +146,7 @@ class NumOfProperties extends Component{
                   </Card>
                   <Form.Field style={{marginLeft: '10%'}}>
                     <FormGroup className="col-sm-10" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
-                      <Input disabled bsSize="lg" onChange={this.props.handleChange('numOfProperties')}
+                      <Input disabled bsSize="lg" onChange={(e) => {this.props.handleChange('numOfProperties'); this.updateSlider}}
                       defaultValue={values.numOfProperties} style={{backgroundColor: 'transparent', width: '50px', paddingLeft: '12px', paddingRight: '12px'}} id="input-large" name="input-large" className="input-lg" placeholder="0" />
                     </FormGroup>
                     <Col sm="10" >
