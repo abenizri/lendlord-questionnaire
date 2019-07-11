@@ -17,6 +17,7 @@ class TotalMortgageBalance extends Component {
   }
 
   componentDidMount(prevProps) {
+    document.getElementById('btnNext').disabled = true
     if (this.props.values.moreThan3PropWithLender === "Yes") {
       this.setState({ isHidden: false });
     } else {
@@ -24,36 +25,19 @@ class TotalMortgageBalance extends Component {
     }
   }
 
-  numberWithCommas(x) {
-    x = x.replace(/\D+/g,'')
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-
   back = e => {
     e.preventDefault();
     this.props.prevStep();
   };
 
-  doChange(input) {
-    document.querySelectorAll('[name="moreThan3PropWithLender"]').forEach( x => $(x).prop("checked", false))
-    $(input).prop("checked", true);
-
-    let elem = document.querySelector('[name="moreThan3PropWithLender"]:checked');
-    if (elem && elem.value === "No") {
-      this.setState({ isHidden: true });
+  toggleButton = () => {
+    let input = document.getElementById('totalMortgagesBalanceForLender')
+    let nextBtn = document.getElementById('btnNext')
+    if(input.value) {
+      nextBtn.disabled = false
     } else {
-      this.setState({ isHidden: false });
+      nextBtn.disabled = true
     }
-  }
-
-  handleChangeLable = (e) => {
-    let tagName = e.target.tagName
-    let input = e.target
-
-    if (tagName === 'LABEL') input = $(e.taeget).previousSibling
-    if (tagName === 'DIV') input = $(e.taeget).find('input')
-
-    this.doChange(input)
   }
 
   saveAndContinue = e => {
@@ -83,39 +67,40 @@ class TotalMortgageBalance extends Component {
       <React.Fragment>
         {backButton}
         <Col sm="5" className="colStyle">
-        <section id="moreThan3PropProperties">
-          <Form>
-          <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-            <h1 className="header">What is the total mortgages balance with this Lender?</h1>
-            <div style={{height: '10px'}}></div>
-            <Card style={{border: 'transparent', marginBottom: '0' }}>
-              <p className="tiptext">If you’re not sure, you can put an approximate number</p>
-            </Card>
-            <Form.Field >
-                <React.Fragment>
-
-                  <FormGroup className="col-sm-12" type="question" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>
-                        <Col sm="9" style={{ paddingRight: '0px', marginLeft: '-15px'}}>
-                          <div className="input-prepend input-group">
+          <section id="moreThan3PropProperties">
+            <Form>
+              <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
+                <h1 className="header">What is the total mortgages balance with this Lender?</h1>
+                <div style={{height: '10px'}}/>
+                <Card style={{border: 'transparent', marginBottom: '0' }}>
+                  <p className="tiptext">If you’re not sure, you can put an approximate number</p>
+                </Card>
+                <Form.Field >
+                  <React.Fragment>
+                    <FormGroup className="col-sm-12" type="question" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>
+                      <Col sm="9" style={{ paddingRight: '0px', marginLeft: '-15px'}}>
+                        <div className="input-prepend input-group">
                           <div className="input-group-prepend">
                             <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                           </div>
-                            <Input id="totalMortgagesBalanceForLender" onChange={this.props.handleChange('totalMortgagesBalanceForLender')}  defaultValue={values.totalMortgagesBalanceForLender} maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
-                          </div>
-                        </Col>
-                  </FormGroup>
-                </React.Fragment>
-            </Form.Field>
-            <div style={{height: '100px'}}/>
-            <Row className="oneBtn">
-              <Col>
-                <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Next </Button>
-              </Col>
-              {backButtonMobile}
-            </Row>
-            </div>
-          </Form>
-        </section>
+                          <Input id="totalMortgagesBalanceForLender"
+                           onChange={e => { this.toggleButton(); this.props.handleChange('totalMortgagesBalanceForLender')}}
+                           defaultValue={values.totalMortgagesBalanceForLender} maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
+                        </div>
+                      </Col>
+                    </FormGroup>
+                  </React.Fragment>
+                </Form.Field>
+                <div style={{height: '100px'}}/>
+                <Row className="oneBtn">
+                  <Col>
+                    <Button block id="btnNext" color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="Next">Next</Button>
+                  </Col>
+                  {backButtonMobile}
+                </Row>
+              </div>
+            </Form>
+          </section>
         </Col>
       </React.Fragment>
     );

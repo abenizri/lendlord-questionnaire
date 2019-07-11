@@ -16,6 +16,10 @@ class NewPropertyQuestions extends Component {
     };
   }
 
+  componentDidMount() {
+    document.getElementById('btnNext').disabled = true
+  }
+
   back = e => {
     this.props.prevStep()
   };
@@ -24,6 +28,22 @@ class NewPropertyQuestions extends Component {
     // e.preventDefault();
     this.props.nextStep();
   };
+
+  toggleButton = () => {
+    let inputs = Array.from(document.querySelectorAll('input[required]'))
+    let nextBtn = document.getElementById('btnNext')
+    let disabled = false
+    inputs.forEach(input => {
+      if(!input.value) {
+        disabled = true
+      }
+    })
+    if(disabled) {
+      nextBtn.disabled = true
+    } else {
+      nextBtn.disabled = false
+    }
+  }
 
 
   render() {
@@ -80,7 +100,9 @@ class NewPropertyQuestions extends Component {
                           <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                         </div>
                           <Input
-                            id="propertyValue" defaultValue={values.propertyValue}               onChange={this.props.handleChange('propertyValue')} maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
+                           id="propertyValue" defaultValue={values.propertyValue}
+                           onChange={e => { this.toggleButton(); this.props.handleChange('propertyValue')}}
+                           maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
                         </div>
                       </Col>
                     </Row>
@@ -100,7 +122,9 @@ class NewPropertyQuestions extends Component {
                         <div className="input-group-prepend">
                           <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                         </div>
-                          <Input id="propertyEstimatedRentalIncome" defaultValue={values.propertyEstimatedRentalIncome} onChange={this.props.handleChange('propertyEstimatedRentalIncome')}  maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
+                          <Input id="propertyEstimatedRentalIncome" defaultValue={values.propertyEstimatedRentalIncome}
+                          onChange={e => { this.toggleButton(); this.props.handleChange('propertyEstimatedRentalIncome')}}
+                          maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
                         </div>
                       </Col>
                     </Row>
@@ -120,7 +144,9 @@ class NewPropertyQuestions extends Component {
                           <div className="input-group-prepend">
                             <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                           </div>
-                            <Input id="loanValue" defaultValue={values.loanValue} onChange={this.props.handleChange('loanValue')} maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
+                            <Input id="loanValue" defaultValue={values.loanValue}
+                            onChange={e => { this.toggleButton(); this.props.handleChange('loanValue')}}
+                            maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
                         </div>
                       </Col>
                     </Row>
@@ -131,7 +157,7 @@ class NewPropertyQuestions extends Component {
             <div style={{height: '100px'}}/>
             <Row className="oneBtn">
               <Col>
-                <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="Yes">Next</Button>
+                <Button block id="btnNext" color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="Yes">Next</Button>
               </Col>
               {backButtonMobile}
             </Row>

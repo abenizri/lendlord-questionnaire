@@ -19,6 +19,7 @@ class PortfolioLtv extends Component {
   }
 
   componentDidMount(prevProps) {
+    document.getElementById('btnNext').disabled = true
     if (this.props.values.notSure === "true") {
       this.setState({ isHidden: false });
     } else {
@@ -66,6 +67,16 @@ class PortfolioLtv extends Component {
   saveAndContinue = e => {
     this.props.nextStep();
   };
+
+  toggleButton = () => {
+    let input = document.getElementById('ltv')
+    let nextBtn = document.getElementById('btnNext')
+    if(input.value) {
+      nextBtn.disabled = false
+    } else {
+      nextBtn.disabled = true
+    }
+  }
 
   render() {
     const { values } = this.props;
@@ -139,7 +150,9 @@ class PortfolioLtv extends Component {
                       <Row style={{ width: '100%'}}>
                         <Col sm={{size: 4, offset: 1}} style={{paddingRight: '0px'}}>
                           <div className="input-group">
-                            <Input onChange={this.props.handleChange('ltv')}  defaultValue={values.ltv} id="ltv" maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
+                            <Input
+                            onChange={e => { this.toggleButton(); this.props.handleChange('ltv')}}
+                            defaultValue={values.ltv} id="ltv" maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
                             <div className="input-group-append">
                               <span style={{ backgroundColor: 'white' }} className="input-group-text">%</span>
                             </div>
@@ -208,7 +221,7 @@ class PortfolioLtv extends Component {
             <div style={{height: '100px'}}/>
             <Row className="oneBtn">
               <Col>
-                <Button block  color="warning" style={nextBtnStyle} onClick={this.saveAndContinue} value="No">Next </Button>
+                <Button block id="btnNext" color="warning" style={nextBtnStyle} onClick={this.saveAndContinue} value="Next">Next</Button>
               </Col>
               {backButtonMobile}
             </Row>
