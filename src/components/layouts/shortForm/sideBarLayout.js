@@ -43,7 +43,7 @@ class SideBarLayout extends Component {
     }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.step)
+    // console.log(nextProps.step)
     let previous, next, current
     switch(nextProps.step) {
       case 1:

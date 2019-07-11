@@ -30,16 +30,6 @@ class TotalMortgageBalance extends Component {
     this.props.prevStep();
   };
 
-  toggleButton = () => {
-    let input = document.getElementById('totalMortgagesBalanceForLender')
-    let nextBtn = document.getElementById('btnNext')
-    if(input.value) {
-      nextBtn.disabled = false
-    } else {
-      nextBtn.disabled = true
-    }
-  }
-
   saveAndContinue = e => {
     this.props.nextStep();
   };
@@ -84,7 +74,7 @@ class TotalMortgageBalance extends Component {
                             <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                           </div>
                           <Input id="totalMortgagesBalanceForLender"
-                           onChange={e => { this.toggleButton(); this.props.handleChange('totalMortgagesBalanceForLender')}}
+                           onChange={this.props.handleChange('totalMortgagesBalanceForLender')}
                            defaultValue={values.totalMortgagesBalanceForLender} maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
                         </div>
                       </Col>
