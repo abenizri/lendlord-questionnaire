@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import LayoutHeader from './layoutHeader.js'
 import SideBarLayout from './sideBarLayout.js'
-import Questions from '../../../components/pages/questions/questions.js'
 import Signup from './../../pages/questions/sections/signUp.jsx';
 import {
   Row,

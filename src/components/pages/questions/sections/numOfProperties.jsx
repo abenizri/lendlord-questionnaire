@@ -75,15 +75,6 @@ class NumOfProperties extends Component{
         this.props.prevStep();
     }
 
-    // bindInputToSlider() {
-    //   let elem = document.querySelector('.MuiSlider-thumb.MuiSlider-active')
-    //   if(elem) {
-    //     elem.addEventListener('input', () => {
-    //       let value = elem.getAttribute('aria-valuenow')
-    //     })
-    //   }
-    // }
-
     sliderChange = (e) => {
      e.preventDefault();
       let elem = document.querySelector('.MuiSlider-root input')
@@ -99,18 +90,19 @@ class NumOfProperties extends Component{
       }
     }
 
-    // updateSlider() {
-    //   let elem = document.getElementById('input-large')
-    //
-    //   if(elem) {
-    //     let value = elem.value
-    //
-    //   }
-    // }
-
-    // renderBackButton() {
-    //   return <Button block color="secondary" style={{ position: 'absolute', left: '10%' width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
-    // }
+    updateSlider () {
+        const elem = document.getElementById('input-large')
+        const thumbIcon = document.querySelector('.MuiSlider-root .MuiSlider-thumb')
+        const track = document.querySelector('.MuiSlider-root .MuiSlider-track')
+        const input = document.querySelector('.MuiSlider-root input')
+        const value = elem.value
+        let width = value * 4
+        if(width > 100) width = 100
+        if (width < 0) width = 0
+        thumbIcon.style.left = width + '%'
+        track.style.width = width + '%'
+        input.value = value
+      }
 
     render(){
         const { values } = this.props
@@ -146,7 +138,7 @@ class NumOfProperties extends Component{
                   </Card>
                   <Form.Field style={{marginLeft: '10%'}}>
                     <FormGroup className="col-sm-10" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
-                      <Input disabled bsSize="lg" onChange={this.props.handleChange('numOfProperties')}
+                      <Input bsSize="lg" onChange={(e) => {this.props.handleChange('numOfProperties'); this.updateSlider()}}
                       defaultValue={values.numOfProperties} style={{backgroundColor: 'transparent', width: '50px', paddingLeft: '12px', paddingRight: '12px'}} id="input-large" name="input-large" className="input-lg" placeholder="0" />
                     </FormGroup>
                     <Col sm="10" >

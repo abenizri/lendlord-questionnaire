@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Form } from "semantic-ui-react";
-import $ from "jquery";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
