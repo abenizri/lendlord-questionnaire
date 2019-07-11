@@ -4,7 +4,7 @@ import circleCurrent from './../../../assets/images/ico-current.svg';
 import circleNext from './../../../assets/images/ico-next.svg';
 
 const sideBarObjects =
-["Properties", "Lender", "Total Balance", "LTV", "Invesments", "Total Value", "Annual Income", "Income Tax", "Results", "New Mortgage", "Sign Up"]
+["Interest", "New Mortgage", "Results", "Sign Up"]
 
 class SideBarLayout extends Component {
 
@@ -13,7 +13,8 @@ class SideBarLayout extends Component {
     this.state = {
       step: '1',
       width: window.innerWidth,
-      activeTab: '1'
+      activeTab: '1',
+      previousStep: ''
     };
     this.toggle = this.toggle.bind(this);
 
@@ -42,32 +43,66 @@ class SideBarLayout extends Component {
     }
 
   componentWillReceiveProps(nextProps) {
-    let previous = document.querySelector('[step="' + (nextProps.step - 1) + '"]')
-    let next = document.querySelector('[step="' + nextProps.step +  1 + '"]')
-    let current =   document.querySelector('[step="' + nextProps.step+ '"]')
+    console.log(nextProps.step)
+    let previous, next, current
+    switch(nextProps.step) {
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+        break;
+      case 6:
+      case 11:
+        previous = document.querySelector('[step="1"]')
+        next = document.querySelector('[step="3"]')
+        current = document.querySelector('[step="2"]')
+        break;
+      case 7:
+      case 8:
+      case 9:
+      case 12:
+        previous = document.querySelector('[step="2"]')
+        next = document.querySelector('[step="4"]')
+        current = document.querySelector('[step="3"]')
+        break;
+      case 10:
+        previous = document.querySelector('[step="3"]')
+        next = document.querySelector('[step="5"]')
+        current = document.querySelector('[step="4"]')
+        break;
+      case 13:
+        previous = document.querySelector('[step="4"]')
+        next = ""
+        current = document.querySelector('[step="5"]')
+        break;
+      default:
+        break;
+    }
     if (current) {
-      document.querySelector('[step="' + nextProps.step + '"] img').src = circleCurrent
-      if (document.querySelector('[step="' + nextProps.step + '"] span')) {
-        document.querySelector('[step="' + nextProps.step + '"] span').style.color = '#74818F'
+      current.querySelector('img').src = circleCurrent
+      if (current.querySelector('span')) {
+        current.querySelector('span').style.color = '#74818F'
       }
 
     }
     if (previous) {
-      document.querySelector('[step="' + (nextProps.step - 1) + '"] img').src = circleDone
-      if (document.querySelector('[step="' + (nextProps.step - 1) + '"] span')) {
-        document.querySelector('[step="' + (nextProps.step - 1) + '"] span').style.color = '#FF9F08'
+      previous.querySelector('img').src = circleDone
+      if (previous.querySelector('span')) {
+        previous.querySelector('span').style.color = '#FF9F08'
       }
 
     }
     if (next) {
-      document.querySelector('[step="' + nextProps.step + 1 + '"] img').src = circleNext
-      if (document.querySelector('[step="' + nextProps.step + 1 + '"] span')) {
-        document.querySelector('[step="' + nextProps.step + 1 + '"] span').style.color = '#CCCCCC'
+      next.querySelector('img').src = circleNext
+      if (next.querySelector('span')) {
+        next.querySelector('span').style.color = '#CCCCCC'
       }
     }
 
     this.setState({
-      step: nextProps.step,
+      previousStep: this.state.step,
+      step: nextProps.step
     })
   }
 
@@ -95,7 +130,7 @@ class SideBarLayout extends Component {
   }
 
   render() {
-    
+
     const { width } = this.state;
     const isMobile = width <= 800;
 
@@ -121,7 +156,7 @@ class SideBarLayout extends Component {
         <ul style={{ float: 'left', paddingInlineStart: '0px', marginLeft: '80px', fontSize: '12px'}}>
           <li step="1" style={{listStyle: 'none', paddingBottom: '8px'}}>
            <img src={circleCurrent} alt="" style={{marginBottom: '3px',  width: '12px', height: '12px', display: 'inline-table'}} className="checkCircle"/>
-           <span style={{marginLeft: '20px'}}>Landlord</span>
+           <span style={{marginLeft: '20px'}}>Portfolio</span>
           </li>
           {this.renderListItems()}
         </ul>

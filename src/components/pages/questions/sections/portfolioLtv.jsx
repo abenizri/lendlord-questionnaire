@@ -71,7 +71,7 @@ class PortfolioLtv extends Component {
   toggleButton = () => {
     let input = document.getElementById('ltv')
     let nextBtn = document.getElementById('btnNext')
-    if(input.value) {
+    if(input.value && input.value > 0) {
       nextBtn.disabled = false
     } else {
       nextBtn.disabled = true
@@ -133,13 +133,13 @@ class PortfolioLtv extends Component {
     return (
       <React.Fragment>
         {backButton}
-        <Col sm="5" className="colStyle">
+        <Col sm="6" className="colStyle">
           <section id="portfolio">
             <Form>
               <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
                 <h1 className="header">What is your portfolio LTV?</h1>
                 <div style={{height: '10px'}}></div>
-                <Card style={{border: 'transparent', marginBottom: '0' }}>
+                <Card style={{border: 'transparent', marginBottom: '0', width: '80%', marginLeft: '10%' }}>
                   <p className="tiptext">
                   LTV means “Loan to Value”, the ratio between the total mortgages balance and the total properties value
                   </p>
@@ -148,7 +148,7 @@ class PortfolioLtv extends Component {
                   <FormGroup row type="question" style={{ marginBottom: '2.3rem',borderRadius: '0.5rem', paddingTop: '10px', marginRight: '0px', marginLeft: '0px'}}>
                     <Col sm="12" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>
                       <Row style={{ width: '100%'}}>
-                        <Col sm={{size: 4, offset: 1}} style={{paddingRight: '0px'}}>
+                        <Col sm={{size: 3, offset: 2}} style={{paddingRight: '0px'}}>
                           <div className="input-group">
                             <Input
                             onChange={e => { this.toggleButton(); this.props.handleChange('ltv')}}
@@ -159,7 +159,7 @@ class PortfolioLtv extends Component {
                           </div>
 
                         </Col>
-                        <Col sm="3">
+                        <Col sm={{size: 3, offset: 1}}>
                           <FormGroup>
                             <Input
                               className="form-check-input"
@@ -182,7 +182,7 @@ class PortfolioLtv extends Component {
                     <Col sm="8" style={{ paddingRight: '0px'}}>
                       <FormGroup>
                           <div className="input-group">
-                            <label className="control-label required"  style={{ marginBottom: '0px', fontWeight: 700}}>What is your approximate total value on all properties?</label>
+                            <label className="control-label required"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>What is your approximate total value on all properties?</label>
                           </div>
                         </FormGroup>
                       </Col>
@@ -191,7 +191,7 @@ class PortfolioLtv extends Component {
                           <div className="input-group-prepend">
                             <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                           </div>
-                          <Input onInput={this.onInput}  onChange={this.props.handleChange('approximatePropertyValue')}  defaultValue={values.approximatePropertyValue} id="approximatePropertyValue" maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
+                          <Input onInput={this.onInput}  onChange={this.props.handleChange('approximatePropertyValue')}  defaultValue={values.approximatePropertyValue} id="approximatePropertyValue" maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
                         </div>
                       </Col>
                     </Row>
@@ -201,7 +201,7 @@ class PortfolioLtv extends Component {
                       <Col sm="8" style={{ paddingRight: '0px'}}>
                         <FormGroup>
                           <div className="input-group">
-                            <label className="control-label required"  style={{ marginBottom: '0px', fontWeight: 700}}>What is your approximate total remaining balance on all mortgages?</label>
+                            <label className="control-label required"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>What is your approximate total remaining balance on all mortgages?</label>
                           </div>
                         </FormGroup>
                       </Col>
@@ -210,7 +210,7 @@ class PortfolioLtv extends Component {
                         <div className="input-group-prepend">
                           <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                         </div>
-                          <Input onInput={this.onInput} id="approximateRemaining"  onChange={this.props.handleChange('approximateRemaining')}  defaultValue={values.approximateRemaining} maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
+                          <Input onInput={this.onInput} id="approximateRemaining"  onChange={this.props.handleChange('approximateRemaining')}  defaultValue={values.approximateRemaining} maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
                         </div>
                       </Col>
                     </Row>

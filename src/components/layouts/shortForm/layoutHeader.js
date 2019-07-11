@@ -10,8 +10,18 @@ import {
 } from 'react-bootstrap'
 
 class LayoutHeader extends Component {
-  render() {
 
+  clearForm = () => {
+    window.location.reload()
+  }
+
+  render() {
+    let signUpButton = (<Button variant="secondary" href="/signup">Sign up</Button>)
+    if(this.props.step === 13) {
+      signUpButton = (
+        <Button variant="secondary" onClick={this.clearForm} href="/">Start Over</Button>
+      )
+    }
     return (
       <React.Fragment>
         <Navbar fixed="top" collapseOnSelect expand="lg" style={{backgroundColor: "#324452", opacity: '0.8'}}>
@@ -23,11 +33,9 @@ class LayoutHeader extends Component {
               <Nav.Link style={{textAlign: 'right', color: 'white'}} eventKey="home" href="./home"> &#8249; Back to website</Nav.Link>
             </Nav>
           <Form inline>
-            <Button variant="secondary">Sign up</Button>
+            {signUpButton}
           </Form>
         </Navbar>
-
-
       </React.Fragment>
     );
   }
