@@ -146,7 +146,7 @@ class NumOfProperties extends Component{
                   </Card>
                   <Form.Field style={{marginLeft: '10%'}}>
                     <FormGroup className="col-sm-10" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
-                      <Input disabled bsSize="lg" onChange={(e) => {this.props.handleChange('numOfProperties'); this.updateSlider}}
+                      <Input disabled bsSize="lg" onChange={this.props.handleChange('numOfProperties')}
                       defaultValue={values.numOfProperties} style={{backgroundColor: 'transparent', width: '50px', paddingLeft: '12px', paddingRight: '12px'}} id="input-large" name="input-large" className="input-lg" placeholder="0" />
                     </FormGroup>
                     <Col sm="10" >
