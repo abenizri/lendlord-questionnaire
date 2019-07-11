@@ -89,14 +89,33 @@ class Questions extends Component {
           elem.value = this.numberWithCommas(elem.value)
         }
       })
+      this.toggleButton()
       return (e) => {
+        // console.log()
+        // console.log(input)
+        // console.log(e.target.value)
         this.setState({ [input] : e.target.value })
       }
     }
-
-    // handleChange = input => event => {
-    //   this.setState({ [input] : event.target.value })
-    // }
+    toggleButton = () => {
+      let inputs = Array.from(document.querySelectorAll('input[required]'))
+      if(inputs.length > 0) {
+        let nextBtn = document.getElementById('btnNext')
+        let disabled = false
+        inputs.forEach(input => {
+          if(!input.value || input.value && input.value <= 0) {
+            disabled = true
+          }
+        })
+        if(disabled) {
+          nextBtn.disabled = true
+        } else {
+          nextBtn.disabled = false
+        }
+      } else {
+        return
+      }
+    }
 
     render(){
       const {step} = this.state;

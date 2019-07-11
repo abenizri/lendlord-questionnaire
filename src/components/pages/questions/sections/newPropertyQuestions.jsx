@@ -29,23 +29,6 @@ class NewPropertyQuestions extends Component {
     this.props.nextStep();
   };
 
-  toggleButton = () => {
-    let inputs = Array.from(document.querySelectorAll('input[required]'))
-    let nextBtn = document.getElementById('btnNext')
-    let disabled = false
-    inputs.forEach(input => {
-      if(!input.value) {
-        disabled = true
-      }
-    })
-    if(disabled) {
-      nextBtn.disabled = true
-    } else {
-      nextBtn.disabled = false
-    }
-  }
-
-
   render() {
     const { values } = this.props;
     const { width } = this.state;
@@ -101,7 +84,7 @@ class NewPropertyQuestions extends Component {
                         </div>
                           <Input
                            id="propertyValue" defaultValue={values.propertyValue}
-                           onChange={e => { this.toggleButton(); this.props.handleChange('propertyValue')}}
+                           onChange={this.props.handleChange('propertyValue')}
                            maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
                         </div>
                       </Col>
@@ -123,7 +106,7 @@ class NewPropertyQuestions extends Component {
                           <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                         </div>
                           <Input id="propertyEstimatedRentalIncome" defaultValue={values.propertyEstimatedRentalIncome}
-                          onChange={e => { this.toggleButton(); this.props.handleChange('propertyEstimatedRentalIncome')}}
+                          onChange={this.props.handleChange('propertyEstimatedRentalIncome')}
                           maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
                         </div>
                       </Col>
@@ -145,7 +128,7 @@ class NewPropertyQuestions extends Component {
                             <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                           </div>
                             <Input id="loanValue" defaultValue={values.loanValue}
-                            onChange={e => { this.toggleButton(); this.props.handleChange('loanValue')}}
+                            onChange={this.props.handleChange('loanValue')}
                             maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
                         </div>
                       </Col>
