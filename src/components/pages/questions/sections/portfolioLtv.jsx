@@ -68,16 +68,6 @@ class PortfolioLtv extends Component {
     this.props.nextStep();
   };
 
-  toggleButton = () => {
-    let input = document.getElementById('ltv')
-    let nextBtn = document.getElementById('btnNext')
-    if(input.value && input.value > 0) {
-      nextBtn.disabled = false
-    } else {
-      nextBtn.disabled = true
-    }
-  }
-
   render() {
     const { values } = this.props;
     const { width } = this.state;
@@ -151,7 +141,7 @@ class PortfolioLtv extends Component {
                         <Col sm={{size: 3, offset: 2}} style={{paddingRight: '0px'}}>
                           <div className="input-group">
                             <Input
-                            onChange={e => { this.toggleButton(); this.props.handleChange('ltv')}}
+                            onChange={this.props.handleChange('ltv')}
                             defaultValue={values.ltv} id="ltv" maxLength="10" type="tel" className="form-control" placeholder="0.00" required="required"/>
                             <div className="input-group-append">
                               <span style={{ backgroundColor: 'white' }} className="input-group-text">%</span>
@@ -182,7 +172,7 @@ class PortfolioLtv extends Component {
                     <Col sm="8" style={{ paddingRight: '0px'}}>
                       <FormGroup>
                           <div className="input-group">
-                            <label className="control-label required"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>What is your approximate total value on all properties?</label>
+                            <label className="control-label"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>What is your approximate total value on all properties?</label>
                           </div>
                         </FormGroup>
                       </Col>
@@ -191,7 +181,7 @@ class PortfolioLtv extends Component {
                           <div className="input-group-prepend">
                             <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                           </div>
-                          <Input onInput={this.onInput}  onChange={this.props.handleChange('approximatePropertyValue')}  defaultValue={values.approximatePropertyValue} id="approximatePropertyValue" maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
+                          <Input onInput={this.onInput}  onChange={this.props.handleChange('approximatePropertyValue')}  defaultValue={values.approximatePropertyValue} id="approximatePropertyValue" maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0"/>
                         </div>
                       </Col>
                     </Row>
@@ -201,7 +191,7 @@ class PortfolioLtv extends Component {
                       <Col sm="8" style={{ paddingRight: '0px'}}>
                         <FormGroup>
                           <div className="input-group">
-                            <label className="control-label required"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>What is your approximate total remaining balance on all mortgages?</label>
+                            <label className="control-label"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>What is your approximate total remaining balance on all mortgages?</label>
                           </div>
                         </FormGroup>
                       </Col>
@@ -210,7 +200,7 @@ class PortfolioLtv extends Component {
                         <div className="input-group-prepend">
                           <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
                         </div>
-                          <Input onInput={this.onInput} id="approximateRemaining"  onChange={this.props.handleChange('approximateRemaining')}  defaultValue={values.approximateRemaining} maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0" required="required"/>
+                          <Input onInput={this.onInput} id="approximateRemaining"  onChange={this.props.handleChange('approximateRemaining')}  defaultValue={values.approximateRemaining} maxLength="10" type="tel" className="form-control commaNormalized" placeholder="0"/>
                         </div>
                       </Col>
                     </Row>
