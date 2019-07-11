@@ -15,8 +15,6 @@ import SignUp from './sections/signUp.jsx'
 import SorryPage from './sections/sorryPage.jsx'
 import TotalMortgageBalance from './sections/totalMortgageBalance.jsx'
 
-const inputsWithCommas = ['totalMortgagesBalanceForLender', 'propertyEstimatedRentalIncome', 'propertyValue', 'loanValue']
-
 class Questions extends Component {
 
     state = {
@@ -86,9 +84,8 @@ class Questions extends Component {
           }, 100)
         }
       }
-      inputsWithCommas.forEach( id => {
-        let elem = document.getElementById(id)
-        if(elem && elem.value) {
+      document.querySelectorAll('.commaNormalized').forEach(elem => {
+        if(elem.value) {
           elem.value = this.numberWithCommas(elem.value)
         }
       })
