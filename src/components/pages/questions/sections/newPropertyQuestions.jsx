@@ -50,8 +50,8 @@ class NewPropertyQuestions extends Component {
     }
 
 
-    const labeltSyle = {
-        fontFamily: 'SegoePro-Semibold',
+    const labelStyle = {
+        fontFamily: 'SegoePro-Regular',
         fontSize: '16px',
         borderColor: '#CCCCCC'
     }
@@ -72,7 +72,7 @@ class NewPropertyQuestions extends Component {
                       <Col sm="8" style={{ paddingRight: '0px'}}>
                         <FormGroup style={{marginBottom: '0.1rem'}}>
                           <div className="input-group">
-                            <label className="control-label required" style={labeltSyle}>What is the estimated property value?
+                            <label className="control-label required" style={labelStyle}>What is the estimated property value?
                             </label>
                           </div>
                         </FormGroup>
@@ -95,7 +95,7 @@ class NewPropertyQuestions extends Component {
                       <Col sm="8" style={{ paddingRight: '0px'}}>
                         <FormGroup  style={{marginBottom: '0.1rem'}}>
                           <div className="input-group">
-                            <label className="control-label required" style={labeltSyle}>What is the expected rental income?
+                            <label className="control-label required" style={labelStyle}>What is the expected rental income?
                             </label>
                           </div>
                         </FormGroup>
@@ -117,7 +117,7 @@ class NewPropertyQuestions extends Component {
                       <Col sm="8" style={{ paddingRight: '0px'}}>
                         <FormGroup  style={{marginBottom: '0.1rem'}}>
                           <div className="input-group">
-                            <label className="control-label required" style={labeltSyle}>What is the required loan amount?
+                            <label className="control-label required" style={labelStyle}>What is the required loan amount?
                             </label>
                           </div>
                         </FormGroup>

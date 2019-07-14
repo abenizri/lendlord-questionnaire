@@ -138,7 +138,7 @@ class PortfolioLtv extends Component {
                   <FormGroup row type="question" style={{ marginBottom: '2.3rem',borderRadius: '0.5rem', paddingTop: '10px', marginRight: '0px', marginLeft: '0px'}}>
                     <Col sm="12" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>
                       <Row style={{ width: '100%'}}>
-                        <Col sm={{size: 3, offset: 2}} style={{paddingRight: '0px'}}>
+                        <Col sm={{size: 4, offset: 2}} style={{paddingRight: '0px'}}>
                           <div className="input-group">
                             <Input
                             onChange={this.props.handleChange('ltv')}

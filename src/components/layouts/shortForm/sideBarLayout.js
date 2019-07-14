@@ -153,8 +153,8 @@ class SideBarLayout extends Component {
     return (
 
       <React.Fragment>
-        <ul style={{ float: 'left', paddingInlineStart: '0px', marginLeft: '80px', fontSize: '12px'}}>
-          <li step="1" style={{listStyle: 'none', paddingBottom: '8px'}}>
+        <ul style={{ float: 'left', paddingInlineStart: '0px', marginLeft: '80px', fontSize: '14px'}}>
+          <li step="1" style={{listStyle: 'none', paddingBottom: '6px'}}>
            <img src={circleCurrent} alt="" style={{marginBottom: '3px',  width: '12px', height: '12px', display: 'inline-table'}} className="checkCircle"/>
            <span style={{marginLeft: '20px'}}>Portfolio</span>
           </li>

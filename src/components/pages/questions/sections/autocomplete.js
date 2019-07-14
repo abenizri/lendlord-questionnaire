@@ -239,7 +239,7 @@ class Autocomplete extends Component {
             selectedItem,
           }) => {
             const { onBlur, onFocus, ...inputProps } = getInputProps({
-              placeholder: `Type Lender's Name`,
+              placeholder: `If so, please select the lender here`,
               onChange: this.props.handleChange('lender')
 
             });
