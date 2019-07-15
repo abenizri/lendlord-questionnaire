@@ -103,7 +103,7 @@ class Questions extends Component {
         let nextBtn = document.getElementById('btnNext')
         let disabled = false
         inputs.forEach(input => {
-          if(!input.value || input.value && input.value <= 0) {
+          if((!input.value) || (input.value && input.value <= 0)) {
             disabled = true
           }
         })

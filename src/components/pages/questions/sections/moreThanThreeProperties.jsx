@@ -4,6 +4,7 @@ import $ from "jquery";
 import Autocomplete from "./autocomplete.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
+import backButtonIcon from './../../../../assets/images/ico_arrow_left.svg';
 
 import { Card, Col, FormGroup, Row, Button } from "reactstrap";
 
@@ -66,7 +67,9 @@ class moreThanThreeProperties extends Component {
     const isMobile = width <= 800;
 
     let backButton = (
-      <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+      <Button className="backButtonIcon" onClick={this.back}>
+      <img src={backButtonIcon} alt="back"/>
+      </Button>
     )
 
     if (isMobile) {
@@ -103,7 +106,7 @@ class moreThanThreeProperties extends Component {
                 </React.Fragment>
               </Col>
             </Form.Field>
-            <div style={{height: '100px'}}/>
+            <div style={{height: '20px'}}/>
             <Row>
               <Col>
                 <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Yes</Button>

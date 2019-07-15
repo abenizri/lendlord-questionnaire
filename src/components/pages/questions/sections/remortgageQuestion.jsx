@@ -3,6 +3,7 @@ import { Form } from "semantic-ui-react";
 import $ from "jquery";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
+import backButtonIcon from './../../../../assets/images/ico_arrow_left.svg';
 
 import { Col, Row, Button, Card } from "reactstrap";
 
@@ -50,7 +51,9 @@ class RemortgageQuestion extends Component {
     const isMobile = width <= 800;
 
     let backButton = (
-      <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+      <Button className="backButtonIcon" onClick={this.back}>
+      <img src={backButtonIcon} alt="back"/>
+      </Button>
     )
 
     if (isMobile) {
@@ -73,10 +76,10 @@ class RemortgageQuestion extends Component {
           <Form.Field style={{ marginLeft: "100px" }}>
 
           </Form.Field>
-          <div style={{height: '100px'}}/>
+          <div style={{height: '20px'}}/>
           <Row>
             <Col>
-              <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Yes </Button>
+              <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Yes</Button>
             </Col>
             <Col>
               <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.jumpToPortfolio}>No</Button>

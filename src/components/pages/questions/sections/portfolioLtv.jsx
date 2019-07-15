@@ -3,6 +3,7 @@ import { Form } from "semantic-ui-react";
 import $ from "jquery";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
+import backButtonIcon from './../../../../assets/images/ico_arrow_left.svg';
 
 import { Card, Col, FormGroup, Input, Row, Button } from "reactstrap";
 
@@ -74,7 +75,9 @@ class PortfolioLtv extends Component {
     const isMobile = width <= 800;
 
     let backButton = (
-      <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+      <Button className="backButtonIcon" onClick={this.back}>
+      <img src={backButtonIcon} alt="back"/>
+      </Button>
     )
 
     let backButtonMobile = ""
@@ -172,7 +175,7 @@ class PortfolioLtv extends Component {
                     <Col sm="8" style={{ paddingRight: '0px'}}>
                       <FormGroup>
                           <div className="input-group">
-                            <label className="control-label"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>What is your approximate total value on all properties?</label>
+                            <label className="control-label"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>Approximate total value on all properties?</label>
                           </div>
                         </FormGroup>
                       </Col>
@@ -191,7 +194,7 @@ class PortfolioLtv extends Component {
                       <Col sm="8" style={{ paddingRight: '0px'}}>
                         <FormGroup>
                           <div className="input-group">
-                            <label className="control-label"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>What is your approximate total remaining balance on all mortgages?</label>
+                            <label className="control-label"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>Approximate total remaining balance on all mortgages?</label>
                           </div>
                         </FormGroup>
                       </Col>
@@ -208,7 +211,7 @@ class PortfolioLtv extends Component {
                 </React.Fragment>
               )}
             </Form.Field>
-            <div style={{height: '100px'}}/>
+            <div style={{height: '20px'}}/>
             <Row className="oneBtn">
               <Col>
                 <Button block id="btnNext" color="warning" style={nextBtnStyle} onClick={this.saveAndContinue} value="Next">Next</Button>

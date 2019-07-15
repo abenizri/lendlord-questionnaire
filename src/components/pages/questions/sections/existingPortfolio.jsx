@@ -3,6 +3,7 @@ import { Form } from 'semantic-ui-react';
 import $ from "jquery";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
+import backButtonIcon from './../../../../assets/images/ico_arrow_left.svg';
 
 import {
   Row,
@@ -79,7 +80,9 @@ class ExistingPortfolio extends Component{
       const isMobile = width <= 800;
 
       let backButton = (
-        <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+        <Button className="backButtonIcon" onClick={this.back}>
+        <img src={backButtonIcon} alt="back"/>
+        </Button>
       )
 
       if (isMobile) {
@@ -98,7 +101,7 @@ class ExistingPortfolio extends Component{
               <Card style={{border: 'transparent'}}>
                 <p className="tiptext">We can provide you with ongoing insights on interest rate, capital raising, and remortgage opportunities</p>
               </Card>
-              <div style={{height: '100px'}}/>
+              <div style={{height: '20px'}}/>
               <Row>
                 <Col>
                   <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.goToSignIn} value="No">Yes </Button>

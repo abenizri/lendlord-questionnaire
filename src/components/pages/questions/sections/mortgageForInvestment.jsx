@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
+import backButtonIcon from './../../../../assets/images/ico_arrow_left.svg';
 
 import {
   Row,
@@ -41,7 +42,9 @@ class MortgageForInvestment extends Component{
     const isMobile = width <= 800;
 
     let backButton = (
-      <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+      <Button className="backButtonIcon" onClick={this.back}>
+      <img src={backButtonIcon} alt="back"/>
+      </Button>
     )
 
     if (isMobile) {
@@ -54,18 +57,14 @@ class MortgageForInvestment extends Component{
             <section id="mortgageForInvestment">
               <Form>
                 <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-                  <h1 className="header">Do you want a new mortgage for an investment property</h1>
+                  <h1 className="header">Do you want a new mortgage for an investment property?</h1>
                   <div style={{height: '10px'}}></div>
                   <Card style={{border: 'transparent'}}>
-                    <p className="tiptext">
-                      Lorem Ipsum has been the industrys standard dummy text
-                      ever since the 1500s, when an unknown printer took a galley
-                      of type and scrambled it to make a type specimen book.
-                    </p>
+                    <p className="tiptext"></p>
                   </Card>
 
                   <Form.Field>
-                  <div style={{height: '100px'}}/>
+                  <div style={{height: '20px'}}/>
                     <Row>
                       <Col>
                         <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.jumpToNewProperty} value="No">Yes </Button>

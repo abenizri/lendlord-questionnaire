@@ -108,7 +108,7 @@ let info = {}
 export function whoWillLend(information) {
   info = information
   transformInformation()
-  console.log(info)
+  // console.log(info)
   const lenders = Object.keys(lenderRules)
   let lendersWhoLend = []
   for(let lender of lenders) {

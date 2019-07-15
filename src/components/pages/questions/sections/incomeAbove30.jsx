@@ -3,6 +3,7 @@ import { Form } from 'semantic-ui-react';
 import Slider from '@material-ui/core/Slider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
+import backButtonIcon from './../../../../assets/images/ico_arrow_left.svg';
 
 import {
   Row,
@@ -98,7 +99,9 @@ class IncomeAbove30 extends Component{
         const isMobile = width <= 800;
 
         let backButton = (
-          <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+          <Button className="backButtonIcon" onClick={this.back}>
+          <img src={backButtonIcon} alt="back"/>
+          </Button>
         )
 
         let backButtonMobile = ""
@@ -150,7 +153,7 @@ class IncomeAbove30 extends Component{
                       </Row>
                   </FormGroup>
                   </Form.Field>
-                  <div style={{height: '100px'}}/>
+                  <div style={{height: '20px'}}/>
                   <Row className="oneBtn">
                     <Col>
                       <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Next </Button>
