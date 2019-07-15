@@ -103,7 +103,7 @@ class moreThanThreeProperties extends Component {
                 </React.Fragment>
               </Col>
             </Form.Field>
-            <div style={{height: '100px'}}/>
+            <div style={{height: '20px'}}/>
             <Row>
               <Col>
                 <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Yes</Button>

@@ -42,7 +42,7 @@ class Landlord extends Component{
                 <p className="tiptext">Have at least one investment property</p>
               </Card>
               <Form.Field>
-              <div style={{height: '100px'}}/>
+              <div style={{height: '20px'}}/>
               <Row>
                 <Col>
                   <Button block  color="warning" style={{width: '100px', backgroundColor: '#FF9F08', color: '#fff', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="Yes">Yes </Button>

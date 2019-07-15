@@ -172,7 +172,7 @@ class PortfolioLtv extends Component {
                     <Col sm="8" style={{ paddingRight: '0px'}}>
                       <FormGroup>
                           <div className="input-group">
-                            <label className="control-label"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>What is your approximate total value on all properties?</label>
+                            <label className="control-label"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>Approximate total value on all properties?</label>
                           </div>
                         </FormGroup>
                       </Col>
@@ -191,7 +191,7 @@ class PortfolioLtv extends Component {
                       <Col sm="8" style={{ paddingRight: '0px'}}>
                         <FormGroup>
                           <div className="input-group">
-                            <label className="control-label"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>What is your approximate total remaining balance on all mortgages?</label>
+                            <label className="control-label"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>Approximate total remaining balance on all mortgages?</label>
                           </div>
                         </FormGroup>
                       </Col>
@@ -208,7 +208,7 @@ class PortfolioLtv extends Component {
                 </React.Fragment>
               )}
             </Form.Field>
-            <div style={{height: '100px'}}/>
+            <div style={{height: '20px'}}/>
             <Row className="oneBtn">
               <Col>
                 <Button block id="btnNext" color="warning" style={nextBtnStyle} onClick={this.saveAndContinue} value="Next">Next</Button>

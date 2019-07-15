@@ -98,7 +98,7 @@ class ExistingPortfolio extends Component{
               <Card style={{border: 'transparent'}}>
                 <p className="tiptext">We can provide you with ongoing insights on interest rate, capital raising, and remortgage opportunities</p>
               </Card>
-              <div style={{height: '100px'}}/>
+              <div style={{height: '20px'}}/>
               <Row>
                 <Col>
                   <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.goToSignIn} value="No">Yes </Button>
