@@ -68,30 +68,50 @@ class ExistingPortfolio extends Component{
         this.props.jumpSteps(14);
     }
 
+    back  = (e) => {
+        e.preventDefault();
+        this.props.prevStep();
+    }
+
     render(){
+
+      const { width } = this.state;
+      const isMobile = width <= 800;
+
+      let backButton = (
+        <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+      )
+
+      if (isMobile) {
+        backButton = ""
+      }
+
       return (
-        <Col sm="5" className="colStyle">
-        <section id="existingPortfolio" >
-          <Form >
-          <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-            <h1 className="header">Are you interested in Remortgage opportunities on your existing portfolio</h1>
-            <div style={{height: '10px'}}></div>
-            <Card style={{border: 'transparent'}}>
-              <p className="tiptext">We can provide you with ongoing insights on interest rate, capital raising, and remortgage opportunities</p>
-            </Card>
-            <div style={{height: '100px'}}/>
-            <Row>
-              <Col>
-                <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.goToSignIn} value="No">Yes </Button>
-              </Col>
-              <Col>
-                <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.goToSorry}>No</Button>
-              </Col>
-            </Row>
-            </div>
-          </Form>
-        </section>
-        </Col>
+        <React.Fragment>
+          {backButton}
+          <Col sm="5" className="colStyle">
+          <section id="existingPortfolio" >
+            <Form >
+            <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
+              <h1 className="header">Are you interested in Remortgage opportunities on your existing portfolio</h1>
+              <div style={{height: '10px'}}></div>
+              <Card style={{border: 'transparent'}}>
+                <p className="tiptext">We can provide you with ongoing insights on interest rate, capital raising, and remortgage opportunities</p>
+              </Card>
+              <div style={{height: '100px'}}/>
+              <Row>
+                <Col>
+                  <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.goToSignIn} value="No">Yes </Button>
+                </Col>
+                <Col>
+                  <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.goToSorry}>No</Button>
+                </Col>
+              </Row>
+              </div>
+            </Form>
+          </section>
+          </Col>
+        </React.Fragment>
       );
     }
 }
