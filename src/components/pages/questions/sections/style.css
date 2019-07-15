@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: 'SegoePro-Semibold';
     font-style: normal;
@@ -22,32 +21,11 @@
     margin-left: 35%;
     float: left!important;
   }
-}
 
-@media screen and (max-width: 800px) {
-  .oneBtn button {
-  }
-}
-
-@media screen and (min-width: 801px) {
   .colStyle {
     height: 100%
   }
-}
 
-@media screen and (max-width: 800px) {
-  .colStyle {
-
-  }
-}
-.tiptext {
-  font-family: 'SegoePro-Regular';
-  font-size: 14px;
-  color: #636363;
-  text-align: center;
-}
-
-@media screen and (min-width: 801px) {
   .header {
     font-family: 'SegoePro-Semibold';
     font-size: 32px;
@@ -59,9 +37,48 @@
     flex-direction: column;
     text-align: center;
   }
+
+  .resultHeader {
+    padding-left: 40px;
+    font-size: 12px;
+    font-family: 'SegoePro-Regular'
+  }
+
+  .resultDetail {
+    font-family: 'SegoePro-Regular';
+    font-size: 12px;
+  }
+
+  .resultAmount {
+    font-size: 24px;
+    font-family: 'SegoePro-Semibold';
+    vertical-align: text-bottom;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+  }
+
+  .backButtonIcon {
+    position: absolute;
+    left: 15%;
+    top: 0%;
+    width: 36px;
+    padding: 0;
+    background-color: #F0F0F0;
+    border-color: #F0F0F0;
+    border-radius: 4px;
+    height: 34px;
+  }
 }
 
 @media screen and (max-width: 800px) {
+  .oneBtn button {
+  }
+
+  .colStyle {
+  }
+
   .header {
     font-family: 'SegoePro-Semibold';
     font-size: 25px;
@@ -73,4 +90,12 @@
     flex-direction: column;
     text-align: center;
   }
+}
+
+
+.tiptext {
+  font-family: 'SegoePro-Regular';
+  font-size: 14px;
+  color: #636363;
+  text-align: center;
 }

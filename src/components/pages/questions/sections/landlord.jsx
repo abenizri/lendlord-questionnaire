@@ -30,6 +30,10 @@ class Landlord extends Component{
       this.props.nextStep()
   }
 
+  jumpToResults = (e) => {
+    this.props.jumpSteps(10)
+  }
+
   render(){
       return(
         <Col sm="6" className="colStyle">
@@ -45,7 +49,7 @@ class Landlord extends Component{
               <div style={{height: '20px'}}/>
               <Row>
                 <Col>
-                  <Button block  color="warning" style={{width: '100px', backgroundColor: '#FF9F08', color: '#fff', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="Yes">Yes </Button>
+                  <Button block  color="warning" style={{width: '100px', backgroundColor: '#FF9F08', color: '#fff', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="Yes">Yes</Button>
                 </Col>
                 <Col>
                   <Button block color="secondary" style={{ width: '100px',backgroundColor: '#74818F',  padding: '0', borderRadius: '4px', height: '34px'}} id="" onClick={this.jumpToMortgageInvestments} value="No">No</Button>

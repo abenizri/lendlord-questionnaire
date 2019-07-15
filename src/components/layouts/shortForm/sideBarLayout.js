@@ -4,7 +4,7 @@ import circleCurrent from './../../../assets/images/ico-current.svg';
 import circleNext from './../../../assets/images/ico-next.svg';
 
 const sideBarObjects =
-["Interest", "New Mortgage", "Results", "Sign Up"]
+["Interests", "New Mortgage", "Results", "Sign Up"]
 
 class SideBarLayout extends Component {
 

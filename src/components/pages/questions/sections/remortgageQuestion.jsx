@@ -3,6 +3,7 @@ import { Form } from "semantic-ui-react";
 import $ from "jquery";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
+import backButtonIcon from './../../../../assets/images/ico_arrow_left.svg';
 
 import { Col, Row, Button, Card } from "reactstrap";
 
@@ -50,7 +51,9 @@ class RemortgageQuestion extends Component {
     const isMobile = width <= 800;
 
     let backButton = (
-      <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+      <Button className="backButtonIcon" onClick={this.back}>
+      <img src={backButtonIcon} alt="back"/>
+      </Button>
     )
 
     if (isMobile) {
