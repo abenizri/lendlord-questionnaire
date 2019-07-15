@@ -47,7 +47,7 @@ let lendersCriteria = {}
 let numberOfResultsToReturn = 0;
 let numberOfReturnedResults = 0;
 
-const endPoint = `http://localhost:3000`
+const endPoint = `http://${window.location.hostname}:3000`
 class Results extends Component {
   constructor(props) {
      super(props);
