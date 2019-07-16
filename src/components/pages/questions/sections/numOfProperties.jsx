@@ -53,7 +53,12 @@ class NumOfProperties extends Component{
     }
 
     componentDidMount(props) {
-      // console.log(this.props)
+      window.dataLayer.push({
+        'event': 'Pageview',
+        'pageTitle': 'properties-num',
+        'someUsefulInformation': '123abd'
+        })
+
       document.querySelector('.MuiSlider-rail').style.color = '#F5F5F5'
       document.querySelector('.MuiSlider-rail').style.height = '7px'
 
@@ -65,7 +70,6 @@ class NumOfProperties extends Component{
       document.querySelector('.MuiSlider-thumb').style.border = '#9C9C9C solid 1px'
       document.querySelector('.MuiSlider-thumb').style.width = '16px'
       document.querySelector('.MuiSlider-thumb').style.height = '16px'
-
     }
 
     saveAndContinue = (e) => {

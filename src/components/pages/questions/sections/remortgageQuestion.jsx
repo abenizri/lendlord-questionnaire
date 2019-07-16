@@ -18,7 +18,13 @@ class RemortgageQuestion extends Component {
     };
   }
 
-  componentDidMount(prevProps) {}
+  componentDidMount(prevProps) {
+    window.dataLayer.push({
+      'event': 'Pageview',
+      'pageTitle': 'new_mortgage_interest',
+      'someUsefulInformation': '123abd'
+      })
+  }
 
   jumpToPortfolio = e => {
     e.preventDefault();

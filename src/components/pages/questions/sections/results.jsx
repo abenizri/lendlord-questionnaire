@@ -86,6 +86,11 @@ class Results extends Component {
    }
 
 	componentDidMount() {
+		window.dataLayer.push({
+			'event': 'Pageview',
+			'pageTitle': 'results',
+			'someUsefulInformation': '123abd'
+			})
 		const {
 			loanValue,
 			propertyValue,
@@ -258,8 +263,6 @@ class Results extends Component {
 			// cell3.innerHTML = Object.values(messages[lender]).join('\n')
 		}
 	}
-
-
 	jumpToSignup = e => {
     this.props.jumpSteps(13);
   };
@@ -498,8 +501,6 @@ class Results extends Component {
 				</Col>
 	    );
 		}
-
-
   }
 }
 

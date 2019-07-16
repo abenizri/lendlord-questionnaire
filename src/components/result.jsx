@@ -46,7 +46,6 @@ class Result extends Component {
           <label key={key} id="return" className="resultDetail" style={{marginBottom: '0px', color: '#384047'}}>{message}</label>
         )
       })
-
     }
   }
 
@@ -106,7 +105,6 @@ class Result extends Component {
         <Col xs="3" style={{position: 'relative', fontSize: '12px'}}>{this.renderAmount()}</Col>
       </React.Fragment>
     )
-
     if(!isMobile) {
       return (
         <FormGroup row type="result"  style={{ backgroundColor: '#f0f3f5', marginBottom: '0.3rem',borderRadius: '0.5rem', marginRight: '0px', marginLeft: '0px'}}>

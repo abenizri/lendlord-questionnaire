@@ -19,6 +19,13 @@ class moreThanThreeProperties extends Component {
   }
 
   componentDidMount(prevProps) {
+
+    window.dataLayer.push({
+      'event': 'Pageview',
+      'pageTitle': 'lender',
+      'someUsefulInformation': '123abd'
+      })
+      
     if (this.props.values.moreThan3PropWithLender === "Yes") {
       this.setState({ isHidden: false });
     } else {

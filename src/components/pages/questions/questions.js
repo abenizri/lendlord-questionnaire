@@ -36,6 +36,14 @@ class Questions extends Component {
         minimumIncome: '0'
     }
 
+    componentDidMount(){
+      window.dataLayer.push({
+        'event': 'Pageview',
+        'pageTitle': 'questions',
+        'someUsefulInformation': '123abc'
+        })
+    }
+
     clearForm = () => {
       window.location.reload()
     }
