@@ -19,7 +19,14 @@ class Landlord extends Component{
     this.state = {
       width: window.innerWidth,
     };
+  }
 
+  componentDidMount(){
+    window.dataLayer.push({
+      'event': 'Pageview',
+      'pageTitle': 'landlord',
+      'someUsefulInformation': '123abd'
+      })
   }
 
   jumpToMortgageInvestments = (e) => {

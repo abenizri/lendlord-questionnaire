@@ -20,6 +20,11 @@ class PortfolioLtv extends Component {
   }
 
   componentDidMount(prevProps) {
+    window.dataLayer.push({
+      'event': 'Pageview',
+      'pageTitle': 'ltv',
+      'someUsefulInformation': '123abd'
+      })
     document.getElementById('btnNext').disabled = true
     if (this.props.values.notSure === "true") {
       this.setState({ isHidden: false });

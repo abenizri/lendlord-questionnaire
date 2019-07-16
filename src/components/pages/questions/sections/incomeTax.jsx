@@ -53,6 +53,11 @@ class IncomeTax extends Component{
 
 
     componentDidMount(props) {
+      window.dataLayer.push({
+        'event': 'Pageview',
+        'pageTitle': 'tax_band',
+        'someUsefulInformation': '123abd'
+        })
       document.querySelector('.MuiSlider-rail').style.color = '#F5F5F5'
       document.querySelector('.MuiSlider-rail').style.height = '7px'
 

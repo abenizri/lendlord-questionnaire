@@ -20,11 +20,17 @@ class ExistingPortfolio extends Component{
     this.state = {
       isHidden: true,
       width: window.innerWidth
-
     };
   }
 
   componentDidMount(prevProps) {
+
+    window.dataLayer.push({
+      'event': 'Pageview',
+      'pageTitle': 'insights_interest',
+      'someUsefulInformation': '123abd'
+      })
+
     if (this.props.values.moreThan3PropWithLender === "Yes") {
       this.setState({ isHidden: false });
     } else {

@@ -21,6 +21,14 @@ class SorryPage extends Component{
 
   }
 
+  componentDidMount() {
+    window.dataLayer.push({
+      'event': 'Pageview',
+      'pageTitle': 'sorry',
+      'someUsefulInformation': '123abd'
+      })
+  }
+
   back  = (e) => {
       e.preventDefault();
       this.props.prevStep();

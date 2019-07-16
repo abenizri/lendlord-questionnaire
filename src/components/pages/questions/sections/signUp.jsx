@@ -20,6 +20,14 @@ class SignUp extends Component {
     this.props.prevStep()
   };
 
+  componentDidMount() {
+		window.dataLayer.push({
+			'event': 'Pageview',
+			'pageTitle': 'sign_up',
+			'someUsefulInformation': '123abd'
+			})
+  }
+
   handleChange = e => {
     $('[name="moreThan3PropWithLender"]').prop("checked", false);
     $(e.target).prop("checked", true);
