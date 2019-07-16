@@ -47,7 +47,7 @@ class NewPropertyQuestions extends Component {
       backButton = ""
       backButtonMobile = (
         <Col>
-        <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+        <Button block color="secondary" style={{left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px', float: 'right'}} id="" onClick={this.back}>Back</Button>
         </Col>
       )
     }
@@ -142,10 +142,10 @@ class NewPropertyQuestions extends Component {
             </Form.Field>
             <div style={{height: '20px'}}/>
             <Row className="oneBtn">
-              <Col>
-                <Button block id="btnNext" color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="Yes">Next</Button>
-              </Col>
               {backButtonMobile}
+              <Col>
+                <Button block id="btnNext" color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px'}}  onClick={this.saveAndContinue} value="Yes">Next</Button>
+              </Col>
             </Row>
             </div>
           </Form>

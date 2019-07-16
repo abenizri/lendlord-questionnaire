@@ -89,7 +89,6 @@ class PortfolioLtv extends Component {
       padding: '0',
       borderRadius: '4px',
       height: '34px',
-      float: 'right',
       marginRight: '40%'
     }
 
@@ -97,7 +96,7 @@ class PortfolioLtv extends Component {
       backButton = ""
       backButtonMobile = (
         <Col>
-        <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+        <Button block color="secondary" style={{left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px', float: 'right'}} id="" onClick={this.back}>Back</Button>
         </Col>
       )
       nextBtnStyle = {
@@ -106,8 +105,7 @@ class PortfolioLtv extends Component {
         backgroundColor: '#FF9F08',
         padding: '0',
         borderRadius: '4px',
-        height: '34px',
-        float: 'right'
+        height: '34px'
       }
     }
 
@@ -172,14 +170,14 @@ class PortfolioLtv extends Component {
                   <React.Fragment>
                   <FormGroup row type="question" style={{ marginBottom: '0.3rem',borderRadius: '0.5rem', paddingTop: '10px', marginRight: '0px', marginLeft: '0px'}}>
                   <Row style={{ width: '100%'}}>
-                    <Col sm="8" style={{ paddingRight: '0px'}}>
+                    <Col sm="7" style={{ paddingRight: '0px'}}>
                       <FormGroup>
                           <div className="input-group">
                             <label className="control-label"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>Approximate total value on all properties?</label>
                           </div>
                         </FormGroup>
                       </Col>
-                      <Col sm="4" style={{ paddingRight: '0px'}}>
+                      <Col sm="5" style={{ paddingRight: '0px'}}>
                         <div className="input-prepend input-group">
                           <div className="input-group-prepend">
                             <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
@@ -191,14 +189,14 @@ class PortfolioLtv extends Component {
                 </FormGroup>
                 <FormGroup row type="question" style={{ marginBottom: '0.3rem',borderRadius: '0.5rem', paddingTop: '10px', marginRight: '0px', marginLeft: '0px'}}>
                   <Row style={{ width: '100%'}}>
-                      <Col sm="8" style={{ paddingRight: '0px'}}>
+                      <Col sm="7" style={{ paddingRight: '0px'}}>
                         <FormGroup>
                           <div className="input-group">
                             <label className="control-label"  style={{ marginBottom: '0px', fontFamily: 'SegoePro-Regular', fontSize: '16px'}}>Approximate total remaining balance on all mortgages?</label>
                           </div>
                         </FormGroup>
                       </Col>
-                      <Col sm="4" style={{ paddingRight: '0px'}}>
+                      <Col sm="5" style={{ paddingRight: '0px'}}>
                         <div className="input-prepend input-group">
                         <div className="input-group-prepend">
                           <span style={{ backgroundColor: 'white' }} className="input-group-text">£</span>
@@ -213,10 +211,10 @@ class PortfolioLtv extends Component {
             </Form.Field>
             <div style={{height: '20px'}}/>
             <Row className="oneBtn">
+              {backButtonMobile}
               <Col>
                 <Button block id="btnNext" color="warning" style={nextBtnStyle} onClick={this.saveAndContinue} value="Next">Next</Button>
               </Col>
-              {backButtonMobile}
             </Row>
             </div>
           </Form>

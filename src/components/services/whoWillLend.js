@@ -60,11 +60,13 @@ const lenderRules = {
     "maxNumberOfProperties": 10,
     "maxNumberOfPropertiesWithLender": 5,
     "maxLTV": 75,
-    "overallLenderExposure": 3000000}],
+    "overallLenderExposure": 3000000,
+    "minimumIncome": 25000}],
   "Santander":
     [{"landlordLending": "Yes",
     "maxNumberOfProperties": 10,
-    "maxNumberOfPropertiesWithLender": 3}],
+    "maxNumberOfPropertiesWithLender": 3,
+    "minimumIncome": 25000}],
   "BM Solutions":
     [{"landlordLending": "Yes",
     "maxNumberOfProperties": 10,
@@ -82,7 +84,8 @@ const lenderRules = {
     "maxNumberOfPropertiesWithLender": 4,
     "maxLTV": 70}],
   "Aldermore":
-    [{"landlordLending": "Yes"}],
+    [{"landlordLending": "Yes",
+      "maxLTV": 75}],
   "The Mortgage Lender":
     [{"landlordLending": "Yes",
     "overallLenderExposure": 2500000}],
@@ -145,7 +148,7 @@ function constructMessageAccordingToRule(lender, rule, ruleValue) {
     case "overallLenderExposurePerProperty":
       return
     case "overallExposure":
-      return
+      return "Overall exposure more than " + ruleValue
     case "minimumIncome":
       return "Minimum income is lower than " + ruleValue
     default:

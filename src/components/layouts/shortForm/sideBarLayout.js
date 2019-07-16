@@ -43,18 +43,20 @@ class SideBarLayout extends Component {
     }
 
   componentWillReceiveProps(nextProps) {
-    let previous, next, current
+    let previous, nexts, current
     switch(nextProps.step) {
       case 1:
       case 2:
       case 3:
       case 4:
       case 5:
+        nexts = document.querySelectorAll('[step="2"], [step="3"], [step="4"], [step="5"]')
+        current = document.querySelector('[step="1"]')
         break;
       case 6:
       case 11:
         previous = document.querySelector('[step="1"]')
-        next = document.querySelector('[step="3"]')
+        nexts = document.querySelectorAll('[step="3"], [step="4"], [step="5"]')
         current = document.querySelector('[step="2"]')
         break;
       case 7:
@@ -62,17 +64,16 @@ class SideBarLayout extends Component {
       case 9:
       case 12:
         previous = document.querySelector('[step="2"]')
-        next = document.querySelector('[step="4"]')
+        nexts = document.querySelectorAll('[step="4"], [step="5"]')
         current = document.querySelector('[step="3"]')
         break;
       case 10:
         previous = document.querySelector('[step="3"]')
-        next = document.querySelector('[step="5"]')
+        nexts = document.querySelectorAll('[step="5"]')
         current = document.querySelector('[step="4"]')
         break;
       case 13:
         previous = document.querySelector('[step="4"]')
-        next = ""
         current = document.querySelector('[step="5"]')
         break;
       default:
@@ -92,11 +93,13 @@ class SideBarLayout extends Component {
       }
 
     }
-    if (next) {
-      next.querySelector('img').src = circleNext
-      if (next.querySelector('span')) {
-        next.querySelector('span').style.color = '#CCCCCC'
-      }
+    if (nexts) {
+      nexts.forEach(next => {
+        next.querySelector('img').src = circleNext
+        if (next.querySelector('span')) {
+          next.querySelector('span').style.color = '#CCCCCC'
+        }
+      })
     }
 
     this.setState({
@@ -136,7 +139,7 @@ class SideBarLayout extends Component {
     if (isMobile) {
       return (
         <div style={{  justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"}}>
-          <div className="stepwizard" style={{width: '80%'}}>
+          <div className="stepwizard" style={{width: '40%'}}>
             <div className="stepwizard-row setup-panel d-flex">
               <div step="1"  className="stepwizard-step" style={{marginRight: '4px'}}>
                 <img src={circleCurrent} alt="circleCurrent" style={{marginBottom: '3px',  width: '16px', height: '16px', display: 'inline-table'}} className="checkCircle"/>
@@ -152,7 +155,7 @@ class SideBarLayout extends Component {
     return (
 
       <React.Fragment>
-        <ul style={{ float: 'left', paddingInlineStart: '0px', marginLeft: '80px', fontSize: '14px'}}>
+        <ul style={{ float: 'left', paddingInlineStart: '0px', marginLeft: '60px', fontSize: '14px'}}>
           <li step="1" style={{listStyle: 'none', paddingBottom: '6px'}}>
            <img src={circleCurrent} alt="" style={{marginBottom: '3px',  width: '12px', height: '12px', display: 'inline-table'}} className="checkCircle"/>
            <span style={{marginLeft: '20px'}}>Portfolio</span>

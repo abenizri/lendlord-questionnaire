@@ -109,7 +109,7 @@ class IncomeTax extends Component{
           backButton = ""
           backButtonMobile = (
             <Col>
-            <Button block color="secondary" style={{ position: 'absolute', left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.back}>Back</Button>
+            <Button block color="secondary" style={{left: '10%', top: '0%', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px', float: 'right'}} id="" onClick={this.back}>Back</Button>
             </Col>
           )
         }
@@ -121,7 +121,7 @@ class IncomeTax extends Component{
             <section id="incomeTax">
               <Form>
               <div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-                  <h1 className="header">What is your income tax?</h1>
+                  <h1 className="header">What is your income tax band?</h1>
                   <div style={{height: '10px'}}></div>
                   <Card style={{border: 'transparent', marginBottom: '0' }}>
                     <p className="tiptext">
@@ -154,10 +154,10 @@ class IncomeTax extends Component{
                   </Form.Field>
                   <div style={{height: '20px'}}/>
                   <Row className="oneBtn">
-                    <Col>
-                      <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Next </Button>
-                    </Col>
                     {backButtonMobile}
+                    <Col>
+                      <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px'}}  onClick={this.saveAndContinue} value="No">Next</Button>
+                    </Col>
                   </Row>
                 </div>
               </Form>
