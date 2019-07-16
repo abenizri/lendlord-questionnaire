@@ -203,7 +203,6 @@ class Results extends Component {
 		distanceFromStart = returnElementX - resultsElementX
 		closestHeaderSize += rateHeader.offsetWidth
 		returnHeader.style.paddingLeft = distanceFromStart - closestHeaderSize - 16 + `px`
-
 		distanceFromStart = amountElementX - resultsElementX
 		closestHeaderSize += returnHeader.offsetWidth
 		amountHeader.style.paddingLeft = distanceFromStart - closestHeaderSize + `px`
