@@ -243,7 +243,7 @@ class Results extends Component {
 			var result = {
 				lender: lender,
 				logo: logos[lender],
-				criteria: Object.values(messages[lender]).join('\n'),
+				criteria: Object.values(messages[lender]),
 				amount: "Doesnt meet criteria"
 			}
 			let currentResults = this.state.listResults
@@ -420,46 +420,86 @@ class Results extends Component {
     }
 		if(isMobile) {
 			headers = ""
+			return (
+				<Col sm="12" xs="12" style={{paddingLeft: '0px', paddingRight: '0px'}}>
+	        <section id="results">
+	          <Form>
+	    				<div style={{  width: '100%'}}>
+								<Row style={{ width: '100%'}}>
+									<Col style={{ paddingBottom: '30px', paddingLeft: '36px'}}>
+										<h1 style={style}>Potential Lenders</h1>
+									</Col>
+								</Row>
+
+	           	  <Form.Field>
+		              <div style={{position: 'relative', height: '500px', overflow: 'auto'}}>
+										<div>
+											{headers}
+										<div>
+										</div>
+		              		<ul id="list-results" style={{paddingLeft: '0px'}}>
+												{this.renderResults()}
+											</ul>
+										</div>
+										{loader}
+		              </div>
+	              </Form.Field>
+								<div style={{ height: "20px" }}></div>
+							  <Row>
+									<Col>
+										<Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px', float: 'right'}} id="" onClick={this.back}>Back</Button>
+									</Col>
+								  <Col>
+									  <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px'}}  onClick={this.jumpToSignup} value="Next">Next</Button>
+								  </Col>
+							  </Row>
+							</div>
+	          </Form>
+	        </section>
+				</Col>
+	    );
+		} else {
+			return (
+				<Col sm="12" xs="12">
+	        <section id="results">
+	          <Form>
+	    				<div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
+								<Row style={{ width: '100%'}}>
+									<Col style={{ paddingBottom: '40px'}}>
+										<h1 style={style}>Potential Lenders</h1>
+									</Col>
+								</Row>
+
+	           	  <Form.Field>
+		              <div style={{position: 'relative', height: '500px', overflow: 'auto'}}>
+										<div>
+											{headers}
+										<div>
+										</div>
+		              		<ul id="list-results" style={{paddingLeft: '0px'}}>
+												{this.renderResults()}
+											</ul>
+										</div>
+										{loader}
+		              </div>
+	              </Form.Field>
+								<div style={{ height: "20px" }}></div>
+							  <Row>
+									<Col>
+										<Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px', float: 'right'}} id="" onClick={this.back}>Back</Button>
+									</Col>
+								  <Col>
+									  <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px'}}  onClick={this.jumpToSignup} value="Next">Next</Button>
+								  </Col>
+							  </Row>
+							</div>
+	          </Form>
+	        </section>
+				</Col>
+	    );
 		}
 
-    return (
-			<Col sm="12" xs="12">
-        <section id="results">
-          <Form>
-    				<div style={{  width: '100%' , paddingLeft: '15px', paddingRight: '15px'}}>
-							<Row style={{ width: '100%'}}>
-								<Col style={{ paddingBottom: '40px'}}>
-									<h1 style={style}>Potential Lenders</h1>
-								</Col>
-							</Row>
 
-           	  <Form.Field>
-	              <div style={{position: 'relative', height: '500px', overflow: 'auto'}}>
-									<div>
-										{headers}
-									<div>
-									</div>
-	              		<ul id="list-results" style={{paddingLeft: '0px'}}>
-											{this.renderResults()}
-										</ul>
-									</div>
-									{loader}
-	              </div>
-              </Form.Field>
-							<div style={{ height: "20px" }}></div>
-						  <Row>
-								<Col>
-									<Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px', float: 'right'}} id="" onClick={this.back}>Back</Button>
-								</Col>
-							  <Col>
-								  <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px'}}  onClick={this.jumpToSignup} value="Next">Next</Button>
-							  </Col>
-						  </Row>
-						</div>
-          </Form>
-        </section>
-			</Col>
-    );
   }
 }
 

@@ -52,7 +52,7 @@ class Landlord extends Component{
                   <Button block color="secondary" style={{ width: '100px',backgroundColor: '#74818F',  padding: '0', borderRadius: '4px', height: '34px', float: 'right'}} id="" onClick={this.jumpToMortgageInvestments} value="No">No</Button>
                 </Col>
                 <Col>
-                  <Button block  color="warning" style={{width: '100px', backgroundColor: '#FF9F08', color: '#fff', padding: '0', borderRadius: '4px', height: '34px'}}  onClick={this.saveAndContinue} value="Yes">Yes</Button>
+                  <Button block  color="warning" style={{width: '100px', backgroundColor: '#FF9F08', color: '#fff', padding: '0', borderRadius: '4px', height: '34px'}}  onClick={this.jumpToResults} value="Yes">Yes</Button>
                 </Col>
               </Row>
               </Form.Field>
