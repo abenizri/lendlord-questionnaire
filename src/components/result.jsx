@@ -53,7 +53,7 @@ class Result extends Component {
     if(this.props.amount) {
       return (
         <div className="resultAmount">
-          <label className="amount" style={{marginBottom: '0px'}}>{this.props.amount}</label>
+          <label id="amount" className="amount" style={{marginBottom: '0px'}}>{this.props.amount}</label>
         </div>
       )
     }
