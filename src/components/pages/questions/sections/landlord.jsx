@@ -24,7 +24,7 @@ class Landlord extends Component{
   componentDidMount(){
     window.dataLayer.push({
       'event': 'Pageview',
-      'pageTitle': 'Landlord',
+      'pageTitle': 'landlord',
       'someUsefulInformation': '123abd'
       })
   }

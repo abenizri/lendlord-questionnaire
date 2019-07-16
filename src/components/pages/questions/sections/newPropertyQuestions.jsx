@@ -18,6 +18,11 @@ class NewPropertyQuestions extends Component {
   }
 
   componentDidMount() {
+    window.dataLayer.push({
+      'event': 'Pageview',
+      'pageTitle': 'property_details',
+      'someUsefulInformation': '123abd'
+      })
     document.getElementById('btnNext').disabled = true
   }
 

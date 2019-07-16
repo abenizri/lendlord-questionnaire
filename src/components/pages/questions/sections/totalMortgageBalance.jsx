@@ -17,6 +17,11 @@ class TotalMortgageBalance extends Component {
   }
 
   componentDidMount(prevProps) {
+    window.dataLayer.push({
+      'event': 'Pageview',
+      'pageTitle': 'balance',
+      'someUsefulInformation': '123abd'
+      })
     document.getElementById('btnNext').disabled = true
     if (this.props.values.moreThan3PropWithLender === "Yes") {
       this.setState({ isHidden: false });

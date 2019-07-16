@@ -86,6 +86,11 @@ class Results extends Component {
    }
 
 	componentDidMount() {
+		window.dataLayer.push({
+			'event': 'Pageview',
+			'pageTitle': 'results',
+			'someUsefulInformation': '123abd'
+			})
 		const {
 			loanValue,
 			propertyValue,

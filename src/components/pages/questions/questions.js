@@ -39,7 +39,7 @@ class Questions extends Component {
     componentDidMount(){
       window.dataLayer.push({
         'event': 'Pageview',
-        'pageTitle': 'Questions',
+        'pageTitle': 'questions',
         'someUsefulInformation': '123abc'
         })
     }

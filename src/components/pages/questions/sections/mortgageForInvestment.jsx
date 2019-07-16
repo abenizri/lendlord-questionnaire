@@ -23,6 +23,14 @@ class MortgageForInvestment extends Component{
     }
   }
 
+  componentDidMount(prevProps) {
+    window.dataLayer.push({
+      'event': 'Pageview',
+      'pageTitle': 'new_mortgage_interest',
+      'someUsefulInformation': '123abd'
+      })
+  }
+  
   back  = (e) => {
       e.preventDefault();
       this.props.prevStep();
