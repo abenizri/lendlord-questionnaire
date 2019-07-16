@@ -11,7 +11,8 @@ class SignUp extends Component {
     super(props);
 
     this.state = {
-      isHidden: true
+      isHidden: true,
+      width: window.innerWidth
     };
   }
 
@@ -43,6 +44,20 @@ class SignUp extends Component {
         borderColor: '#2F353A',
         lineHeight: '40px',
         justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column"
+    }
+
+    const { width } = this.state
+    const isMobile = width <= 800
+
+    let backButtonMobile
+
+    if(isMobile) {
+      backButtonMobile =
+      (
+        <Row style={{marginTop: '20px'}}>
+          <Button block color="secondary" style={{position: 'absolute', width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px', left: '35%'}} id="" onClick={this.back}>back</Button>
+        </Row>
+      )
     }
 
     return (
@@ -89,6 +104,7 @@ class SignUp extends Component {
               <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px'}}  onClick={this.saveAndContinue} value="Yes">Yes</Button>
             </Col>
           </Row>
+          {backButtonMobile}
           </div>
         </Form>
       </section>
