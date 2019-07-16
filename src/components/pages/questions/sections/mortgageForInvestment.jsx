@@ -67,10 +67,10 @@ class MortgageForInvestment extends Component{
                   <div style={{height: '20px'}}/>
                     <Row>
                       <Col>
-                        <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.jumpToNewProperty} value="No">Yes </Button>
+                        <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px', float: 'right'}} id="" onClick={this.jumpToSorry}>No</Button>
                       </Col>
                       <Col>
-                        <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.jumpToSorry}>No</Button>
+                        <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px'}}  onClick={this.jumpToNewProperty} value="No">Yes</Button>
                       </Col>
                     </Row>
                   </Form.Field>

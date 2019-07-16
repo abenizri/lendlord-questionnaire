@@ -109,10 +109,10 @@ class moreThanThreeProperties extends Component {
             <div style={{height: '20px'}}/>
             <Row>
               <Col>
-                <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px', float: 'right'}}  onClick={this.saveAndContinue} value="No">Yes</Button>
+                <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px', float: 'right'}} id="" onClick={this.jumpToLTV}>No</Button>
               </Col>
               <Col>
-                <Button block color="secondary" style={{ width: '100px', padding: '0', backgroundColor: '#74818F', borderRadius: '4px', height: '34px'}} id="" onClick={this.jumpToLTV}>No</Button>
+                <Button block  color="warning" style={{width: '100px', color: '#fff', backgroundColor: '#FF9F08', padding: '0', borderRadius: '4px', height: '34px'}}  onClick={this.saveAndContinue} value="No">Yes</Button>
               </Col>
             </Row>
             </div>

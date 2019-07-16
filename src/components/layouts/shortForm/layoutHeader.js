@@ -16,7 +16,7 @@ class LayoutHeader extends Component {
   }
 
   render() {
-    let signUpButton = (<Button variant="secondary" href="/signup">Sign up</Button>)
+    let signUpButton = (<Button variant="secondary" href="/signup" style={{fontFamily: 'SegoePro-Semibold'}}>Sign up</Button>)
     if(this.props.step === 13) {
       signUpButton = (
         <Button variant="secondary" onClick={this.clearForm} href="/">Start Over</Button>
@@ -24,13 +24,13 @@ class LayoutHeader extends Component {
     }
     return (
       <React.Fragment>
-        <Navbar fixed="top" collapseOnSelect expand="lg" style={{backgroundColor: "#324452", opacity: '0.8'}}>
+        <Navbar fixed="top" collapseOnSelect expand="lg" style={{backgroundColor: "#324452"}}>
           <Navbar.Brand style={{fontSize: '1.25rem'}} href="./home">
             <img alt="logo" src={logo} />
 
           </Navbar.Brand>
             <Nav className="mr-auto">
-              <Nav.Link style={{textAlign: 'right', color: 'white'}} eventKey="home" href="./home"> &#8249; Back to website</Nav.Link>
+              <Nav.Link style={{textAlign: 'right', color: 'white'}} eventKey="home" href="https://www.lendlord.io/insights"> &#8249; Back to website</Nav.Link>
             </Nav>
           <Form inline>
             {signUpButton}
