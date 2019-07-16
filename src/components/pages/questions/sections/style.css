@@ -91,6 +91,15 @@
     flex-direction: column;
     text-align: center;
   }
+
+  .resultAmount {
+    font-size: 18px;
+    font-family: 'SegoePro-Semibold';
+    vertical-align: text-bottom;
+    position: absolute;
+    right: 6px;
+    bottom: 0;
+  }
 }
 
 
