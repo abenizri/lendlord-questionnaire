@@ -171,8 +171,43 @@ class Results extends Component {
 				error: true,
 			 	isLoading: false
 			})
+			if(!this.state.isLoading) {
+				this.positionHeaders()
+			}
 		});// parses JSON response into native JavaScript objects
   }
+
+	positionHeaders() {
+		const resultsElement = document.getElementById('results')
+		const productElement = document.getElementById('product')
+		const rateElement = document.getElementById('rate')
+		const returnElement = document.getElementById('return')
+		const amountElement = document.getElementById('amount')
+		const resultsElementX = resultsElement.getBoundingClientRect().x
+		const productElementX = productElement.getBoundingClientRect().x
+		const rateElementX = rateElement.getBoundingClientRect().x
+		const returnElementX = returnElement.getBoundingClientRect().x
+		const amountElementX = amountElement.getBoundingClientRect().x
+
+		const productHeader = document.getElementById('productHeader')
+		const rateHeader = document.getElementById('rateHeader')
+		const returnHeader = document.getElementById('returnHeader')
+		const amountHeader = document.getElementById('amountHeader')
+
+		productHeader.style.paddingLeft = productElementX - resultsElementX - productElement.closest('div').style.paddingLeft.replace('px','')
+
+		let distanceFromStart = rateElementX - resultsElementX
+		let closestHeaderSize = productHeader.offsetWidth
+		rateHeader.style.paddingLeft = distanceFromStart - closestHeaderSize - 16 + `px`
+
+		distanceFromStart = returnElementX - resultsElementX
+		closestHeaderSize += rateHeader.offsetWidth
+		returnHeader.style.paddingLeft = distanceFromStart - closestHeaderSize - 16 + `px`
+
+		distanceFromStart = amountElemntX - resultsElementX
+		closestHeaderSize += returnHeader.offsetWidth
+		amountHeader.style.paddingLeft = distanceFromStart - closestHeaderSize + `px`
+	}
 
   getBtlResults(data) {
     data.pdf = false
@@ -196,6 +231,9 @@ class Results extends Component {
 			numberOfReturnedResults++
 			if(numberOfReturnedResults === numberOfResultsToReturn) {
 				this.setState({ isLoading: false })
+			}
+			if(!this.state.isLoading) {
+				this.positionHeaders()
 			}
       for ( var extracted of response.results[0].extarcted) {
 
@@ -239,6 +277,9 @@ class Results extends Component {
 			numberOfReturnedResults++
 			if(numberOfReturnedResults === numberOfResultsToReturn) {
 				this.setState({isLoading: false})
+			}
+			if(!this.state.isLoading) {
+				this.positionHeaders()
 			}
 	 	});// parses JSON response into native JavaScript objects
 	}
@@ -410,10 +451,10 @@ class Results extends Component {
 		if(!isLoading) {
 			headers = (
 				<React.Fragment>
-					<label className="resultHeader">Product Type</label>
-					<label className="resultHeader">Inital and Revert Rates</label>
-					<label className="resultHeader">Monthly Payment</label>
-					<label className="resultHeader" style={{float: 'right'}}>Max Amount</label>
+					<label id="productHeader" className="resultHeader">Product Type</label>
+					<label id="rateHeader" className="resultHeader">Inital and Revert Rates</label>
+					<label id="returnHeader" className="resultHeader">Monthly Payment</label>
+					<label id="amountHeader" className="resultHeader">Max Amount</label>
 				</React.Fragment>
 			)
 			loader = ""
