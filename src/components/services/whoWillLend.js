@@ -84,7 +84,8 @@ const lenderRules = {
     "maxNumberOfPropertiesWithLender": 4,
     "maxLTV": 70}],
   "Aldermore":
-    [{"landlordLending": "Yes"}],
+    [{"landlordLending": "Yes",
+      "maxLTV": 75}],
   "The Mortgage Lender":
     [{"landlordLending": "Yes",
     "overallLenderExposure": 2500000}],
